@@ -115,6 +115,40 @@ export type WorkbenchRun = {
   candidateLoop?: { status: string; maxAttempts: number; attemptId: string | null; attemptOrdinal: number | null; deliveryId: string | null; configuredBy: string };
 };
 
+export type ProjectBinding = {
+  id: string;
+  projectSlug: string;
+  environmentId: string;
+  nativeProjectId: string;
+  workspaceRoot: string | null;
+  reason: string;
+  actor: string;
+  createdAt: string;
+  revokedAt: string | null;
+  revokeReason: string | null;
+  revokedBy: string | null;
+};
+
+// current-view carries only the active binding (or null); the validator rejects
+// foreign-project or already-revoked records rather than letting them steer dispatch.
+export function validateProjectBinding(value: unknown, project: string): ProjectBinding | null {
+  if (value === null || value === undefined) return null;
+  if (typeof value !== "object") throw new Error("Invalid project binding");
+  const binding = value as Record<string, unknown>;
+  if (
+    ["id", "projectSlug", "environmentId", "nativeProjectId", "reason", "actor", "createdAt"].some(
+      (field) => typeof binding[field] !== "string" || !binding[field],
+    ) ||
+    (binding.workspaceRoot !== null && typeof binding.workspaceRoot !== "string") ||
+    binding.revokedAt !== null ||
+    (binding.revokeReason ?? null) !== null ||
+    (binding.revokedBy ?? null) !== null ||
+    binding.projectSlug !== project
+  )
+    throw new Error("Invalid project binding");
+  return binding as unknown as ProjectBinding;
+}
+
 export type DeliveryTestHook = {
   id: string; project: string; sourceRunId: string; sourceTaskSlug: string;
   targetRunId: string; targetTaskSlug: string; targetPackageId: string; commitSha: string;
@@ -156,6 +190,7 @@ export type CurrentView = {
   readOnlyTransport?: boolean;
   project: string;
   generatedAt: string;
+  projectBinding?: ProjectBinding | null;
   readySpecSlugs?: string[];
   nodeMarks?: NodeMark[];
   nodeEventCounts?: Array<{ taskSlug: string; retries: number; reworks: number; gitUndos?: number }>;

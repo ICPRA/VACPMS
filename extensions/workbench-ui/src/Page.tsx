@@ -45,7 +45,9 @@ import {
   specColumns,
   workProgress,
   validateDeliveryHooks,
+  validateProjectBinding,
   type CurrentView,
+  type ProjectBinding,
   type WorkbenchSearch,
   type WorkbenchRun,
   type CompletionHookSummary,
@@ -111,7 +113,7 @@ export type PageProps = {
     nodeOwners?: Array<{ taskSlug: string; humanOwnerUserId: string | null; pendingOperationId: string | null }>) => ReactNode;
   renderRepositorySearch?: (query: string, specgraphProject: string, question: string) => ReactNode;
   renderDeliveryGit?: (run: WorkbenchRun, snapshot: unknown) => ReactNode;
-  renderDispatch?: (input: { project: string; taskSlug: string; title: string; runs: readonly WorkbenchRun[]; ownerHold: boolean; onChanged: () => void }) => ReactNode;
+  renderDispatch?: (input: { project: string; taskSlug: string; title: string; runs: readonly WorkbenchRun[]; ownerHold: boolean; binding: ProjectBinding | null | undefined; onChanged: () => void }) => ReactNode;
   renderTooltip: (label: string, trigger: ReactElement) => ReactNode;
 };
 
@@ -222,6 +224,7 @@ export function Page({
         const result = (await readData({ resource: "current-view", project }, controller.signal)) as CurrentView;
         if (result.project !== project) throw new Error("Project response mismatch");
         validateDeliveryHooks(result.deliveryHooks, project);
+        validateProjectBinding(result.projectBinding, project);
         if (!controller.signal.aborted) {
           setData(result);
           setError(null);
@@ -1319,6 +1322,7 @@ export function Page({
                         language={language} onChanged={() => setRefresh((value) => value + 1)} />}
                       {data.capabilities.runDispatch && detail.spec.role !== "summary" && renderDispatch?.({project, taskSlug: detail.spec.slug, title: detail.spec.intent, runs: records.runs,
                         ownerHold: data.nodeOwners?.some((item) => item.taskSlug === detail.spec!.slug && (!!item.humanOwnerUserId || !!item.pendingOperationId)) ?? false,
+                        binding: "projectBinding" in data ? (data.projectBinding ?? null) : undefined,
                         onChanged: () => setRefresh((value) => value + 1)})}
                       {data.capabilities.subdivision && <SubdivisionPanel key={`${project}:${selected}`} project={project} slug={detail.spec.slug}
                         {...(requestOperation ? { request: requestOperation } : {})}
