@@ -8,15 +8,46 @@
 
 ## What it does
 
-- **Spec graph as the project plan** — requirements and work items are nodes with intent, stage, versions, dependencies and named decisions; create drafts, approve them into execution, subdivide or (formally) merge them, and trace why each decision exists.
-- **Dispatch to native AI sessions** — a node is prepared and dispatched into a real T3 Code chat thread with the model/workspace reviewed by the operator. Preparation is idempotent: unknown outcomes are recovered with the original command identity instead of silently retrying, and a human confirms stops before write responsibility is released.
+- **Spec graph as the project plan** — requirements and work items are nodes with intent, stage, versions, dependencies and named decisions; create drafts, approve them into execution, subdivide them, and trace why each decision exists.
+- **Dispatch to native AI sessions** — a node is prepared and dispatched into a real T3 Code chat thread with a reviewed model/workspace. Preparation is idempotent: unknown outcomes are recovered with the original command identity instead of silently retrying, and a human confirms stops before write responsibility is released.
 - **Deliveries anchored in Git** — Git is the only owner of files, commits, diffs and merges. Deliveries reference real commits; reviews compare fixed commit pairs. The system never copies the commit graph or invents authorship for unattributed changes.
 - **Program nodes with bounded loops** — mechanical and innovation loops run with attempt budgets, explicit pass/unknown/fail outcomes, satisfaction judgments by named deciders, and escalation to a human when the budget is exhausted.
 - **Agent mail** — nodes coordinate through bound-identity mail: send, reply, forward, acknowledge, close, hand off. Moving a mail thread does not move task ownership.
 - **Knowledge search without hidden model calls** — one entry searches specs, files and past conversations; grouped results show why each source hit. Plain search never invokes a model; only an explicit "ask AI" action opens a native chat draft.
-- **Bilingual UI** — the workbench page runs in 中文 or English.
+- **Bilingual UI** — 中文 or English.
 
-A core design rule: semantic judgment (requirement soundness, relevance, satisfaction, merge strategy) belongs to the LLM/human in the conversation; the program supplies original sources, real identities, structured records, authorized operations and concurrency/budget checks. Unknowns are shown as unknown.
+## Which pain points it addresses, and how that looks
+
+| Pain | Mechanism in VACPMS | What you (or your AI) do | What you observe |
+|---|---|---|---|
+| One endless chat with hundreds of subagent calls loses reliability under compression | Project state lives in a database, not a chat; conversations have independent lifecycles and tasks are handed over between them with explicit inheritance | The PM agent splits work into nodes and hands them between conversations; you can override in the dispatch panel | Each conversation's responsibility and inherited sources (requirements/commits/risks/open items) are listed on the dispatch panel |
+| AI silently retries a write whose outcome is unknown | Idempotent writes: same request key finds the original preparation; unknown outcomes resume with the original command identity | Nothing — the program enforces it | The UI keeps a visible "outcome unknown" state instead of spawning a second execution |
+| A disconnect gets misread as "stopped" and work is re-dispatched | Stop is request-then-confirm: request, observe, then a named confirmation before write responsibility is released | Request stop → see "request accepted" → wait for the host to actually confirm | "Request submitted" and "actually stopped" are distinct states; a lost lease never renders as stopped |
+| Unclear who owns what | Three separate records: claim leases, run bindings, mail owners | Automatic; a human takes over via the two-phase "I'll handle it / hand back to AI" | The node shows the real owner, the run, and handover state |
+| The model says "done" and that's accepted | Requirement/design review before implementation; test reports registered against a fixed commit; completion only after the agreed evidence | Reviewers approve/reject; the test conversation registers real results; you make the product-level call | Unreviewed / rejected / approved / untested / failed / passed are shown separately; "not run" is never hidden |
+| Knowledge loss and repeated investigation | One search box over specs, files and past conversations; explicit ask-AI opens a native chat draft | Search once instead of three places; ask AI explicitly when wanted | Results are grouped by source with why-it-hit; failures, truncation and gaps are shown, not smoothed over |
+| AI quietly widening scope or switching to a pricier model | Budgets define allowed models/concurrency; structural changes beyond them escalate | The AI works within the approved envelope; anything beyond escalates to you | The dispatch record shows the requested vs actual model and effort separately |
+| False progress ("sent = working", "turn ended = done") | Separate axes for task state, execution attempts, collaboration and verification | Automatic, driven by real host events | Queued / started / waiting / unknown are distinct; nothing is painted green to hide a gap |
+
+## Starting a project
+
+There is no one-click "import existing project" feature today. Both paths share the same main line:
+
+**New project.** A VACPMS project is a SpecGraph project: run `specgraph init <project-slug>` in the target repository (it writes `.specgraph.yaml` and agent-integration files), and the project appears in the workbench. Work items start as node **drafts** — from the UI or the PM agent — and only enter execution after explicit approval.
+
+**Taking over an existing codebase.** Same main line, different evidence source: point the workbench at the repository/workspace, describe the change you want in natural language, and the PM agent reads the current state — existing capabilities, unknowns, conflicts — then proposes a breakdown. Nodes are created only after you review that proposal. Note: automatically attaching a repository's historical material (old commits, past conversations) to nodes is a design contract, not a finished feature; today the three-source search covers current files, specs and conversation history.
+
+## How you work with the AI
+
+The typical loop:
+
+1. **You state the goal in natural language.** The PM agent reads the current state and proposes a breakdown into node drafts.
+2. **You review and approve** the plan and its budget (allowed models, concurrency) on the workbench page. Requirement review → design review → test-case design all happen *before* implementation.
+3. **The agent dispatches and executes.** Work runs in real T3 chat threads you can open at any time. Within the approved envelope the agent dispatches, subdivides and adjusts on its own — with a recorded trail.
+4. **You review deliveries.** Each delivery is tied to a real commit, tested by a separate conversation against pre-designed cases, and completed only when the agreed evidence exists.
+5. **Escalations come to you.** Scope/budget changes, ambiguous or repeatedly failing work, stop confirmations, and human-takeover handovers all require a named human decision — the system never silently resolves them.
+
+The division of labor: semantic judgment (requirement soundness, relevance, satisfaction, merge strategy) belongs to the LLM or the human; storage, identity, authorization and concurrency/budget checks belong to the program. Unknowns are shown as unknown.
 
 ## Architecture at a glance
 
@@ -32,13 +63,6 @@ VACPMS is three repositories checked out **side by side under the same parent di
 - The **specgraph fork** serves the workbench API on `:8690` (specs, nodes, runs, mail, knowledge, delivery hooks) against PostgreSQL.
 - The **t3code fork** renders the workbench page and owns AI sessions; it links `extensions/workbench-ui` and `extensions/workbench-mail` from this repo as pnpm workspace packages.
 - **This repo** glues them together: `desktop-runtime.json` points at the sibling checkouts with relative paths.
-
-## How work flows
-
-1. **Plan** — the overview shows the project graph, kanban and dependency views. Nodes start as drafts and enter execution only after explicit approval; large nodes are subdivided, dependencies carry recorded reasons.
-2. **Dispatch** — a node is prepared with a chosen T3 project, workspace and model, reviewed, then dispatched. The AI works in a real T3 chat thread that stays open for inspection. If a prepare/dispatch outcome is unknown, the run is resumed with the original command identity — never silently retried. Stopping is request-then-confirm.
-3. **Review deliveries** — agent work lands as real Git commits in its workspace. A delivery is submitted, a test report is registered against it, then the node is completed (human-done work is marked with manual completion).
-4. **Coordinate** — nodes exchange bound-identity mail; the knowledge search queries specs, files and past conversations from one box, with an explicit ask-AI path into a native chat draft.
 
 ## For humans
 
