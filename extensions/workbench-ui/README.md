@@ -35,10 +35,10 @@ the installed desktop application, server bundle, or provider runtime.
 
 ## Upgrade Verification
 
-`t3-workbench-host.patch` preserves the current 68 dedicated workbench host source/test
+`t3-workbench-host.patch` preserves the current 70 dedicated workbench host source/test
 files outside T3, including the route, i18n and desktop IPC method.
 It is regenerated from the `workbench` branch of the t3code-git checkout
-(`git diff --diff-filter=A <upstream-base>..workbench`), which is the authoritative
+(`git diff --diff-filter=A upstream/main..workbench`), which is the authoritative
 history for host-side changes.
 It is a source snapshot, not a rollback and
 not an installer. Creating it does not change the host files. `git apply --stat`
@@ -52,7 +52,10 @@ Shared host edits must be merged, not replaced wholesale: workspace/package and
 the DesktopConfig/DesktopEnvironment/DesktopAppIdentity optional Electron
 user-data-directory override used by the VACPMS launcher; the remaining
 lockfile links to the two external packages; index.css external stylesheet import;
-SidebarChrome workbench navigation; DesktopIpcHandlers registration of read and
+SidebarChrome workbench navigation and the /workbench entry in
+isSidebarUtilityPage; the ThreadRouteView back-to-workbench chip reading the
+sessionStorage return href written by workbench thread links;
+DesktopIpcHandlers registration of read and
 command; preload's two IPC functions; DesktopBridge declarations in contracts/ipc;
 and the two exact first-party names in scripts/lib/third-party-licenses.ts.
 The native OrchestrationSearchThreadsInput and ProjectionSnapshotQuery also have

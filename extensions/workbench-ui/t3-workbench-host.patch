@@ -1,6 +1,6 @@
 diff --git a/apps/desktop/src/ipc/methods/workbench.test.ts b/apps/desktop/src/ipc/methods/workbench.test.ts
 new file mode 100644
-index 00000000..c3090639
+index 000000000..c30906392
 --- /dev/null
 +++ b/apps/desktop/src/ipc/methods/workbench.test.ts
 @@ -0,0 +1,465 @@
@@ -471,7 +471,7 @@ index 00000000..c3090639
 +})).pipe(Effect.provide(Layer.merge(Path.layer, ConfigProvider.layer(ConfigProvider.fromEnv({ env: { VACPMS_HOME: "C:/fixture", T3_WORKBENCH_MAIL_CONFIG: "C:/fixture/workbench-mail.json" } }))))));
 diff --git a/apps/desktop/src/ipc/methods/workbench.ts b/apps/desktop/src/ipc/methods/workbench.ts
 new file mode 100644
-index 00000000..f86710b1
+index 000000000..f86710b12
 --- /dev/null
 +++ b/apps/desktop/src/ipc/methods/workbench.ts
 @@ -0,0 +1,207 @@
@@ -684,7 +684,7 @@ index 00000000..f86710b1
 +});
 diff --git a/apps/server/src/mcp/workbenchDispatch.test.ts b/apps/server/src/mcp/workbenchDispatch.test.ts
 new file mode 100644
-index 00000000..c0cf1a32
+index 000000000..c0cf1a324
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchDispatch.test.ts
 @@ -0,0 +1,305 @@
@@ -995,7 +995,7 @@ index 00000000..c0cf1a32
 +});
 diff --git a/apps/server/src/mcp/workbenchDispatch.ts b/apps/server/src/mcp/workbenchDispatch.ts
 new file mode 100644
-index 00000000..4d19bc13
+index 000000000..4d19bc130
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchDispatch.ts
 @@ -0,0 +1,300 @@
@@ -1301,7 +1301,7 @@ index 00000000..4d19bc13
 +});
 diff --git a/apps/server/src/mcp/workbenchKnowledge.test.ts b/apps/server/src/mcp/workbenchKnowledge.test.ts
 new file mode 100644
-index 00000000..f2cb9fbf
+index 000000000..f2cb9fbf8
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchKnowledge.test.ts
 @@ -0,0 +1,107 @@
@@ -1414,7 +1414,7 @@ index 00000000..f2cb9fbf
 +}));
 diff --git a/apps/server/src/mcp/workbenchKnowledge.ts b/apps/server/src/mcp/workbenchKnowledge.ts
 new file mode 100644
-index 00000000..f024cac1
+index 000000000..f024cac1c
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchKnowledge.ts
 @@ -0,0 +1,104 @@
@@ -1524,7 +1524,7 @@ index 00000000..f024cac1
 +);
 diff --git a/apps/server/src/mcp/workbenchMail.test.ts b/apps/server/src/mcp/workbenchMail.test.ts
 new file mode 100644
-index 00000000..a40f8bb5
+index 000000000..a40f8bb5f
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchMail.test.ts
 @@ -0,0 +1,1804 @@
@@ -3334,7 +3334,7 @@ index 00000000..a40f8bb5
 +});
 diff --git a/apps/server/src/mcp/workbenchMail.ts b/apps/server/src/mcp/workbenchMail.ts
 new file mode 100644
-index 00000000..24e56694
+index 000000000..24e566940
 --- /dev/null
 +++ b/apps/server/src/mcp/workbenchMail.ts
 @@ -0,0 +1,872 @@
@@ -4212,7 +4212,7 @@ index 00000000..24e56694
 +}));
 diff --git a/apps/server/src/workbenchDeliveryHooks.test.ts b/apps/server/src/workbenchDeliveryHooks.test.ts
 new file mode 100644
-index 00000000..b878fe6a
+index 000000000..b878fe6ad
 --- /dev/null
 +++ b/apps/server/src/workbenchDeliveryHooks.test.ts
 @@ -0,0 +1,225 @@
@@ -4443,7 +4443,7 @@ index 00000000..b878fe6a
 +});
 diff --git a/apps/server/src/workbenchDeliveryHooks.ts b/apps/server/src/workbenchDeliveryHooks.ts
 new file mode 100644
-index 00000000..1afa826d
+index 000000000..1afa826df
 --- /dev/null
 +++ b/apps/server/src/workbenchDeliveryHooks.ts
 @@ -0,0 +1,218 @@
@@ -4667,7 +4667,7 @@ index 00000000..1afa826d
 +});
 diff --git a/apps/server/src/workbenchProgramRuns.test.ts b/apps/server/src/workbenchProgramRuns.test.ts
 new file mode 100644
-index 00000000..28bf65ef
+index 000000000..28bf65ef2
 --- /dev/null
 +++ b/apps/server/src/workbenchProgramRuns.test.ts
 @@ -0,0 +1,611 @@
@@ -5284,7 +5284,7 @@ index 00000000..28bf65ef
 +});
 diff --git a/apps/server/src/workbenchProgramRuns.ts b/apps/server/src/workbenchProgramRuns.ts
 new file mode 100644
-index 00000000..06681725
+index 000000000..066817254
 --- /dev/null
 +++ b/apps/server/src/workbenchProgramRuns.ts
 @@ -0,0 +1,384 @@
@@ -5674,7 +5674,7 @@ index 00000000..06681725
 +export const layer = Layer.effect(WorkbenchProgramRuns, make);
 diff --git a/apps/web/src/components/workbench/AbandonNodePanel.test.tsx b/apps/web/src/components/workbench/AbandonNodePanel.test.tsx
 new file mode 100644
-index 00000000..6be8574c
+index 000000000..6be8574c5
 --- /dev/null
 +++ b/apps/web/src/components/workbench/AbandonNodePanel.test.tsx
 @@ -0,0 +1,38 @@
@@ -5718,7 +5718,7 @@ index 00000000..6be8574c
 +});
 diff --git a/apps/web/src/components/workbench/CandidateLoopPanel.test.tsx b/apps/web/src/components/workbench/CandidateLoopPanel.test.tsx
 new file mode 100644
-index 00000000..2597a80c
+index 000000000..2597a80c7
 --- /dev/null
 +++ b/apps/web/src/components/workbench/CandidateLoopPanel.test.tsx
 @@ -0,0 +1,428 @@
@@ -6152,7 +6152,7 @@ index 00000000..2597a80c
 +});
 diff --git a/apps/web/src/components/workbench/ChangeImpactPreview.test.tsx b/apps/web/src/components/workbench/ChangeImpactPreview.test.tsx
 new file mode 100644
-index 00000000..a87dbba9
+index 000000000..a87dbba93
 --- /dev/null
 +++ b/apps/web/src/components/workbench/ChangeImpactPreview.test.tsx
 @@ -0,0 +1,48 @@
@@ -6206,7 +6206,7 @@ index 00000000..a87dbba9
 +});
 diff --git a/apps/web/src/components/workbench/CompletionHookPanel.test.tsx b/apps/web/src/components/workbench/CompletionHookPanel.test.tsx
 new file mode 100644
-index 00000000..46e99cd4
+index 000000000..46e99cd4c
 --- /dev/null
 +++ b/apps/web/src/components/workbench/CompletionHookPanel.test.tsx
 @@ -0,0 +1,249 @@
@@ -6461,7 +6461,7 @@ index 00000000..46e99cd4
 +});
 diff --git a/apps/web/src/components/workbench/DeliveryReview.test.tsx b/apps/web/src/components/workbench/DeliveryReview.test.tsx
 new file mode 100644
-index 00000000..edd8927b
+index 000000000..edd8927b2
 --- /dev/null
 +++ b/apps/web/src/components/workbench/DeliveryReview.test.tsx
 @@ -0,0 +1,40 @@
@@ -6507,7 +6507,7 @@ index 00000000..edd8927b
 +});
 diff --git a/apps/web/src/components/workbench/KnowledgeSearch.test.tsx b/apps/web/src/components/workbench/KnowledgeSearch.test.tsx
 new file mode 100644
-index 00000000..141ad759
+index 000000000..141ad7592
 --- /dev/null
 +++ b/apps/web/src/components/workbench/KnowledgeSearch.test.tsx
 @@ -0,0 +1,80 @@
@@ -6593,7 +6593,7 @@ index 00000000..141ad759
 +});
 diff --git a/apps/web/src/components/workbench/MergePanel.test.tsx b/apps/web/src/components/workbench/MergePanel.test.tsx
 new file mode 100644
-index 00000000..3df784da
+index 000000000..3df784da3
 --- /dev/null
 +++ b/apps/web/src/components/workbench/MergePanel.test.tsx
 @@ -0,0 +1,107 @@
@@ -6706,7 +6706,7 @@ index 00000000..3df784da
 +});
 diff --git a/apps/web/src/components/workbench/NodeApproval.test.tsx b/apps/web/src/components/workbench/NodeApproval.test.tsx
 new file mode 100644
-index 00000000..eb934125
+index 000000000..eb9341254
 --- /dev/null
 +++ b/apps/web/src/components/workbench/NodeApproval.test.tsx
 @@ -0,0 +1,31 @@
@@ -6743,7 +6743,7 @@ index 00000000..eb934125
 +});
 diff --git a/apps/web/src/components/workbench/NodeEventsPanel.test.tsx b/apps/web/src/components/workbench/NodeEventsPanel.test.tsx
 new file mode 100644
-index 00000000..962dc930
+index 000000000..962dc9309
 --- /dev/null
 +++ b/apps/web/src/components/workbench/NodeEventsPanel.test.tsx
 @@ -0,0 +1,124 @@
@@ -6873,7 +6873,7 @@ index 00000000..962dc930
 +});
 diff --git a/apps/web/src/components/workbench/NodeMarksPanel.test.tsx b/apps/web/src/components/workbench/NodeMarksPanel.test.tsx
 new file mode 100644
-index 00000000..00ae466f
+index 000000000..00ae466f0
 --- /dev/null
 +++ b/apps/web/src/components/workbench/NodeMarksPanel.test.tsx
 @@ -0,0 +1,84 @@
@@ -6963,7 +6963,7 @@ index 00000000..00ae466f
 +});
 diff --git a/apps/web/src/components/workbench/NodeOwnershipPanel.test.tsx b/apps/web/src/components/workbench/NodeOwnershipPanel.test.tsx
 new file mode 100644
-index 00000000..2ea5890f
+index 000000000..2ea5890f8
 --- /dev/null
 +++ b/apps/web/src/components/workbench/NodeOwnershipPanel.test.tsx
 @@ -0,0 +1,198 @@
@@ -7167,7 +7167,7 @@ index 00000000..2ea5890f
 +});
 diff --git a/apps/web/src/components/workbench/PanelSeparator.test.tsx b/apps/web/src/components/workbench/PanelSeparator.test.tsx
 new file mode 100644
-index 00000000..26a8dc73
+index 000000000..26a8dc737
 --- /dev/null
 +++ b/apps/web/src/components/workbench/PanelSeparator.test.tsx
 @@ -0,0 +1,31 @@
@@ -7204,7 +7204,7 @@ index 00000000..26a8dc73
 +});
 diff --git a/apps/web/src/components/workbench/ReviewAssignmentPanel.test.tsx b/apps/web/src/components/workbench/ReviewAssignmentPanel.test.tsx
 new file mode 100644
-index 00000000..03b7eb9a
+index 000000000..03b7eb9ac
 --- /dev/null
 +++ b/apps/web/src/components/workbench/ReviewAssignmentPanel.test.tsx
 @@ -0,0 +1,254 @@
@@ -7464,7 +7464,7 @@ index 00000000..03b7eb9a
 +});
 diff --git a/apps/web/src/components/workbench/RunHarness.test.tsx b/apps/web/src/components/workbench/RunHarness.test.tsx
 new file mode 100644
-index 00000000..9f51c088
+index 000000000..9f51c088d
 --- /dev/null
 +++ b/apps/web/src/components/workbench/RunHarness.test.tsx
 @@ -0,0 +1,103 @@
@@ -7573,7 +7573,7 @@ index 00000000..9f51c088
 +});
 diff --git a/apps/web/src/components/workbench/SubdivisionPanel.test.tsx b/apps/web/src/components/workbench/SubdivisionPanel.test.tsx
 new file mode 100644
-index 00000000..cdb03600
+index 000000000..cdb036008
 --- /dev/null
 +++ b/apps/web/src/components/workbench/SubdivisionPanel.test.tsx
 @@ -0,0 +1,91 @@
@@ -7670,7 +7670,7 @@ index 00000000..cdb03600
 +});
 diff --git a/apps/web/src/components/workbench/SummaryPanel.test.tsx b/apps/web/src/components/workbench/SummaryPanel.test.tsx
 new file mode 100644
-index 00000000..d7ab6494
+index 000000000..d7ab64944
 --- /dev/null
 +++ b/apps/web/src/components/workbench/SummaryPanel.test.tsx
 @@ -0,0 +1,185 @@
@@ -7861,7 +7861,7 @@ index 00000000..d7ab6494
 +});
 diff --git a/apps/web/src/components/workbench/TestReportsPanel.test.tsx b/apps/web/src/components/workbench/TestReportsPanel.test.tsx
 new file mode 100644
-index 00000000..9a0715cc
+index 000000000..9a0715ccd
 --- /dev/null
 +++ b/apps/web/src/components/workbench/TestReportsPanel.test.tsx
 @@ -0,0 +1,205 @@
@@ -8072,7 +8072,7 @@ index 00000000..9a0715cc
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchConversationSearch.test.tsx b/apps/web/src/components/workbench/WorkbenchConversationSearch.test.tsx
 new file mode 100644
-index 00000000..e6ddc540
+index 000000000..e6ddc540d
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchConversationSearch.test.tsx
 @@ -0,0 +1,28 @@
@@ -8106,10 +8106,10 @@ index 00000000..e6ddc540
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchConversationSearch.tsx b/apps/web/src/components/workbench/WorkbenchConversationSearch.tsx
 new file mode 100644
-index 00000000..81bbf7a7
+index 000000000..09d10c7cf
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchConversationSearch.tsx
-@@ -0,0 +1,39 @@
+@@ -0,0 +1,101 @@
 +import { Link } from "@tanstack/react-router";
 +import type { EnvironmentProject } from "@t3tools/client-runtime/state/shell";
 +import { useI18n } from "~/i18n/i18n";
@@ -8118,40 +8118,102 @@ index 00000000..81bbf7a7
 +import { useEnvironmentQuery } from "~/state/query";
 +import { orchestrationEnvironment } from "~/state/orchestration";
 +import { buildThreadRouteParams } from "~/threadRoutes";
++import { saveWorkbenchReturn } from "./workbenchReturn";
 +
-+export function WorkbenchConversationSearch({ project, query, includeArchived, onIncludeArchivedChange }: {
-+  project: EnvironmentProject; query: string; includeArchived: boolean; onIncludeArchivedChange: (value: boolean) => void;
++export function WorkbenchConversationSearch({
++  project,
++  query,
++  includeArchived,
++  onIncludeArchivedChange,
++}: {
++  project: EnvironmentProject;
++  query: string;
++  includeArchived: boolean;
++  onIncludeArchivedChange: (value: boolean) => void;
 +}) {
 +  const { language } = useI18n();
-+  const text = (zh: string, en: string) => language === "zh" ? zh : en;
++  const text = (zh: string, en: string) => (language === "zh" ? zh : en);
 +  const settled = useDebouncedValue(query.trim(), 200);
 +  const eligible = query.trim().length >= 2;
 +  const debouncing = query.trim() !== settled;
-+  const result = useEnvironmentQuery(eligible && !debouncing ? orchestrationEnvironment.threadSearch({
-+    environmentId: project.environmentId, input: { projectId: project.id, query: settled, includeArchived, limit: 50 },
-+  }) : null);
++  const result = useEnvironmentQuery(
++    eligible && !debouncing
++      ? orchestrationEnvironment.threadSearch({
++          environmentId: project.environmentId,
++          input: { projectId: project.id, query: settled, includeArchived, limit: 50 },
++        })
++      : null,
++  );
 +  const threads = useThreadShells();
-+  return <section className="space-y-3 border-t py-4">
-+    <h2>{text("T3 工作区对话", "T3 workspace conversations")}</h2>
-+    <p className="text-xs">{text("T3已保存的用户/助手消息，每对话一条匹配；不含工具输出或CLI独有记录。", "Saved T3 user/assistant messages; one match per conversation. Excludes tool output and CLI-only records.")}</p>
-+    <label><input type="checkbox" checked={includeArchived} onChange={(event) => onIncludeArchivedChange(event.target.checked)} /> {text("包含已归档对话", "Include archived conversations")}</label>
-+    {eligible && (result.error ? <p role="alert">{result.error}</p> : debouncing || result.isPending ? <p role="status">{text("检索中", "Searching")}</p> : result.data && <>
-+      <p role="status">{result.data.matches.length} {text("个对话（最多50个）", "conversations (up to 50)")}</p>
-+      {!result.data.matches.length && <p>{text("当前范围未匹配。", "No matches in this scope.")}</p>}
-+      <ul className="max-h-96 overflow-auto">{result.data.matches.map((match) => {
-+        const thread = threads.find((entry) => entry.environmentId === project.environmentId && entry.id === match.threadId);
-+        return <li key={match.threadId} className="space-y-1 border-b py-2">
-+          <Link className="break-words underline" to="/$environmentId/$threadId" params={buildThreadRouteParams({ environmentId: project.environmentId, threadId: match.threadId })}>{thread?.title ?? match.threadId}</Link>
-+          <p className="whitespace-pre-wrap break-words">{match.snippet}</p>
-+          <p className="text-xs">{match.source} · {match.messageCreatedAt ?? text("时间未记录", "Time unavailable")}</p>
-+        </li>;
-+      })}</ul>
-+    </>)}
-+  </section>;
++  return (
++    <section className="space-y-3 border-t py-4">
++      <h2>{text("T3 工作区对话", "T3 workspace conversations")}</h2>
++      <p className="text-xs">
++        {text(
++          "T3已保存的用户/助手消息，每对话一条匹配；不含工具输出或CLI独有记录。",
++          "Saved T3 user/assistant messages; one match per conversation. Excludes tool output and CLI-only records.",
++        )}
++      </p>
++      <label>
++        <input
++          type="checkbox"
++          checked={includeArchived}
++          onChange={(event) => onIncludeArchivedChange(event.target.checked)}
++        />{" "}
++        {text("包含已归档对话", "Include archived conversations")}
++      </label>
++      {eligible &&
++        (result.error ? (
++          <p role="alert">{result.error}</p>
++        ) : debouncing || result.isPending ? (
++          <p role="status">{text("检索中", "Searching")}</p>
++        ) : (
++          result.data && (
++            <>
++              <p role="status">
++                {result.data.matches.length}{" "}
++                {text("个对话（最多50个）", "conversations (up to 50)")}
++              </p>
++              {!result.data.matches.length && (
++                <p>{text("当前范围未匹配。", "No matches in this scope.")}</p>
++              )}
++              <ul className="max-h-96 overflow-auto">
++                {result.data.matches.map((match) => {
++                  const thread = threads.find(
++                    (entry) =>
++                      entry.environmentId === project.environmentId && entry.id === match.threadId,
++                  );
++                  return (
++                    <li key={match.threadId} className="space-y-1 border-b py-2">
++                      <Link
++                        className="break-words underline"
++                        to="/$environmentId/$threadId"
++                        params={buildThreadRouteParams({
++                          environmentId: project.environmentId,
++                          threadId: match.threadId,
++                        })}
++                        onClick={saveWorkbenchReturn}
++                      >
++                        {thread?.title ?? match.threadId}
++                      </Link>
++                      <p className="whitespace-pre-wrap break-words">{match.snippet}</p>
++                      <p className="text-xs">
++                        {match.source} ·{" "}
++                        {match.messageCreatedAt ?? text("时间未记录", "Time unavailable")}
++                      </p>
++                    </li>
++                  );
++                })}
++              </ul>
++            </>
++          )
++        ))}
++    </section>
++  );
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchDeliveryGit.test.tsx b/apps/web/src/components/workbench/WorkbenchDeliveryGit.test.tsx
 new file mode 100644
-index 00000000..b61a2aad
+index 000000000..b61a2aadd
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDeliveryGit.test.tsx
 @@ -0,0 +1,33 @@
@@ -8190,7 +8252,7 @@ index 00000000..b61a2aad
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchDeliveryGit.tsx b/apps/web/src/components/workbench/WorkbenchDeliveryGit.tsx
 new file mode 100644
-index 00000000..8a954014
+index 000000000..8a9540144
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDeliveryGit.tsx
 @@ -0,0 +1,70 @@
@@ -8266,7 +8328,7 @@ index 00000000..8a954014
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchDeliverySubmission.test.tsx b/apps/web/src/components/workbench/WorkbenchDeliverySubmission.test.tsx
 new file mode 100644
-index 00000000..a2914f46
+index 000000000..a2914f468
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDeliverySubmission.test.tsx
 @@ -0,0 +1,30 @@
@@ -8302,7 +8364,7 @@ index 00000000..a2914f46
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchDeliverySubmission.tsx b/apps/web/src/components/workbench/WorkbenchDeliverySubmission.tsx
 new file mode 100644
-index 00000000..9c045dfb
+index 000000000..9c045dfb2
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDeliverySubmission.tsx
 @@ -0,0 +1,76 @@
@@ -8384,7 +8446,7 @@ index 00000000..9c045dfb
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchDispatch.logic.test.ts b/apps/web/src/components/workbench/WorkbenchDispatch.logic.test.ts
 new file mode 100644
-index 00000000..5f8b0a2d
+index 000000000..5f8b0a2d0
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDispatch.logic.test.ts
 @@ -0,0 +1,315 @@
@@ -8705,7 +8767,7 @@ index 00000000..5f8b0a2d
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchDispatch.logic.ts b/apps/web/src/components/workbench/WorkbenchDispatch.logic.ts
 new file mode 100644
-index 00000000..4bef67ec
+index 000000000..4bef67ec3
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDispatch.logic.ts
 @@ -0,0 +1,160 @@
@@ -8871,7 +8933,7 @@ index 00000000..4bef67ec
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchDispatch.test.tsx b/apps/web/src/components/workbench/WorkbenchDispatch.test.tsx
 new file mode 100644
-index 00000000..410599d7
+index 000000000..410599d76
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDispatch.test.tsx
 @@ -0,0 +1,436 @@
@@ -9313,20 +9375,45 @@ index 00000000..410599d7
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchDispatch.tsx b/apps/web/src/components/workbench/WorkbenchDispatch.tsx
 new file mode 100644
-index 00000000..86b22e39
+index 000000000..d5289820a
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchDispatch.tsx
-@@ -0,0 +1,482 @@
+@@ -0,0 +1,1611 @@
 +import { useEffect, useRef, useState } from "react";
 +import { useAtomValue } from "@effect/atom-react";
 +import { Link } from "@tanstack/react-router";
-+import { CommandId, MessageId, ThreadId, type ModelSelection, type WorkbenchRawPreparationHandoff } from "@t3tools/contracts";
++import {
++  CommandId,
++  MessageId,
++  ThreadId,
++  type ModelSelection,
++  type WorkbenchRawPreparationHandoff,
++} from "@t3tools/contracts";
 +import type { EnvironmentProject } from "@t3tools/client-runtime/state/shell";
-+import { ASSIGNMENT_ROLES, ROLE_GUIDANCE, WORK_PURPOSES, PURPOSE_GUIDANCE, RETRIEVAL_GUIDANCE, RUN_PROMPT_FORMAT, type AssignmentRole, type WorkPurpose, type RecordedRunContext } from "@project-workbench/ui/dispatch";
++import {
++  ASSIGNMENT_ROLES,
++  ROLE_GUIDANCE,
++  WORK_PURPOSES,
++  PURPOSE_GUIDANCE,
++  RETRIEVAL_GUIDANCE,
++  RUN_PROMPT_FORMAT,
++  type AssignmentRole,
++  type WorkPurpose,
++  type RecordedRunContext,
++} from "@project-workbench/ui/dispatch";
 +import { ReviewSourceFields } from "@project-workbench/ui/review-source-fields";
 +import { resolveProjectSettings } from "@t3tools/shared/projectSettings";
 +import { getProviderOptionDescriptors, resolvePromptInjectedEffort } from "@t3tools/shared/model";
-+import { ArrowUpRight, LogIn, Play, Plus, RefreshCw, ShieldCheck, Square, Trash2 } from "lucide-react";
++import {
++  ArrowUpRight,
++  LogIn,
++  Play,
++  Plus,
++  RefreshCw,
++  ShieldCheck,
++  Square,
++  Trash2,
++} from "lucide-react";
 +import { useI18n } from "~/i18n/i18n";
 +import { useEnvironmentSettings } from "~/hooks/useSettings";
 +import { useProjects, useServerConfigs, useThreadShells } from "~/state/entities";
@@ -9342,15 +9429,54 @@ index 00000000..86b22e39
 +import { buildThreadRouteParams } from "~/threadRoutes";
 +import { randomUUID } from "~/lib/utils";
 +import { getComposerProviderState } from "../chat/composerProviderState";
-+import { decodeDispatchState, decodeDispatchTarget, dispatchRecordedRun, dispatchTargetMatchesProject, DISPATCH_STORAGE_KEY, freezePromptPrefix, qaBasisReady, readPendingDispatch, savePendingDispatch, type QABasis, type PendingDispatch as Pending, type DispatchState, type DispatchTarget } from "./WorkbenchDispatch.logic";
-+import { WorkbenchWorkspacePicker, type WorkbenchWorkspaceSelection } from "./WorkbenchWorkspacePicker";
++import {
++  decodeDispatchState,
++  decodeDispatchTarget,
++  dispatchRecordedRun,
++  dispatchTargetMatchesProject,
++  DISPATCH_STORAGE_KEY,
++  freezePromptPrefix,
++  qaBasisReady,
++  readPendingDispatch,
++  savePendingDispatch,
++  type QABasis,
++  type PendingDispatch as Pending,
++  type DispatchState,
++  type DispatchTarget,
++} from "./WorkbenchDispatch.logic";
++import {
++  WorkbenchWorkspacePicker,
++  type WorkbenchWorkspaceSelection,
++} from "./WorkbenchWorkspacePicker";
++import { saveWorkbenchReturn } from "./workbenchReturn";
 +import type { ReviewSource, WorkbenchRun, WorkbenchRequest } from "./workbenchModel";
 +
-+type Props = { project: string; taskSlug: string; title: string; runs: readonly WorkbenchRun[]; ownerHold?: boolean; onChanged: () => void; operationRequest?: WorkbenchRequest };
-+const EMPTY_QA_BASIS: QABasis = { requirementDecisionIds: [], designDecisionIds: [], designSources: [], testPlanSources: [], applicability: "" };
++type Props = {
++  project: string;
++  taskSlug: string;
++  title: string;
++  runs: readonly WorkbenchRun[];
++  ownerHold?: boolean;
++  onChanged: () => void;
++  operationRequest?: WorkbenchRequest;
++};
++const EMPTY_QA_BASIS: QABasis = {
++  requirementDecisionIds: [],
++  designDecisionIds: [],
++  designSources: [],
++  testPlanSources: [],
++  applicability: "",
++};
 +
 +class DispatchHTTPError extends Error {
-+  constructor(readonly status: number, readonly details: unknown) { super(`HTTP ${status}: ${details && typeof details === "object" && "error" in details ? String(details.error) : "request rejected"}`); }
++  constructor(
++    readonly status: number,
++    readonly details: unknown,
++  ) {
++    super(
++      `HTTP ${status}: ${details && typeof details === "object" && "error" in details ? String(details.error) : "request rejected"}`,
++    );
++  }
 +}
 +
 +export function WorkbenchDispatch(props: Props) {
@@ -9362,56 +9488,126 @@ index 00000000..86b22e39
 +  const { language } = useI18n();
 +  const zh = language === "zh";
 +  const [recovery, setRecovery] = useState(() => {
-+    try { return { pending: readPendingDispatch(localStorage), error: "" }; }
-+    catch { return { pending: null, error: "Dispatch recovery record cannot be read. No new dispatch was created." }; }
++    try {
++      return { pending: readPendingDispatch(localStorage), error: "" };
++    } catch {
++      return {
++        pending: null,
++        error: "Dispatch recovery record cannot be read. No new dispatch was created.",
++      };
++    }
 +  });
 +  const pending = recovery.pending;
-+  const ownPending = pending?.project === props.project && pending.taskSlug === props.taskSlug ? pending : null;
-+  const [selection, setSelection] = useState(ownPending ? `${ownPending.target.environmentId}:${ownPending.target.projectId}` : "");
++  const ownPending =
++    pending?.project === props.project && pending.taskSlug === props.taskSlug ? pending : null;
++  const [selection, setSelection] = useState(
++    ownPending ? `${ownPending.target.environmentId}:${ownPending.target.projectId}` : "",
++  );
 +  const selected = projects.find((entry) => `${entry.environmentId}:${entry.id}` === selection);
-+  return <section className="space-y-3 border-t py-4" data-i18n-skip>
-+    <h3 className="text-sm font-semibold">{zh ? "执行与分派" : "Execution and dispatch"}</h3>
-+    {recovery.error || (pending && !ownPending) ? <p role="alert">{recovery.error || `${zh ? "先恢复未确认请求" : "Resolve the pending request first"}: ${pending?.project} / ${pending?.taskSlug}`}</p> : <>
-+      <label className="block text-sm">{zh ? "T3 项目" : "T3 project"}
-+        <select className="mt-1 block w-full rounded border bg-background p-2" value={selection} disabled={!!ownPending} onChange={(event) => setSelection(event.target.value)}>
-+          <option value="">{zh ? "选择项目" : "Select project"}</option>
-+          {projects.map((entry) => <option key={`${entry.environmentId}:${entry.id}`} value={`${entry.environmentId}:${entry.id}`}>{entry.title} · {entry.environmentId} · {entry.workspaceRoot}</option>)}
-+        </select>
-+      </label>
-+      {selected ? <DispatchForm key={selection} {...props} nativeProject={selected} recovered={ownPending} onRecoveryCleared={() => setRecovery({ pending: null, error: "" })} /> : ownPending ? <p role="alert">{zh ? "原 T3 项目不可用；未改用其他项目。" : "The recorded T3 project is unavailable; no substitute selected."}</p> : null}
-+    </>}
-+  </section>;
++  return (
++    <section className="space-y-3 border-t py-4" data-i18n-skip>
++      <h3 className="text-sm font-semibold">{zh ? "执行与分派" : "Execution and dispatch"}</h3>
++      {recovery.error || (pending && !ownPending) ? (
++        <p role="alert">
++          {recovery.error ||
++            `${zh ? "先恢复未确认请求" : "Resolve the pending request first"}: ${pending?.project} / ${pending?.taskSlug}`}
++        </p>
++      ) : (
++        <>
++          <label className="block text-sm">
++            {zh ? "T3 项目" : "T3 project"}
++            <select
++              className="mt-1 block w-full rounded border bg-background p-2"
++              value={selection}
++              disabled={!!ownPending}
++              onChange={(event) => setSelection(event.target.value)}
++            >
++              <option value="">{zh ? "选择项目" : "Select project"}</option>
++              {projects.map((entry) => (
++                <option
++                  key={`${entry.environmentId}:${entry.id}`}
++                  value={`${entry.environmentId}:${entry.id}`}
++                >
++                  {entry.title} · {entry.environmentId} · {entry.workspaceRoot}
++                </option>
++              ))}
++            </select>
++          </label>
++          {selected ? (
++            <DispatchForm
++              key={selection}
++              {...props}
++              nativeProject={selected}
++              recovered={ownPending}
++              onRecoveryCleared={() => setRecovery({ pending: null, error: "" })}
++            />
++          ) : ownPending ? (
++            <p role="alert">
++              {zh
++                ? "原 T3 项目不可用；未改用其他项目。"
++                : "The recorded T3 project is unavailable; no substitute selected."}
++            </p>
++          ) : null}
++        </>
++      )}
++    </section>
++  );
 +}
 +
-+function DispatchForm({ project, taskSlug, title, runs, ownerHold = false, onChanged, nativeProject, recovered, onRecoveryCleared, operationRequest = fetch }: Props & { nativeProject: EnvironmentProject; recovered: Pending | null; onRecoveryCleared: () => void }) {
++function DispatchForm({
++  project,
++  taskSlug,
++  title,
++  runs,
++  ownerHold = false,
++  onChanged,
++  nativeProject,
++  recovered,
++  onRecoveryCleared,
++  operationRequest = fetch,
++}: Props & {
++  nativeProject: EnvironmentProject;
++  recovered: Pending | null;
++  onRecoveryCleared: () => void;
++}) {
 +  const { language } = useI18n();
-+  const text = (zh: string, en: string) => language === "zh" ? zh : en;
++  const text = (zh: string, en: string) => (language === "zh" ? zh : en);
 +  const settings = useEnvironmentSettings(nativeProject.environmentId);
 +  const configs = useServerConfigs();
 +  const threads = useThreadShells();
 +  const config = configs.get(nativeProject.environmentId);
 +  const shell = useAtomValue(environmentShell.stateValueAtom(nativeProject.environmentId));
 +  const { presentationById } = useEnvironments();
-+  const connected = presentationById.get(nativeProject.environmentId)?.connection.phase === "connected" && shell.status === "live";
++  const connected =
++    presentationById.get(nativeProject.environmentId)?.connection.phase === "connected" &&
++    shell.status === "live";
 +  const createThread = useAtomCommand(threadEnvironment.create, { reportFailure: false });
 +  const startTurn = useAtomCommand(threadEnvironment.startTurn, { reportFailure: false });
 +  const stopSession = useAtomCommand(threadEnvironment.stopSession, { reportFailure: false });
 +  const readHead = useAtomCommand(vcsEnvironment.readHead, { reportFailure: false });
-+  const taskRuns = runs.filter((run) => run.taskSlug === taskSlug && run.executorKind !== "program");
-+  const [runId, setRunId] = useState(recovered ? recovered.runId ?? "" : taskRuns.length === 1 ? taskRuns[0]!.id : "");
++  const taskRuns = runs.filter(
++    (run) => run.taskSlug === taskSlug && run.executorKind !== "program",
++  );
++  const [runId, setRunId] = useState(
++    recovered ? (recovered.runId ?? "") : taskRuns.length === 1 ? taskRuns[0]!.id : "",
++  );
 +  const [pending, setPending] = useState<Pending | null>(recovered);
 +  const [context, setContext] = useState<RecordedRunContext | null>(null);
 +  const [recordedTarget, setRecordedTarget] = useState<DispatchTarget | null>(null);
 +  const [dispatchState, setDispatchState] = useState<DispatchState | null>(null);
 +  const [newAttempt, setNewAttempt] = useState(false);
-+  const [workspaceSelection, setWorkspaceSelection] = useState<WorkbenchWorkspaceSelection | null>(recovered ? recovered.target : null);
++  const [workspaceSelection, setWorkspaceSelection] = useState<WorkbenchWorkspaceSelection | null>(
++    recovered ? recovered.target : null,
++  );
 +  const [assignmentRole, setAssignmentRole] = useState<AssignmentRole>("executor");
 +  const [workPurpose, setWorkPurpose] = useState<WorkPurpose | "">("");
 +  const [requirementIds, setRequirementIds] = useState("");
 +  const [designIds, setDesignIds] = useState("");
 +  const [qaDraft, setQaDraft] = useState<QABasis>(EMPTY_QA_BASIS);
 +  const [reviewed, setReviewed] = useState(false);
-+  useEffect(() => { setReviewed(false); }, [ownerHold]);
++  useEffect(() => {
++    setReviewed(false);
++  }, [ownerHold]);
 +  const [busy, setBusy] = useState(false);
 +  const [error, setError] = useState("");
 +  const [receipt, setReceipt] = useState("");
@@ -9425,12 +9621,16 @@ index 00000000..86b22e39
 +  const [rawSources, setRawSources] = useState("");
 +  const [rawMissing, setRawMissing] = useState("");
 +  const [rawStopped, setRawStopped] = useState(false);
-+  const [resolutionKind, setResolutionKind] = useState<"stopped_writing" | "isolated_workspace">("stopped_writing");
++  const [resolutionKind, setResolutionKind] = useState<"stopped_writing" | "isolated_workspace">(
++    "stopped_writing",
++  );
 +  const scope = useRef<AbortController | null>(null);
 +  const inFlight = useRef(false);
 +  const target = pending?.target ?? recordedTarget;
-+  const displayedPurpose = target ? target.workPurpose ?? "" : runId ? "" : workPurpose;
-+  const needsQABasis = ["design", "test_design", "implementation", "test_execution"].includes(displayedPurpose);
++  const displayedPurpose = target ? (target.workPurpose ?? "") : runId ? "" : workPurpose;
++  const needsQABasis = ["design", "test_design", "implementation", "test_execution"].includes(
++    displayedPurpose,
++  );
 +  const qaBasis: QABasis = {
 +    ...qaDraft,
 +    requirementDecisionIds: requirementIds.split(/[\s,]+/).filter(Boolean),
@@ -9439,369 +9639,1360 @@ index 00000000..86b22e39
 +  const displayedBasis = target ? target.qaBasis : runId ? undefined : qaBasis;
 +  const formFrozen = busy || ownerHold || !!pending || !!recordedTarget || !!runId;
 +  const resolved = resolveProjectSettings(settings, nativeProject.id, nativeProject);
-+  const selection = pending?.target.modelSelection ?? recordedTarget?.modelSelection ?? resolved.overrides.defaultModelSelection ?? resolved.settings.defaultModelSelection;
-+  const provider = deriveProviderInstanceEntries(config?.providers ?? []).find((entry) => entry.instanceId === selection?.instanceId);
++  const selection =
++    pending?.target.modelSelection ??
++    recordedTarget?.modelSelection ??
++    resolved.overrides.defaultModelSelection ??
++    resolved.settings.defaultModelSelection;
++  const provider = deriveProviderInstanceEntries(config?.providers ?? []).find(
++    (entry) => entry.instanceId === selection?.instanceId,
++  );
 +  function selectionError(model: ModelSelection | null | undefined, effort: string | null) {
-+    if (!config || !connected) return text("T3 环境尚未实时同步。", "T3 environment is not synchronized and connected.");
-+    const entry = deriveProviderInstanceEntries(config.providers).find((entry) => entry.instanceId === model?.instanceId);
-+    if (!model || !entry || !isProviderInstancePickerReady(entry)) return text("原提供方不可用；未选择替代项。", "The exact provider is unavailable; no substitute selected.");
-+    if (!getAppModelOptionsForInstance(settings, entry).some((candidate) => candidate.slug === model.model && !candidate.isUnavailable)) return text("原模型不可用；未选择替代模型。", "The exact model is unavailable; no substitute selected.");
-+    const capabilities = getProviderModelCapabilities(entry.models, model.model, entry.driverKind, settings.planModeEnabled);
++    if (!config || !connected)
++      return text("T3 环境尚未实时同步。", "T3 environment is not synchronized and connected.");
++    const entry = deriveProviderInstanceEntries(config.providers).find(
++      (entry) => entry.instanceId === model?.instanceId,
++    );
++    if (!model || !entry || !isProviderInstancePickerReady(entry))
++      return text(
++        "原提供方不可用；未选择替代项。",
++        "The exact provider is unavailable; no substitute selected.",
++      );
++    if (
++      !getAppModelOptionsForInstance(settings, entry).some(
++        (candidate) => candidate.slug === model.model && !candidate.isUnavailable,
++      )
++    )
++      return text(
++        "原模型不可用；未选择替代模型。",
++        "The exact model is unavailable; no substitute selected.",
++      );
++    const capabilities = getProviderModelCapabilities(
++      entry.models,
++      model.model,
++      entry.driverKind,
++      settings.planModeEnabled,
++    );
 +    const options = getProviderOptionDescriptors({ caps: capabilities });
-+    if (model.options?.some((option) => !options.some((descriptor) => descriptor.id === option.id && (descriptor.type === "boolean" ? typeof option.value === "boolean" : descriptor.options.some((value) => value.id === option.value))))) return text("已选模型选项不受当前模型支持。", "A selected model option is unsupported by the current model.");
-+    if (effort && resolvePromptInjectedEffort(capabilities, effort) !== effort) return text("原提示词思考强度已不可用。", "The recorded prompt-injected effort is unavailable.");
++    if (
++      model.options?.some(
++        (option) =>
++          !options.some(
++            (descriptor) =>
++              descriptor.id === option.id &&
++              (descriptor.type === "boolean"
++                ? typeof option.value === "boolean"
++                : descriptor.options.some((value) => value.id === option.value)),
++          ),
++      )
++    )
++      return text(
++        "已选模型选项不受当前模型支持。",
++        "A selected model option is unsupported by the current model.",
++      );
++    if (effort && resolvePromptInjectedEffort(capabilities, effort) !== effort)
++      return text(
++        "原提示词思考强度已不可用。",
++        "The recorded prompt-injected effort is unavailable.",
++      );
 +    return "";
 +  }
-+  const caps = provider && selection ? getProviderModelCapabilities(provider.models, selection.model, provider.driverKind, settings.planModeEnabled) : null;
-+  const composer = provider && selection ? getComposerProviderState({ provider: provider.driverKind, model: selection.model, models: provider.models, modelOptions: selection.options, planModeEnabled: settings.planModeEnabled }) : null;
-+  const dispatchOptions = pending ? pending.target.modelSelection.options : recordedTarget ? recordedTarget.modelSelection.options : composer?.modelOptionsForDispatch;
-+  const injectedEffort = pending ? pending.target.promptInjectedEffort : recordedTarget ? recordedTarget.promptInjectedEffort : caps && composer ? resolvePromptInjectedEffort(caps, composer.promptEffort) : null;
-+  const unavailable = selectionError(selection, injectedEffort) || (!workspaceSelection ? text("请选择执行工作区。", "Select an execution workspace.") : null) ||
-+    (target && !target.workPurpose ? text("原准备未记录工作目的，不能启动；需要新的准备。", "The original preparation has no recorded work purpose and cannot start; a new preparation is required.") : null) ||
-+    (target?.workPurpose && !qaBasisReady(target.workPurpose, target.qaBasis) ? text("原准备缺少适用前置依据，不能启动；需要新的准备。", "The original preparation lacks applicable QA basis and cannot start; a new preparation is required.") : null) ||
-+    (!target && !runId && !workPurpose ? text("请选择本次工作目的。", "Select a work purpose.") : null) ||
-+    (!target && !runId && !qaBasisReady(workPurpose, qaBasis) ? text("请填写适用的批准决定 ID、固定来源和本次适用范围。", "Provide the applicable approval decision IDs, fixed sources and applicability.") : null);
-+  const reviewIdentity = JSON.stringify([selection, dispatchOptions, injectedEffort, pending?.target.runtimeMode ?? recordedTarget?.runtimeMode ?? resolved.settings.defaultRuntimeMode]);
-+  useEffect(() => { setReviewed(false); }, [reviewIdentity]);
++  const caps =
++    provider && selection
++      ? getProviderModelCapabilities(
++          provider.models,
++          selection.model,
++          provider.driverKind,
++          settings.planModeEnabled,
++        )
++      : null;
++  const composer =
++    provider && selection
++      ? getComposerProviderState({
++          provider: provider.driverKind,
++          model: selection.model,
++          models: provider.models,
++          modelOptions: selection.options,
++          planModeEnabled: settings.planModeEnabled,
++        })
++      : null;
++  const dispatchOptions = pending
++    ? pending.target.modelSelection.options
++    : recordedTarget
++      ? recordedTarget.modelSelection.options
++      : composer?.modelOptionsForDispatch;
++  const injectedEffort = pending
++    ? pending.target.promptInjectedEffort
++    : recordedTarget
++      ? recordedTarget.promptInjectedEffort
++      : caps && composer
++        ? resolvePromptInjectedEffort(caps, composer.promptEffort)
++        : null;
++  const unavailable =
++    selectionError(selection, injectedEffort) ||
++    (!workspaceSelection ? text("请选择执行工作区。", "Select an execution workspace.") : null) ||
++    (target && !target.workPurpose
++      ? text(
++          "原准备未记录工作目的，不能启动；需要新的准备。",
++          "The original preparation has no recorded work purpose and cannot start; a new preparation is required.",
++        )
++      : null) ||
++    (target?.workPurpose && !qaBasisReady(target.workPurpose, target.qaBasis)
++      ? text(
++          "原准备缺少适用前置依据，不能启动；需要新的准备。",
++          "The original preparation lacks applicable QA basis and cannot start; a new preparation is required.",
++        )
++      : null) ||
++    (!target && !runId && !workPurpose
++      ? text("请选择本次工作目的。", "Select a work purpose.")
++      : null) ||
++    (!target && !runId && !qaBasisReady(workPurpose, qaBasis)
++      ? text(
++          "请填写适用的批准决定 ID、固定来源和本次适用范围。",
++          "Provide the applicable approval decision IDs, fixed sources and applicability.",
++        )
++      : null);
++  const reviewIdentity = JSON.stringify([
++    selection,
++    dispatchOptions,
++    injectedEffort,
++    pending?.target.runtimeMode ??
++      recordedTarget?.runtimeMode ??
++      resolved.settings.defaultRuntimeMode,
++  ]);
++  useEffect(() => {
++    setReviewed(false);
++  }, [reviewIdentity]);
 +  const latest = useRef({ selectionError, nativeProject });
 +  latest.current = { selectionError, nativeProject };
 +
 +  async function request<T>(path: string, controller: AbortController, body?: unknown): Promise<T> {
 +    const response = await operationRequest(`/workbench-api${path}`, {
-+      method: body === undefined ? "GET" : "POST", headers: { "Content-Type": "application/json", "X-Specgraph-Project": project },
-+      ...(body === undefined ? {} : { body: JSON.stringify(body) }), cache: "no-store",
++      method: body === undefined ? "GET" : "POST",
++      headers: { "Content-Type": "application/json", "X-Specgraph-Project": project },
++      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
++      cache: "no-store",
 +      signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]),
 +    });
 +    controller.signal.throwIfAborted();
-+    if (response.status === 401) { setNeedsLogin(true); throw new Error(text("请登录后恢复原请求。", "Sign in to resume the original request.")); }
-+    if (!response.ok) throw new DispatchHTTPError(response.status, await response.json().catch(() => null));
-+    return await response.json() as T;
++    if (response.status === 401) {
++      setNeedsLogin(true);
++      throw new Error(text("请登录后恢复原请求。", "Sign in to resume the original request."));
++    }
++    if (!response.ok)
++      throw new DispatchHTTPError(response.status, await response.json().catch(() => null));
++    return (await response.json()) as T;
 +  }
 +  async function load(id: string, controller: AbortController) {
-+    const stored = await request<RecordedRunContext>(`/loop/runs/${encodeURIComponent(id)}/context`, controller);
-+    if (stored.runId !== id || stored.taskSlug !== taskSlug || !stored.packageId) throw new Error("Run context identity mismatch");
-+    const target = decodeDispatchTarget((stored.body as { dispatch_target?: unknown }).dispatch_target);
-+    if (!dispatchTargetMatchesProject(target, nativeProject)) throw new Error("Recorded native project or workspace does not match selection");
-+    if (pending && JSON.stringify(target) !== JSON.stringify(pending.target)) throw new Error("Recorded dispatch target differs from recovery plan");
++    const stored = await request<RecordedRunContext>(
++      `/loop/runs/${encodeURIComponent(id)}/context`,
++      controller,
++    );
++    if (stored.runId !== id || stored.taskSlug !== taskSlug || !stored.packageId)
++      throw new Error("Run context identity mismatch");
++    const target = decodeDispatchTarget(
++      (stored.body as { dispatch_target?: unknown }).dispatch_target,
++    );
++    if (!dispatchTargetMatchesProject(target, nativeProject))
++      throw new Error("Recorded native project or workspace does not match selection");
++    if (pending && JSON.stringify(target) !== JSON.stringify(pending.target))
++      throw new Error("Recorded dispatch target differs from recovery plan");
 +    const saved = readPendingDispatch(localStorage);
-+    if (saved?.project === project && saved.taskSlug === taskSlug && saved.runId === id && JSON.stringify(saved.target) !== JSON.stringify(target)) throw new Error("Recorded dispatch target differs from persisted recovery plan");
++    if (
++      saved?.project === project &&
++      saved.taskSlug === taskSlug &&
++      saved.runId === id &&
++      JSON.stringify(saved.target) !== JSON.stringify(target)
++    )
++      throw new Error("Recorded dispatch target differs from persisted recovery plan");
 +    controller.signal.throwIfAborted();
-+    setContext(stored); setRecordedTarget(target); setWorkspaceSelection(target);
-+    if (saved?.project === project && saved.taskSlug === taskSlug && JSON.stringify(saved.target) === JSON.stringify(target)) {
-+      localStorage.removeItem(DISPATCH_STORAGE_KEY); setPending(null); onRecoveryCleared(); onChanged();
++    setContext(stored);
++    setRecordedTarget(target);
++    setWorkspaceSelection(target);
++    if (
++      saved?.project === project &&
++      saved.taskSlug === taskSlug &&
++      JSON.stringify(saved.target) === JSON.stringify(target)
++    ) {
++      localStorage.removeItem(DISPATCH_STORAGE_KEY);
++      setPending(null);
++      onRecoveryCleared();
++      onChanged();
 +    }
-+    const state = decodeDispatchState(await request(`/loop/runs/${encodeURIComponent(id)}/dispatch`, controller));
++    const state = decodeDispatchState(
++      await request(`/loop/runs/${encodeURIComponent(id)}/dispatch`, controller),
++    );
 +    controller.signal.throwIfAborted();
-+    setContext(stored); setRecordedTarget(target); setDispatchState(state);
++    setContext(stored);
++    setRecordedTarget(target);
++    setDispatchState(state);
 +    return { context: stored, target, state };
 +  }
-+  async function useCurrentSource(group: "designSources" | "testPlanSources", index: number, source: Extract<ReviewSource, { kind: "specgraph" }>) {
++  async function useCurrentSource(
++    group: "designSources" | "testPlanSources",
++    index: number,
++    source: Extract<ReviewSource, { kind: "specgraph" }>,
++  ) {
 +    const controller = scope.current;
 +    if (!controller || formFrozen) return;
-+    setBusy(true); setReviewed(false); setError("");
++    setBusy(true);
++    setReviewed(false);
++    setError("");
 +    try {
-+      const body = await request<{ kind: string; slug: string; sourceRefs?: Record<string, string> }>(`/knowledge/spec/${encodeURIComponent(source.specSlug)}`, controller);
-+      if (body.kind !== "spec" || body.slug !== source.specSlug) throw new Error("Invalid source response");
++      const body = await request<{
++        kind: string;
++        slug: string;
++        sourceRefs?: Record<string, string>;
++      }>(`/knowledge/spec/${encodeURIComponent(source.specSlug)}`, controller);
++      if (body.kind !== "spec" || body.slug !== source.specSlug)
++        throw new Error("Invalid source response");
 +      const changeId = body.sourceRefs?.[source.field];
-+      if (typeof changeId !== "string" || !changeId) throw new Error(text("该字段没有已记录的来源变更 ID", "No recorded source change ID for this field"));
-+      setQaDraft((current) => ({ ...current, [group]: current[group].map((row, i) => i === index ? { ...source, changeId } : row) }));
-+    } catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+    finally { if (!controller.signal.aborted) setBusy(false); }
++      if (typeof changeId !== "string" || !changeId)
++        throw new Error(
++          text("该字段没有已记录的来源变更 ID", "No recorded source change ID for this field"),
++        );
++      setQaDraft((current) => ({
++        ...current,
++        [group]: current[group].map((row, i) => (i === index ? { ...source, changeId } : row)),
++      }));
++    } catch (cause) {
++      if (!controller.signal.aborted) setError(String(cause));
++    } finally {
++      if (!controller.signal.aborted) setBusy(false);
++    }
 +  }
 +  useEffect(() => {
-+    const controller = new AbortController(); scope.current = controller;
-+    setContext(null); setRecordedTarget(null); setDispatchState(null); setReviewed(false);
-+    if (runId) void load(runId, controller).catch((cause) => { if (!controller.signal.aborted) setError(String(cause)); });
++    const controller = new AbortController();
++    scope.current = controller;
++    setContext(null);
++    setRecordedTarget(null);
++    setDispatchState(null);
++    setReviewed(false);
++    if (runId)
++      void load(runId, controller).catch((cause) => {
++        if (!controller.signal.aborted) setError(String(cause));
++      });
 +    return () => controller.abort();
 +  }, [runId, project, taskSlug]);
 +
 +  async function submit() {
 +    const controller = scope.current;
-+    if (!controller || inFlight.current || ownerHold || !reviewed || unavailable || pending?.abortNote || (!runId && !context && taskRuns.length > 0 && !pending && !newAttempt)) return;
-+    inFlight.current = true; setBusy(true); setError(""); setReceipt("");
++    if (
++      !controller ||
++      inFlight.current ||
++      ownerHold ||
++      !reviewed ||
++      unavailable ||
++      pending?.abortNote ||
++      (!runId && !context && taskRuns.length > 0 && !pending && !newAttempt)
++    )
++      return;
++    inFlight.current = true;
++    setBusy(true);
++    setError("");
++    setReceipt("");
 +    try {
 +      let plan = pending;
 +      let id = runId || context?.runId || pending?.runId || "";
 +      if (!id) {
 +        if (!plan) {
-+          if (!selection || !provider || !caps || !composer || !workspaceSelection) throw new Error("Model or workspace selection unavailable");
++          if (!selection || !provider || !caps || !composer || !workspaceSelection)
++            throw new Error("Model or workspace selection unavailable");
 +          if (!workPurpose) throw new Error("Work purpose must be selected");
-+          const baseline = await readHead({ environmentId: nativeProject.environmentId, input: { cwd: workspaceSelection.workspace } });
++          const baseline = await readHead({
++            environmentId: nativeProject.environmentId,
++            input: { cwd: workspaceSelection.workspace },
++          });
 +          controller.signal.throwIfAborted();
 +          if (baseline._tag !== "Success") throw squashAtomCommandFailure(baseline);
-+          if (workspaceSelection.expectedCommitSha && baseline.value.commitSha?.toLowerCase() !== workspaceSelection.expectedCommitSha.toLowerCase()) {
-+            throw new Error(text("所选工作树不在指定提交；请重新选择或从指定提交创建测试工作树。预期：", "The selected worktree is not at the requested commit. Select or create a testing worktree at that commit. Expected: ") + workspaceSelection.expectedCommitSha + text("；实际：", "; actual: ") + (baseline.value.commitSha ?? text("没有 Git 提交", "no Git commit")));
++          if (
++            workspaceSelection.expectedCommitSha &&
++            baseline.value.commitSha?.toLowerCase() !==
++              workspaceSelection.expectedCommitSha.toLowerCase()
++          ) {
++            throw new Error(
++              text(
++                "所选工作树不在指定提交；请重新选择或从指定提交创建测试工作树。预期：",
++                "The selected worktree is not at the requested commit. Select or create a testing worktree at that commit. Expected: ",
++              ) +
++                workspaceSelection.expectedCommitSha +
++                text("；实际：", "; actual: ") +
++                (baseline.value.commitSha ?? text("没有 Git 提交", "no Git commit")),
++            );
 +          }
-+          const modelSelection: ModelSelection = { instanceId: selection.instanceId, model: selection.model, ...(composer.modelOptionsForDispatch ? { options: composer.modelOptionsForDispatch } : {}) };
-+          plan = { project, taskSlug, key: randomUUID(), target: {
-+            version: 1, promptFormatVersion: RUN_PROMPT_FORMAT, environmentId: nativeProject.environmentId, projectId: nativeProject.id,
-+            workspace: workspaceSelection.workspace, projectWorkspaceRoot: nativeProject.workspaceRoot, gitBaseline: baseline.value, threadId: ThreadId.make(randomUUID()), createCommandId: CommandId.make(randomUUID()), startCommandId: CommandId.make(randomUUID()), messageId: MessageId.make(randomUUID()),
-+            createdAt: new Date().toISOString(), title: title.slice(0, 160), modelSelection, runtimeMode: resolved.settings.defaultRuntimeMode,
-+            interactionMode: "default", branch: workspaceSelection.branch, worktreePath: workspaceSelection.worktreePath, promptInjectedEffort: resolvePromptInjectedEffort(caps, composer.promptEffort),
-+            promptPrefix: freezePromptPrefix(resolvePromptInjectedEffort(caps, composer.promptEffort)),
-+            assignmentRole, roleGuidance: ROLE_GUIDANCE[assignmentRole],
-+            workPurpose, purposeGuidance: PURPOSE_GUIDANCE[workPurpose],
-+            ...(needsQABasis ? { qaBasis } : {}),
-+            retrievalGuidance: RETRIEVAL_GUIDANCE,
-+          } };
-+          savePendingDispatch(localStorage, plan); setPending(plan);
++          const modelSelection: ModelSelection = {
++            instanceId: selection.instanceId,
++            model: selection.model,
++            ...(composer.modelOptionsForDispatch
++              ? { options: composer.modelOptionsForDispatch }
++              : {}),
++          };
++          plan = {
++            project,
++            taskSlug,
++            key: randomUUID(),
++            target: {
++              version: 1,
++              promptFormatVersion: RUN_PROMPT_FORMAT,
++              environmentId: nativeProject.environmentId,
++              projectId: nativeProject.id,
++              workspace: workspaceSelection.workspace,
++              projectWorkspaceRoot: nativeProject.workspaceRoot,
++              gitBaseline: baseline.value,
++              threadId: ThreadId.make(randomUUID()),
++              createCommandId: CommandId.make(randomUUID()),
++              startCommandId: CommandId.make(randomUUID()),
++              messageId: MessageId.make(randomUUID()),
++              createdAt: new Date().toISOString(),
++              title: title.slice(0, 160),
++              modelSelection,
++              runtimeMode: resolved.settings.defaultRuntimeMode,
++              interactionMode: "default",
++              branch: workspaceSelection.branch,
++              worktreePath: workspaceSelection.worktreePath,
++              promptInjectedEffort: resolvePromptInjectedEffort(caps, composer.promptEffort),
++              promptPrefix: freezePromptPrefix(
++                resolvePromptInjectedEffort(caps, composer.promptEffort),
++              ),
++              assignmentRole,
++              roleGuidance: ROLE_GUIDANCE[assignmentRole],
++              workPurpose,
++              purposeGuidance: PURPOSE_GUIDANCE[workPurpose],
++              ...(needsQABasis ? { qaBasis } : {}),
++              retrievalGuidance: RETRIEVAL_GUIDANCE,
++            },
++          };
++          savePendingDispatch(localStorage, plan);
++          setPending(plan);
 +        }
-+        const prepared = await request<{ binding_id: string }>("/loop/runs", controller, { task_slug: taskSlug, workspace: plan.target.workspace, idempotency_key: plan.key, dispatch_target: plan.target });
-+        if (typeof prepared.binding_id !== "string" || !prepared.binding_id) throw new Error("Invalid preparation receipt");
++        const prepared = await request<{ binding_id: string }>("/loop/runs", controller, {
++          task_slug: taskSlug,
++          workspace: plan.target.workspace,
++          idempotency_key: plan.key,
++          dispatch_target: plan.target,
++        });
++        if (typeof prepared.binding_id !== "string" || !prepared.binding_id)
++          throw new Error("Invalid preparation receipt");
 +        id = prepared.binding_id;
-+        plan = { ...plan, runId: id }; savePendingDispatch(localStorage, plan); setPending(plan);
++        plan = { ...plan, runId: id };
++        savePendingDispatch(localStorage, plan);
++        setPending(plan);
 +        // Do not change runId here: its effect would cancel this in-flight chain.
 +      }
 +      const stored = await load(id, controller);
-+      if (stored.state.resolution || stored.state.cancellation || stored.state.stopConfirmation) throw new Error("Dispatch already resolved, cancelled or confirmed stopped; this attempt cannot be resumed");
++      if (stored.state.resolution || stored.state.cancellation || stored.state.stopConfirmation)
++        throw new Error(
++          "Dispatch already resolved, cancelled or confirmed stopped; this attempt cannot be resumed",
++        );
 +      const checkCurrent = () => {
 +        controller.signal.throwIfAborted();
-+        if (!dispatchTargetMatchesProject(stored.target, latest.current.nativeProject)) throw new Error("Recorded native project changed");
-+        const issue = latest.current.selectionError(stored.target.modelSelection, stored.target.promptInjectedEffort);
++        if (!dispatchTargetMatchesProject(stored.target, latest.current.nativeProject))
++          throw new Error("Recorded native project changed");
++        const issue = latest.current.selectionError(
++          stored.target.modelSelection,
++          stored.target.promptInjectedEffort,
++        );
 +        if (issue) throw new Error(issue);
 +      };
-+      await dispatchRecordedRun({ project, context: stored.context, target: stored.target, checkCurrent,
-+        create: async (input) => { const result = await createThread({ environmentId: stored.target.environmentId, input }); if (result._tag !== "Success") throw new Error("Native create outcome unconfirmed. Resume with the original command identity."); },
-+        bind: async () => { await request(`/loop/runs/${encodeURIComponent(id)}/bind`, controller, { thread_ref: stored.target.threadId, environment_id: stored.target.environmentId }); },
-+        authorize: async () => {
-+          await request(`/loop/runs/${encodeURIComponent(id)}/dispatch/authorize`, controller, { packageId: stored.context.packageId, target: stored.target });
-+          const state = decodeDispatchState(await request(`/loop/runs/${encodeURIComponent(id)}/dispatch`, controller));
-+          setDispatchState(state);
-+          if (state.resolution || state.cancellation || state.stopConfirmation) throw new Error("Dispatch resolved, cancelled or confirmed stopped before native start");
++      await dispatchRecordedRun({
++        project,
++        context: stored.context,
++        target: stored.target,
++        checkCurrent,
++        create: async (input) => {
++          const result = await createThread({ environmentId: stored.target.environmentId, input });
++          if (result._tag !== "Success")
++            throw new Error(
++              "Native create outcome unconfirmed. Resume with the original command identity.",
++            );
 +        },
-+        start: async (input) => { const result = await startTurn({ environmentId: stored.target.environmentId, input }); if (result._tag !== "Success") throw new Error("Native start outcome unconfirmed. Resume with the original command identity."); },
++        bind: async () => {
++          await request(`/loop/runs/${encodeURIComponent(id)}/bind`, controller, {
++            thread_ref: stored.target.threadId,
++            environment_id: stored.target.environmentId,
++          });
++        },
++        authorize: async () => {
++          await request(`/loop/runs/${encodeURIComponent(id)}/dispatch/authorize`, controller, {
++            packageId: stored.context.packageId,
++            target: stored.target,
++          });
++          const state = decodeDispatchState(
++            await request(`/loop/runs/${encodeURIComponent(id)}/dispatch`, controller),
++          );
++          setDispatchState(state);
++          if (state.resolution || state.cancellation || state.stopConfirmation)
++            throw new Error(
++              "Dispatch resolved, cancelled or confirmed stopped before native start",
++            );
++        },
++        start: async (input) => {
++          const result = await startTurn({ environmentId: stored.target.environmentId, input });
++          if (result._tag !== "Success")
++            throw new Error(
++              "Native start outcome unconfirmed. Resume with the original command identity.",
++            );
++        },
 +      });
-+      setPending(null); setRunId(id);
-+      setReceipt(text("T3 已接受命令；不代表模型已经开始执行。", "T3 accepted the command; this does not prove the model has started."));
++      setPending(null);
++      setRunId(id);
++      setReceipt(
++        text(
++          "T3 已接受命令；不代表模型已经开始执行。",
++          "T3 accepted the command; this does not prove the model has started.",
++        ),
++      );
 +      onChanged();
-+    } catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+    finally { if (!controller.signal.aborted) { inFlight.current = false; setBusy(false); } }
++    } catch (cause) {
++      if (!controller.signal.aborted) setError(String(cause));
++    } finally {
++      if (!controller.signal.aborted) {
++        inFlight.current = false;
++        setBusy(false);
++      }
++    }
 +  }
 +  async function login() {
 +    const controller = scope.current;
 +    if (!controller || busy) return;
-+    setBusy(true); setError("");
-+    try { await request("/api/auth/login", controller, { key }); setNeedsLogin(false); if (runId) await load(runId, controller); }
-+    catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+    finally { if (!controller.signal.aborted) { setBusy(false); setKey(""); } }
++    setBusy(true);
++    setError("");
++    try {
++      await request("/api/auth/login", controller, { key });
++      setNeedsLogin(false);
++      if (runId) await load(runId, controller);
++    } catch (cause) {
++      if (!controller.signal.aborted) setError(String(cause));
++    } finally {
++      if (!controller.signal.aborted) {
++        setBusy(false);
++        setKey("");
++      }
++    }
 +  }
 +  async function resolve() {
 +    const controller = scope.current;
 +    if (!controller || busy || !context || !dispatchState?.admission || !note.trim()) return;
-+    setBusy(true); setError("");
++    setBusy(true);
++    setError("");
 +    try {
-+      await request(`/loop/runs/${encodeURIComponent(context.runId)}/dispatch/resolve`, controller, { admissionId: dispatchState.admission.id, kind: resolutionKind, note: note.trim() });
-+      await load(context.runId, controller); onChanged();
-+    } catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+    finally { if (!controller.signal.aborted) setBusy(false); }
++      await request(
++        `/loop/runs/${encodeURIComponent(context.runId)}/dispatch/resolve`,
++        controller,
++        { admissionId: dispatchState.admission.id, kind: resolutionKind, note: note.trim() },
++      );
++      await load(context.runId, controller);
++      onChanged();
++    } catch (cause) {
++      if (!controller.signal.aborted) setError(String(cause));
++    } finally {
++      if (!controller.signal.aborted) setBusy(false);
++    }
 +  }
 +  async function abortPendingPreparation() {
 +    const controller = scope.current;
 +    if (!controller || busy || !pending || context || !note.trim()) return;
 +    const original = { ...pending, abortNote: pending.abortNote ?? note.trim() };
-+    setBusy(true); setReviewed(false); setError("");
++    setBusy(true);
++    setReviewed(false);
++    setError("");
 +    try {
-+      savePendingDispatch(localStorage, original); setPending(original);
-+      const result = await request<{ idempotencyKey: string; runId: string | null; replayed: boolean }>("/loop/preparations/abort", controller, { taskSlug, workspace: original.target.workspace, idempotencyKey: original.key, target: original.target, note: original.abortNote });
++      savePendingDispatch(localStorage, original);
++      setPending(original);
++      const result = await request<{
++        idempotencyKey: string;
++        runId: string | null;
++        replayed: boolean;
++      }>("/loop/preparations/abort", controller, {
++        taskSlug,
++        workspace: original.target.workspace,
++        idempotencyKey: original.key,
++        target: original.target,
++        note: original.abortNote,
++      });
 +      controller.signal.throwIfAborted();
-+      if (result.idempotencyKey !== original.key || typeof result.replayed !== "boolean" || (result.runId !== null && (typeof result.runId !== "string" || !result.runId))) throw new Error("Invalid preparation abort receipt");
-+      setReceipt(text("原准备请求已封存；不是宿主停止证明。", "Original preparation fenced; this is not host-stop evidence."));
-+      if (result.runId) { await load(result.runId, controller); setRunId(result.runId); }
-+      else {
++      if (
++        result.idempotencyKey !== original.key ||
++        typeof result.replayed !== "boolean" ||
++        (result.runId !== null && (typeof result.runId !== "string" || !result.runId))
++      )
++        throw new Error("Invalid preparation abort receipt");
++      setReceipt(
++        text(
++          "原准备请求已封存；不是宿主停止证明。",
++          "Original preparation fenced; this is not host-stop evidence.",
++        ),
++      );
++      if (result.runId) {
++        await load(result.runId, controller);
++        setRunId(result.runId);
++      } else {
 +        const saved = readPendingDispatch(localStorage);
-+        if (saved?.project === project && saved.taskSlug === taskSlug && saved.key === original.key) localStorage.removeItem(DISPATCH_STORAGE_KEY);
-+        setPending(null); onRecoveryCleared(); setNewAttempt(true);
++        if (saved?.project === project && saved.taskSlug === taskSlug && saved.key === original.key)
++          localStorage.removeItem(DISPATCH_STORAGE_KEY);
++        setPending(null);
++        onRecoveryCleared();
++        setNewAttempt(true);
 +      }
 +      onChanged();
 +    } catch (cause) {
 +      if (!controller.signal.aborted) {
 +        setError(String(cause));
 +        const details = cause instanceof DispatchHTTPError ? cause.details : null;
-+        if (cause instanceof DispatchHTTPError && cause.status === 428 && details && typeof details === "object" && "idempotencyKey" in details && details.idempotencyKey === original.key && "runId" in details && typeof details.runId === "string" && details.runId) {
-+          try { await load(details.runId, controller); setRunId(details.runId); onChanged(); }
-+          catch (readError) { if (!controller.signal.aborted) setError(String(readError)); }
++        if (
++          cause instanceof DispatchHTTPError &&
++          cause.status === 428 &&
++          details &&
++          typeof details === "object" &&
++          "idempotencyKey" in details &&
++          details.idempotencyKey === original.key &&
++          "runId" in details &&
++          typeof details.runId === "string" &&
++          details.runId
++        ) {
++          try {
++            await load(details.runId, controller);
++            setRunId(details.runId);
++            onChanged();
++          } catch (readError) {
++            if (!controller.signal.aborted) setError(String(readError));
++          }
 +        }
 +      }
-+    } finally { if (!controller.signal.aborted) setBusy(false); }
++    } finally {
++      if (!controller.signal.aborted) setBusy(false);
++    }
 +  }
 +  async function cancelPreparation() {
 +    const controller = scope.current;
-+    if (!controller || busy || !context || !dispatchState || dispatchState.admission || dispatchState.cancellation || !note.trim()) return;
++    if (
++      !controller ||
++      busy ||
++      !context ||
++      !dispatchState ||
++      dispatchState.admission ||
++      dispatchState.cancellation ||
++      !note.trim()
++    )
++      return;
 +    const rawBound = taskRuns.some((run) => run.id === context.runId && run.state === "bound");
-+    const lines = (value: string) => value.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
-+    const summary = rawSummaryKind === "progress" && rawEventId.trim() ? { kind: "progress" as const, eventId: rawEventId.trim() }
-+      : rawSummaryKind === "human_substitute" && rawStatement.trim() && lines(rawSources).length && lines(rawMissing).length
-+        ? { kind: "human_substitute" as const, humanSubstitute: { statement: rawStatement.trim(), sourceRefs: lines(rawSources), missingInfo: lines(rawMissing) } }
-+        : null;
++    const lines = (value: string) =>
++      value
++        .split(/\r?\n/)
++        .map((line) => line.trim())
++        .filter(Boolean);
++    const summary =
++      rawSummaryKind === "progress" && rawEventId.trim()
++        ? { kind: "progress" as const, eventId: rawEventId.trim() }
++        : rawSummaryKind === "human_substitute" &&
++            rawStatement.trim() &&
++            lines(rawSources).length &&
++            lines(rawMissing).length
++          ? {
++              kind: "human_substitute" as const,
++              humanSubstitute: {
++                statement: rawStatement.trim(),
++                sourceRefs: lines(rawSources),
++                missingInfo: lines(rawMissing),
++              },
++            }
++          : null;
 +    if (rawBound && (!target || !rawStopped || !summary)) return;
-+    const rawHandoff: WorkbenchRawPreparationHandoff | undefined = rawBound ? { environmentId: target!.environmentId, threadId: target!.threadId, summary: summary! } : undefined;
-+    setBusy(true); setReviewed(false); setError("");
++    const rawHandoff: WorkbenchRawPreparationHandoff | undefined = rawBound
++      ? { environmentId: target!.environmentId, threadId: target!.threadId, summary: summary! }
++      : undefined;
++    setBusy(true);
++    setReviewed(false);
++    setError("");
 +    try {
-+      const receipt = await request<{ recorded: boolean }>(`/loop/runs/${encodeURIComponent(context.runId)}/dispatch/cancel-preparation`, controller,
-+        { packageId: context.packageId, note: note.trim(), ...(rawHandoff ? { rawHandoff } : {}) });
-+      if (receipt.recorded !== true) throw new Error("Invalid original preparation cancellation receipt");
++      const receipt = await request<{ recorded: boolean }>(
++        `/loop/runs/${encodeURIComponent(context.runId)}/dispatch/cancel-preparation`,
++        controller,
++        { packageId: context.packageId, note: note.trim(), ...(rawHandoff ? { rawHandoff } : {}) },
++      );
++      if (receipt.recorded !== true)
++        throw new Error("Invalid original preparation cancellation receipt");
 +      const observed = await load(context.runId, controller);
-+      if (!observed.state.cancellation || observed.state.cancellation.note !== note.trim() ||
-+        (rawHandoff && JSON.stringify(observed.state.cancellation.rawHandoff) !== JSON.stringify(rawHandoff))) throw new Error("Original cancellation evidence was not observed");
++      if (
++        !observed.state.cancellation ||
++        observed.state.cancellation.note !== note.trim() ||
++        (rawHandoff &&
++          JSON.stringify(observed.state.cancellation.rawHandoff) !== JSON.stringify(rawHandoff))
++      )
++        throw new Error("Original cancellation evidence was not observed");
 +      onChanged();
-+    } catch (cause) { if (!controller.signal.aborted) setError(text("原取消结果未确认；请刷新原执行核对：", "Original cancellation outcome unconfirmed; refresh the original run: ") + String(cause)); }
-+    finally { if (!controller.signal.aborted) setBusy(false); }
++    } catch (cause) {
++      if (!controller.signal.aborted)
++        setError(
++          text(
++            "原取消结果未确认；请刷新原执行核对：",
++            "Original cancellation outcome unconfirmed; refresh the original run: ",
++          ) + String(cause),
++        );
++    } finally {
++      if (!controller.signal.aborted) setBusy(false);
++    }
 +  }
-+  const nativeThread = target && threads.find((thread) => thread.environmentId === target.environmentId && thread.id === target.threadId && thread.projectId === target.projectId);
-+  const liveStopped = connected && nativeThread?.session?.status === "stopped" && nativeThread.session.activeTurnId === null;
++  const nativeThread =
++    target &&
++    threads.find(
++      (thread) =>
++        thread.environmentId === target.environmentId &&
++        thread.id === target.threadId &&
++        thread.projectId === target.projectId,
++    );
++  const liveStopped =
++    connected &&
++    nativeThread?.session?.status === "stopped" &&
++    nativeThread.session.activeTurnId === null;
 +  async function requestStop() {
 +    const controller = scope.current;
-+    if (!controller || inFlight.current || busy || !target || !nativeThread || !connected || !dispatchState?.admission || dispatchState.stopConfirmation) return;
-+    inFlight.current = true; setBusy(true); setError(""); setReceipt("");
++    if (
++      !controller ||
++      inFlight.current ||
++      busy ||
++      !target ||
++      !nativeThread ||
++      !connected ||
++      !dispatchState?.admission ||
++      dispatchState.stopConfirmation
++    )
++      return;
++    inFlight.current = true;
++    setBusy(true);
++    setError("");
++    setReceipt("");
 +    try {
-+      const result = await stopSession({ environmentId: target.environmentId, input: { threadId: target.threadId } });
++      const result = await stopSession({
++        environmentId: target.environmentId,
++        input: { threadId: target.threadId },
++      });
 +      controller.signal.throwIfAborted();
 +      if (result._tag !== "Success") throw squashAtomCommandFailure(result);
-+      setReceipt(text("停止命令已受理；不代表会话已停止，请等待实时会话状态。", "Stop command accepted; this does not prove the session stopped. Wait for live session status."));
-+    } catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+    finally { if (!controller.signal.aborted) { inFlight.current = false; setBusy(false); } }
++      setReceipt(
++        text(
++          "停止命令已受理；不代表会话已停止，请等待实时会话状态。",
++          "Stop command accepted; this does not prove the session stopped. Wait for live session status.",
++        ),
++      );
++    } catch (cause) {
++      if (!controller.signal.aborted) setError(String(cause));
++    } finally {
++      if (!controller.signal.aborted) {
++        inFlight.current = false;
++        setBusy(false);
++      }
++    }
 +  }
 +  async function confirmStopped() {
 +    const controller = scope.current;
-+    if (!controller || inFlight.current || busy || !context || !target || !dispatchState?.admission || dispatchState.stopConfirmation || !liveStopped || !stopNote.trim() || stopNote.trim().length > 4000) return;
-+    inFlight.current = true; setBusy(true); setError(""); setReceipt("");
++    if (
++      !controller ||
++      inFlight.current ||
++      busy ||
++      !context ||
++      !target ||
++      !dispatchState?.admission ||
++      dispatchState.stopConfirmation ||
++      !liveStopped ||
++      !stopNote.trim() ||
++      stopNote.trim().length > 4000
++    )
++      return;
++    inFlight.current = true;
++    setBusy(true);
++    setError("");
++    setReceipt("");
 +    try {
-+      await request(`/loop/runs/${encodeURIComponent(context.runId)}/dispatch/confirm-stopped`, controller,
-+        { admissionId: dispatchState.admission.id, environmentId: target.environmentId, threadId: target.threadId, note: stopNote.trim() });
++      await request(
++        `/loop/runs/${encodeURIComponent(context.runId)}/dispatch/confirm-stopped`,
++        controller,
++        {
++          admissionId: dispatchState.admission.id,
++          environmentId: target.environmentId,
++          threadId: target.threadId,
++          note: stopNote.trim(),
++        },
++      );
 +      const stored = await load(context.runId, controller);
-+      if (!stored.state.stopConfirmation) throw new Error("Stop confirmation was not returned by the run record");
-+      setReceipt(text("人工停止确认已记录；不是独立宿主证明，也未使节点失效。", "Operator stop confirmation recorded; not independent host proof, and the node has not been abandoned."));
++      if (!stored.state.stopConfirmation)
++        throw new Error("Stop confirmation was not returned by the run record");
++      setReceipt(
++        text(
++          "人工停止确认已记录；不是独立宿主证明，也未使节点失效。",
++          "Operator stop confirmation recorded; not independent host proof, and the node has not been abandoned.",
++        ),
++      );
 +      onChanged();
-+    } catch (cause) { if (!controller.signal.aborted) setError(text("停止确认结果未确认；请刷新执行记录核对：", "Stop confirmation outcome unconfirmed; refresh the run record to check: ") + String(cause)); }
-+    finally { if (!controller.signal.aborted) { inFlight.current = false; setBusy(false); } }
++    } catch (cause) {
++      if (!controller.signal.aborted)
++        setError(
++          text(
++            "停止确认结果未确认；请刷新执行记录核对：",
++            "Stop confirmation outcome unconfirmed; refresh the run record to check: ",
++          ) + String(cause),
++        );
++    } finally {
++      if (!controller.signal.aborted) {
++        inFlight.current = false;
++        setBusy(false);
++      }
++    }
 +  }
-+  return <div className="space-y-3 text-sm">
-+    {taskRuns.length > 0 ? <label className="block">{text("恢复原执行", "Resume recorded run")}
-+      <select className="ml-2 max-w-full rounded border bg-background p-1" disabled={busy || !!pending} value={runId || context?.runId || ""}
-+        onChange={(event) => { setRunId(event.target.value); setNewAttempt(false); setError(""); setReceipt(""); }}>
-+        <option value="">{text("选择原执行", "Select recorded run")}</option>
-+        {taskRuns.map((run) => <option key={run.id} value={run.id}>{run.id} · {run.state}</option>)}
-+      </select>
-+    </label> : null}
-+    <p className="break-all">{selection ? `${selection.instanceId} / ${selection.model}` : text("未配置默认模型", "No default model configured")} · {target?.runtimeMode ?? resolved.settings.defaultRuntimeMode}</p>
-+    <p className="break-all">{text("模型选项", "Model options")}: {dispatchOptions?.length ? JSON.stringify(dispatchOptions) : text("未指定；使用原生默认值", "Unspecified; native defaults")}{injectedEffort ? ` · ${injectedEffort}` : ""}</p>
-+    <WorkbenchWorkspacePicker nativeProject={nativeProject} value={workspaceSelection} disabled={busy || !!pending || !!recordedTarget || !!runId}
-+      onChange={(value) => { setWorkspaceSelection(value); setReviewed(false); }} />
-+    <label className="block">{text("本次派单职责", "Dispatch responsibility")}
-+      <select aria-label={text("本次派单职责", "Dispatch responsibility")} className="mt-1 block w-full rounded border bg-background p-2"
-+        value={target ? target.assignmentRole ?? "" : runId ? "" : assignmentRole}
++  return (
++    <div className="space-y-3 text-sm">
++      {taskRuns.length > 0 ? (
++        <label className="block">
++          {text("恢复原执行", "Resume recorded run")}
++          <select
++            className="ml-2 max-w-full rounded border bg-background p-1"
++            disabled={busy || !!pending}
++            value={runId || context?.runId || ""}
++            onChange={(event) => {
++              setRunId(event.target.value);
++              setNewAttempt(false);
++              setError("");
++              setReceipt("");
++            }}
++          >
++            <option value="">{text("选择原执行", "Select recorded run")}</option>
++            {taskRuns.map((run) => (
++              <option key={run.id} value={run.id}>
++                {run.id} · {run.state}
++              </option>
++            ))}
++          </select>
++        </label>
++      ) : null}
++      <p className="break-all">
++        {selection
++          ? `${selection.instanceId} / ${selection.model}`
++          : text("未配置默认模型", "No default model configured")}{" "}
++        · {target?.runtimeMode ?? resolved.settings.defaultRuntimeMode}
++      </p>
++      <p className="break-all">
++        {text("模型选项", "Model options")}:{" "}
++        {dispatchOptions?.length
++          ? JSON.stringify(dispatchOptions)
++          : text("未指定；使用原生默认值", "Unspecified; native defaults")}
++        {injectedEffort ? ` · ${injectedEffort}` : ""}
++      </p>
++      <WorkbenchWorkspacePicker
++        nativeProject={nativeProject}
++        value={workspaceSelection}
 +        disabled={busy || !!pending || !!recordedTarget || !!runId}
-+        onChange={(event) => { setAssignmentRole(event.target.value as AssignmentRole); setReviewed(false); }}>
-+        {(target && target.assignmentRole === undefined) || (!target && runId) ? <option value="">{text("未记录职责", "No recorded responsibility")}</option> : null}
-+        {ASSIGNMENT_ROLES.map((role) => <option key={role} value={role}>{({
-+          manager: text("项目管理", "Manager"), knowledge: text("知识维护", "Knowledge maintainer"),
-+          executor: text("设计与执行", "Design and execution"), reviewer: text("证据审核", "Reviewer"),
-+        })[role]}</option>)}
-+      </select>
-+    </label>
-+    <label className="block">{text("本次工作目的", "Work purpose")}
-+      <select aria-label={text("本次工作目的", "Work purpose")} className="mt-1 block w-full rounded border bg-background p-2"
-+        value={displayedPurpose}
-+        disabled={busy || !!pending || !!recordedTarget || !!runId}
-+        onChange={(event) => { setWorkPurpose(event.target.value as WorkPurpose | ""); setRequirementIds(""); setDesignIds(""); setQaDraft(EMPTY_QA_BASIS); setReviewed(false); }}>
-+        <option value="">{target || runId ? text("未知（未记录工作目的）", "Unknown (no recorded work purpose)") : text("选择工作目的", "Select work purpose")}</option>
-+        {WORK_PURPOSES.map((purpose) => <option key={purpose} value={purpose}>{({
-+          requirements: text("需求编写", "Requirements"), requirements_review: text("需求审核", "Requirements review"),
-+          design: text("设计", "Design"), design_review: text("设计审核", "Design review"),
-+          test_design: text("测试设计", "Test design"), implementation: text("代码实现", "Implementation"),
-+          test_execution: text("测试执行", "Test execution"), investigation: text("调查研究", "Investigation"),
-+          coordination: text("组织协调", "Coordination"), knowledge: text("知识维护", "Knowledge maintenance"),
-+        })[purpose]}</option>)}
-+      </select>
-+    </label>
-+    {(needsQABasis || target?.qaBasis) && <fieldset disabled={formFrozen} className="min-w-0 space-y-2 border-t pt-3" aria-label={text("工作包前置依据", "QA basis")}>
-+      <legend>{text("工作包前置依据", "QA basis")}</legend>
-+      {!displayedBasis ? <p>{text("未记录前置依据", "No recorded QA basis")}</p> : <>
-+        {(displayedPurpose !== "test_execution" || displayedBasis.requirementDecisionIds.length > 0) && <label className="block">{text("需求批准决定 ID（非请求 ID）", "Requirement approval decision IDs (not request IDs)")}<input aria-label="Requirement approval decision IDs" className="block w-full rounded border bg-background p-2" disabled={formFrozen} value={target ? displayedBasis.requirementDecisionIds.join(", ") : requirementIds}
-+          onChange={(event) => { setRequirementIds(event.target.value); setReviewed(false); }} /></label>}
-+        {(displayedPurpose === "implementation" || displayedBasis.designDecisionIds.length > 0) && <label className="block">{text("设计批准决定 ID（非请求 ID）", "Design approval decision IDs (not request IDs)")}<input aria-label="Design approval decision IDs" className="block w-full rounded border bg-background p-2" disabled={formFrozen} value={target ? displayedBasis.designDecisionIds.join(", ") : designIds}
-+          onChange={(event) => { setDesignIds(event.target.value); setReviewed(false); }} /></label>}
-+        {(["designSources", "testPlanSources"] as const).filter((group) => displayedBasis[group].length > 0 || (group === "designSources" ? displayedPurpose === "test_design" : displayedPurpose === "implementation" || displayedPurpose === "test_execution")).map((group) => {
-+          const label = group === "designSources" ? text("设计来源", "Design sources") : text("测试计划来源", "Test plan sources");
-+          return <fieldset key={group} className="min-w-0 space-y-2" aria-label={label}>
-+            <legend>{label}</legend>
-+            {displayedBasis[group].map((source, index) => <div key={index} className="space-y-1 border-b py-2">
-+              <ReviewSourceFields source={source} slug={taskSlug} labelPrefix={`${group} ${index + 1}`} language={language} disabled={formFrozen}
-+                onChange={(value) => { setQaDraft((current) => ({ ...current, [group]: current[group].map((row, i) => i === index ? value : row) })); setReviewed(false); }} />
-+              {source.kind === "specgraph" && <button type="button" className="wb-button" disabled={formFrozen || !source.specSlug.trim() || !source.field.trim()} onClick={() => void useCurrentSource(group, index, source)}><RefreshCw size={14} />{text("采用当前已记录来源", "Use recorded current source")}</button>}
-+              <button type="button" className="wb-button" disabled={formFrozen} aria-label={`${text("删除", "Remove")} ${label} ${index + 1}`} onClick={() => { setQaDraft((current) => ({ ...current, [group]: current[group].filter((_, i) => i !== index) })); setReviewed(false); }}><Trash2 size={14} /></button>
-+            </div>)}
-+            <button type="button" className="wb-button" disabled={formFrozen} aria-label={`${text("添加", "Add")} ${label}`} onClick={() => { setQaDraft((current) => ({ ...current, [group]: [...current[group], { kind: "specgraph", specSlug: taskSlug, field: "", changeId: "" }] })); setReviewed(false); }}><Plus size={14} /></button>
-+          </fieldset>;
-+        })}
-+        <label className="block">{text("本次适用范围", "Applicability to this work")}<textarea aria-label="QA applicability" className="block w-full rounded border bg-background p-2" disabled={formFrozen} maxLength={4000} value={displayedBasis.applicability}
-+          onChange={(event) => { setQaDraft((current) => ({ ...current, applicability: event.target.value })); setReviewed(false); }} /></label>
-+      </>}
-+    </fieldset>}
-+    {unavailable ? <p role="alert">{unavailable}</p> : null}
-+    {error ? <p role="alert" className="break-words text-destructive">{error}</p> : null}
-+    {receipt ? <p role="status">{receipt}</p> : null}
-+    {context ? <button type="button" className="wb-button" disabled={busy} onClick={async () => {
-+      const controller = scope.current;
-+      if (!controller) return;
-+      setBusy(true); setError("");
-+      try { await load(context.runId, controller); }
-+      catch (cause) { if (!controller.signal.aborted) setError(String(cause)); }
-+      finally { if (!controller.signal.aborted) setBusy(false); }
-+    }}><RefreshCw size={14} />{text("刷新执行记录", "Refresh run record")}</button> : null}
-+    {needsLogin ? <div className="flex flex-wrap gap-2"><input aria-label={text("访问密钥", "Access key")} type="password" value={key} autoComplete="off" onChange={(event) => setKey(event.target.value)} /><button type="button" className="wb-button" disabled={busy || !key} onClick={() => void login()}><LogIn size={14} />{text("登录", "Sign in")}</button></div> : null}
-+    {ownerHold && <p role="status">{text("该节点有人工负责人或待接手；不可新建或继续派发。原执行读取、停止及释放仍可操作。", "This node has a human owner or pending takeover; no new or resumed dispatch. Original run read, stop and release remain available.")}</p>}
-+    <label className="flex items-start gap-2"><input type="checkbox" checked={reviewed} disabled={busy || ownerHold} onChange={(event) => setReviewed(event.target.checked)} /><span>{text("确认以上项目、现有目录、模型及权限设置，并派发当前任务。", "Confirm the project, existing checkout, model and permission settings for this task.")}</span></label>
-+    <button type="button" className="wb-button" disabled={busy || ownerHold || !reviewed || !!unavailable || !!pending?.abortNote || (!runId && !context && taskRuns.length > 0 && !pending && !newAttempt) || (runId !== "" && !context) || !!dispatchState?.resolution || !!dispatchState?.cancellation || !!dispatchState?.stopConfirmation} onClick={() => void submit()}>{pending || runId || context ? <RefreshCw size={14} /> : <Play size={14} />}{pending || runId || context ? text("恢复原派发", "Resume original dispatch") : text("创建并派发", "Create and dispatch")}</button>
-+    {pending && !context ? <div className="space-y-2 border-t pt-3">
-+      <input aria-label={text("封存原请求原因", "Original request abort reason")} maxLength={4000} value={note} disabled={busy || !!pending.abortNote} onChange={(event) => setNote(event.target.value)} />
-+      <button type="button" className="wb-button" disabled={busy || !note.trim()} onClick={() => void abortPendingPreparation()}><ShieldCheck size={14} />{text("封存原准备请求", "Fence original preparation")}</button>
-+    </div> : null}
-+    {dispatchState?.resolution || dispatchState?.cancellation || dispatchState?.stopConfirmation ? <button type="button" className="wb-button" disabled={busy || ownerHold} onClick={() => { setNewAttempt(true); setRunId(""); setContext(null); setRecordedTarget(null); setDispatchState(null); setAssignmentRole("executor"); setWorkPurpose(""); setRequirementIds(""); setDesignIds(""); setQaDraft(EMPTY_QA_BASIS); setReviewed(false); setReceipt(""); setError(""); }}><Play size={14} />{text("审核新的执行尝试", "Review a new attempt")}</button> : null}
-+    {dispatchState?.cancellation ? <div className="space-y-1"><p>{text("准备已取消（不表示宿主停止）", "Preparation cancelled (not a host-stop assertion)")} · {dispatchState.cancellation.actor} · {dispatchState.cancellation.note}</p>
-+      {dispatchState.cancellation.rawHandoff && <pre className="overflow-auto whitespace-pre-wrap break-words text-xs">{JSON.stringify(dispatchState.cancellation.rawHandoff, null, 2)}</pre>}</div> : null}
-+    {context && dispatchState && !dispatchState.admission && !dispatchState.cancellation ? <div className="space-y-2 border-t pt-3">
-+      {taskRuns.some((run) => run.id === context.runId && run.state === "bound") && <fieldset className="space-y-2" disabled={busy}>
-+        <legend>{text("原raw绑定交接", "Original raw binding handoff")}</legend>
-+        <p className="break-all">{target?.environmentId} / {target?.threadId}</p>
-+        <label>{text("原事实或人工补述", "Original fact or human substitute")}<select aria-label="Raw handoff summary kind" value={rawSummaryKind} onChange={(event) => setRawSummaryKind(event.target.value as typeof rawSummaryKind)}>
-+          <option value="">-</option><option value="progress">{text("原进展事件", "Original progress event")}</option><option value="human_substitute">{text("人工补述", "Human substitute")}</option></select></label>
-+        {rawSummaryKind === "progress" && <label>{text("原进展事件 ID", "Original progress event ID")}<input aria-label="Raw handoff progress event ID" className="block w-full" value={rawEventId} onChange={(event) => setRawEventId(event.target.value)} /></label>}
-+        {rawSummaryKind === "human_substitute" && <>
-+          <label>{text("人工补述", "Human statement")}<textarea aria-label="Raw handoff statement" className="block w-full" value={rawStatement} onChange={(event) => setRawStatement(event.target.value)} /></label>
-+          <label>{text("依据来源，每行一条", "Source references, one per line")}<textarea aria-label="Raw handoff source references" className="block w-full" value={rawSources} onChange={(event) => setRawSources(event.target.value)} /></label>
-+          <label>{text("缺失信息，每行一条", "Missing information, one per line")}<textarea aria-label="Raw handoff missing information" className="block w-full" value={rawMissing} onChange={(event) => setRawMissing(event.target.value)} /></label>
-+        </>}
-+        <label className="flex items-start gap-2"><input aria-label="Confirm original raw stopped" type="checkbox" checked={rawStopped} onChange={(event) => setRawStopped(event.target.checked)} />{text("我已核实原raw执行停止", "I verified the original raw execution stopped")}</label>
-+      </fieldset>}
-+      <input aria-label={taskRuns.some((run) => run.id === context.runId && run.state === "bound") ? text("原raw停止说明", "Original raw stop explanation") : text("取消准备原因", "Preparation cancellation reason")}
-+        maxLength={4000} value={note} onChange={(event) => setNote(event.target.value)} />
-+      <button type="button" className="wb-button" disabled={busy || !note.trim() || taskRuns.some((run) => run.id === context.runId && run.state === "bound") &&
-+        (!rawStopped || rawSummaryKind === "progress" && !rawEventId.trim() || rawSummaryKind === "human_substitute" &&
-+          (!rawStatement.trim() || !rawSources.trim() || !rawMissing.trim()) || !rawSummaryKind)} onClick={() => void cancelPreparation()}><ShieldCheck size={14} />{text("取消未获准的准备", "Cancel unadmitted preparation")}</button>
-+    </div> : null}
-+    {target ? <Link className="inline-flex items-center gap-1" to="/$environmentId/$threadId" params={buildThreadRouteParams({ environmentId: target.environmentId, threadId: target.threadId })}><ArrowUpRight size={14} />{text("查看 T3 原会话", "Open original T3 session")}</Link> : null}
-+    {dispatchState?.admission && target && <section className="space-y-2 border-t pt-3" aria-label={text("停止原执行", "Stop original execution")}>
-+      {dispatchState.stopConfirmation ? <p className="break-words">{text("人工停止确认", "Operator stop confirmation")} · {dispatchState.stopConfirmation.actor} · {dispatchState.stopConfirmation.confirmedAt} · {dispatchState.stopConfirmation.note}</p> : <>
-+        <p>{text("原会话实时状态", "Original session live status")}: {connected ? nativeThread?.session?.status ?? text("未知", "Unknown") : text("未实时连接，不能确认停止", "Not live; cannot confirm stopped")}</p>
-+        <button type="button" className="wb-button" disabled={busy || !connected || !nativeThread} onClick={() => void requestStop()}><Square size={14} />{text("请求停止原会话", "Request original session stop")}</button>
-+        <label>{text("停止确认依据", "Stop confirmation note")}<textarea className="block w-full rounded border bg-background p-2" maxLength={4000} value={stopNote} disabled={busy} onChange={(event) => setStopNote(event.target.value)} /></label>
-+        <button type="button" className="wb-button" disabled={busy || !liveStopped || !stopNote.trim()} onClick={() => void confirmStopped()}><ShieldCheck size={14} />{text("记录停止确认", "Record stop confirmation")}</button>
-+      </>}
-+    </section>}
-+    {dispatchState?.admission ? <div className="space-y-2 border-t pt-3">
-+      <p>{text("准入记录（不代表模型启动）", "Admission record (not model-start evidence)")}: {dispatchState.admission.id} · {dispatchState.admission.actor}</p>
-+      {dispatchState.resolution ? <p className="break-words">{dispatchState.resolution.kind} · {dispatchState.resolution.actor} · {dispatchState.resolution.note}</p> : <>
-+        <label className="block">{text("人工确认写入状态（不是宿主证明）", "Human assertion of writing state (not host proof)")}<select className="ml-2 rounded border bg-background p-1" value={resolutionKind} onChange={(event) => setResolutionKind(event.target.value as typeof resolutionKind)}><option value="stopped_writing">{text("已停止写入", "Stopped writing")}</option><option value="isolated_workspace">{text("已隔离工作区", "Workspace isolated")}</option></select></label>
-+        <input className="w-full rounded border bg-background p-2" aria-label={text("确认依据", "Assertion evidence")} value={note} onChange={(event) => setNote(event.target.value)} />
-+        <button type="button" className="wb-button" disabled={busy || !note.trim()} onClick={() => void resolve()}><ShieldCheck size={14} />{text("记录人工确认", "Record human assertion")}</button>
-+      </>}
-+    </div> : null}
-+  </div>;
++        onChange={(value) => {
++          setWorkspaceSelection(value);
++          setReviewed(false);
++        }}
++      />
++      <label className="block">
++        {text("本次派单职责", "Dispatch responsibility")}
++        <select
++          aria-label={text("本次派单职责", "Dispatch responsibility")}
++          className="mt-1 block w-full rounded border bg-background p-2"
++          value={target ? (target.assignmentRole ?? "") : runId ? "" : assignmentRole}
++          disabled={busy || !!pending || !!recordedTarget || !!runId}
++          onChange={(event) => {
++            setAssignmentRole(event.target.value as AssignmentRole);
++            setReviewed(false);
++          }}
++        >
++          {(target && target.assignmentRole === undefined) || (!target && runId) ? (
++            <option value="">{text("未记录职责", "No recorded responsibility")}</option>
++          ) : null}
++          {ASSIGNMENT_ROLES.map((role) => (
++            <option key={role} value={role}>
++              {
++                {
++                  manager: text("项目管理", "Manager"),
++                  knowledge: text("知识维护", "Knowledge maintainer"),
++                  executor: text("设计与执行", "Design and execution"),
++                  reviewer: text("证据审核", "Reviewer"),
++                }[role]
++              }
++            </option>
++          ))}
++        </select>
++      </label>
++      <label className="block">
++        {text("本次工作目的", "Work purpose")}
++        <select
++          aria-label={text("本次工作目的", "Work purpose")}
++          className="mt-1 block w-full rounded border bg-background p-2"
++          value={displayedPurpose}
++          disabled={busy || !!pending || !!recordedTarget || !!runId}
++          onChange={(event) => {
++            setWorkPurpose(event.target.value as WorkPurpose | "");
++            setRequirementIds("");
++            setDesignIds("");
++            setQaDraft(EMPTY_QA_BASIS);
++            setReviewed(false);
++          }}
++        >
++          <option value="">
++            {target || runId
++              ? text("未知（未记录工作目的）", "Unknown (no recorded work purpose)")
++              : text("选择工作目的", "Select work purpose")}
++          </option>
++          {WORK_PURPOSES.map((purpose) => (
++            <option key={purpose} value={purpose}>
++              {
++                {
++                  requirements: text("需求编写", "Requirements"),
++                  requirements_review: text("需求审核", "Requirements review"),
++                  design: text("设计", "Design"),
++                  design_review: text("设计审核", "Design review"),
++                  test_design: text("测试设计", "Test design"),
++                  implementation: text("代码实现", "Implementation"),
++                  test_execution: text("测试执行", "Test execution"),
++                  investigation: text("调查研究", "Investigation"),
++                  coordination: text("组织协调", "Coordination"),
++                  knowledge: text("知识维护", "Knowledge maintenance"),
++                }[purpose]
++              }
++            </option>
++          ))}
++        </select>
++      </label>
++      {(needsQABasis || target?.qaBasis) && (
++        <fieldset
++          disabled={formFrozen}
++          className="min-w-0 space-y-2 border-t pt-3"
++          aria-label={text("工作包前置依据", "QA basis")}
++        >
++          <legend>{text("工作包前置依据", "QA basis")}</legend>
++          {!displayedBasis ? (
++            <p>{text("未记录前置依据", "No recorded QA basis")}</p>
++          ) : (
++            <>
++              {(displayedPurpose !== "test_execution" ||
++                displayedBasis.requirementDecisionIds.length > 0) && (
++                <label className="block">
++                  {text(
++                    "需求批准决定 ID（非请求 ID）",
++                    "Requirement approval decision IDs (not request IDs)",
++                  )}
++                  <input
++                    aria-label="Requirement approval decision IDs"
++                    className="block w-full rounded border bg-background p-2"
++                    disabled={formFrozen}
++                    value={
++                      target ? displayedBasis.requirementDecisionIds.join(", ") : requirementIds
++                    }
++                    onChange={(event) => {
++                      setRequirementIds(event.target.value);
++                      setReviewed(false);
++                    }}
++                  />
++                </label>
++              )}
++              {(displayedPurpose === "implementation" ||
++                displayedBasis.designDecisionIds.length > 0) && (
++                <label className="block">
++                  {text(
++                    "设计批准决定 ID（非请求 ID）",
++                    "Design approval decision IDs (not request IDs)",
++                  )}
++                  <input
++                    aria-label="Design approval decision IDs"
++                    className="block w-full rounded border bg-background p-2"
++                    disabled={formFrozen}
++                    value={target ? displayedBasis.designDecisionIds.join(", ") : designIds}
++                    onChange={(event) => {
++                      setDesignIds(event.target.value);
++                      setReviewed(false);
++                    }}
++                  />
++                </label>
++              )}
++              {(["designSources", "testPlanSources"] as const)
++                .filter(
++                  (group) =>
++                    displayedBasis[group].length > 0 ||
++                    (group === "designSources"
++                      ? displayedPurpose === "test_design"
++                      : displayedPurpose === "implementation" ||
++                        displayedPurpose === "test_execution"),
++                )
++                .map((group) => {
++                  const label =
++                    group === "designSources"
++                      ? text("设计来源", "Design sources")
++                      : text("测试计划来源", "Test plan sources");
++                  return (
++                    <fieldset key={group} className="min-w-0 space-y-2" aria-label={label}>
++                      <legend>{label}</legend>
++                      {displayedBasis[group].map((source, index) => (
++                        <div key={index} className="space-y-1 border-b py-2">
++                          <ReviewSourceFields
++                            source={source}
++                            slug={taskSlug}
++                            labelPrefix={`${group} ${index + 1}`}
++                            language={language}
++                            disabled={formFrozen}
++                            onChange={(value) => {
++                              setQaDraft((current) => ({
++                                ...current,
++                                [group]: current[group].map((row, i) =>
++                                  i === index ? value : row,
++                                ),
++                              }));
++                              setReviewed(false);
++                            }}
++                          />
++                          {source.kind === "specgraph" && (
++                            <button
++                              type="button"
++                              className="wb-button"
++                              disabled={
++                                formFrozen || !source.specSlug.trim() || !source.field.trim()
++                              }
++                              onClick={() => void useCurrentSource(group, index, source)}
++                            >
++                              <RefreshCw size={14} />
++                              {text("采用当前已记录来源", "Use recorded current source")}
++                            </button>
++                          )}
++                          <button
++                            type="button"
++                            className="wb-button"
++                            disabled={formFrozen}
++                            aria-label={`${text("删除", "Remove")} ${label} ${index + 1}`}
++                            onClick={() => {
++                              setQaDraft((current) => ({
++                                ...current,
++                                [group]: current[group].filter((_, i) => i !== index),
++                              }));
++                              setReviewed(false);
++                            }}
++                          >
++                            <Trash2 size={14} />
++                          </button>
++                        </div>
++                      ))}
++                      <button
++                        type="button"
++                        className="wb-button"
++                        disabled={formFrozen}
++                        aria-label={`${text("添加", "Add")} ${label}`}
++                        onClick={() => {
++                          setQaDraft((current) => ({
++                            ...current,
++                            [group]: [
++                              ...current[group],
++                              { kind: "specgraph", specSlug: taskSlug, field: "", changeId: "" },
++                            ],
++                          }));
++                          setReviewed(false);
++                        }}
++                      >
++                        <Plus size={14} />
++                      </button>
++                    </fieldset>
++                  );
++                })}
++              <label className="block">
++                {text("本次适用范围", "Applicability to this work")}
++                <textarea
++                  aria-label="QA applicability"
++                  className="block w-full rounded border bg-background p-2"
++                  disabled={formFrozen}
++                  maxLength={4000}
++                  value={displayedBasis.applicability}
++                  onChange={(event) => {
++                    setQaDraft((current) => ({ ...current, applicability: event.target.value }));
++                    setReviewed(false);
++                  }}
++                />
++              </label>
++            </>
++          )}
++        </fieldset>
++      )}
++      {unavailable ? <p role="alert">{unavailable}</p> : null}
++      {error ? (
++        <p role="alert" className="break-words text-destructive">
++          {error}
++        </p>
++      ) : null}
++      {receipt ? <p role="status">{receipt}</p> : null}
++      {context ? (
++        <button
++          type="button"
++          className="wb-button"
++          disabled={busy}
++          onClick={async () => {
++            const controller = scope.current;
++            if (!controller) return;
++            setBusy(true);
++            setError("");
++            try {
++              await load(context.runId, controller);
++            } catch (cause) {
++              if (!controller.signal.aborted) setError(String(cause));
++            } finally {
++              if (!controller.signal.aborted) setBusy(false);
++            }
++          }}
++        >
++          <RefreshCw size={14} />
++          {text("刷新执行记录", "Refresh run record")}
++        </button>
++      ) : null}
++      {needsLogin ? (
++        <div className="flex flex-wrap gap-2">
++          <input
++            aria-label={text("访问密钥", "Access key")}
++            type="password"
++            value={key}
++            autoComplete="off"
++            onChange={(event) => setKey(event.target.value)}
++          />
++          <button
++            type="button"
++            className="wb-button"
++            disabled={busy || !key}
++            onClick={() => void login()}
++          >
++            <LogIn size={14} />
++            {text("登录", "Sign in")}
++          </button>
++        </div>
++      ) : null}
++      {ownerHold && (
++        <p role="status">
++          {text(
++            "该节点有人工负责人或待接手；不可新建或继续派发。原执行读取、停止及释放仍可操作。",
++            "This node has a human owner or pending takeover; no new or resumed dispatch. Original run read, stop and release remain available.",
++          )}
++        </p>
++      )}
++      <label className="flex items-start gap-2">
++        <input
++          type="checkbox"
++          checked={reviewed}
++          disabled={busy || ownerHold}
++          onChange={(event) => setReviewed(event.target.checked)}
++        />
++        <span>
++          {text(
++            "确认以上项目、现有目录、模型及权限设置，并派发当前任务。",
++            "Confirm the project, existing checkout, model and permission settings for this task.",
++          )}
++        </span>
++      </label>
++      <button
++        type="button"
++        className="wb-button"
++        disabled={
++          busy ||
++          ownerHold ||
++          !reviewed ||
++          !!unavailable ||
++          !!pending?.abortNote ||
++          (!runId && !context && taskRuns.length > 0 && !pending && !newAttempt) ||
++          (runId !== "" && !context) ||
++          !!dispatchState?.resolution ||
++          !!dispatchState?.cancellation ||
++          !!dispatchState?.stopConfirmation
++        }
++        onClick={() => void submit()}
++      >
++        {pending || runId || context ? <RefreshCw size={14} /> : <Play size={14} />}
++        {pending || runId || context
++          ? text("恢复原派发", "Resume original dispatch")
++          : text("创建并派发", "Create and dispatch")}
++      </button>
++      {pending && !context ? (
++        <div className="space-y-2 border-t pt-3">
++          <input
++            aria-label={text("封存原请求原因", "Original request abort reason")}
++            maxLength={4000}
++            value={note}
++            disabled={busy || !!pending.abortNote}
++            onChange={(event) => setNote(event.target.value)}
++          />
++          <button
++            type="button"
++            className="wb-button"
++            disabled={busy || !note.trim()}
++            onClick={() => void abortPendingPreparation()}
++          >
++            <ShieldCheck size={14} />
++            {text("封存原准备请求", "Fence original preparation")}
++          </button>
++        </div>
++      ) : null}
++      {dispatchState?.resolution ||
++      dispatchState?.cancellation ||
++      dispatchState?.stopConfirmation ? (
++        <button
++          type="button"
++          className="wb-button"
++          disabled={busy || ownerHold}
++          onClick={() => {
++            setNewAttempt(true);
++            setRunId("");
++            setContext(null);
++            setRecordedTarget(null);
++            setDispatchState(null);
++            setAssignmentRole("executor");
++            setWorkPurpose("");
++            setRequirementIds("");
++            setDesignIds("");
++            setQaDraft(EMPTY_QA_BASIS);
++            setReviewed(false);
++            setReceipt("");
++            setError("");
++          }}
++        >
++          <Play size={14} />
++          {text("审核新的执行尝试", "Review a new attempt")}
++        </button>
++      ) : null}
++      {dispatchState?.cancellation ? (
++        <div className="space-y-1">
++          <p>
++            {text(
++              "准备已取消（不表示宿主停止）",
++              "Preparation cancelled (not a host-stop assertion)",
++            )}{" "}
++            · {dispatchState.cancellation.actor} · {dispatchState.cancellation.note}
++          </p>
++          {dispatchState.cancellation.rawHandoff && (
++            <pre className="overflow-auto whitespace-pre-wrap break-words text-xs">
++              {JSON.stringify(dispatchState.cancellation.rawHandoff, null, 2)}
++            </pre>
++          )}
++        </div>
++      ) : null}
++      {context && dispatchState && !dispatchState.admission && !dispatchState.cancellation ? (
++        <div className="space-y-2 border-t pt-3">
++          {taskRuns.some((run) => run.id === context.runId && run.state === "bound") && (
++            <fieldset className="space-y-2" disabled={busy}>
++              <legend>{text("原raw绑定交接", "Original raw binding handoff")}</legend>
++              <p className="break-all">
++                {target?.environmentId} / {target?.threadId}
++              </p>
++              <label>
++                {text("原事实或人工补述", "Original fact or human substitute")}
++                <select
++                  aria-label="Raw handoff summary kind"
++                  value={rawSummaryKind}
++                  onChange={(event) =>
++                    setRawSummaryKind(event.target.value as typeof rawSummaryKind)
++                  }
++                >
++                  <option value="">-</option>
++                  <option value="progress">{text("原进展事件", "Original progress event")}</option>
++                  <option value="human_substitute">{text("人工补述", "Human substitute")}</option>
++                </select>
++              </label>
++              {rawSummaryKind === "progress" && (
++                <label>
++                  {text("原进展事件 ID", "Original progress event ID")}
++                  <input
++                    aria-label="Raw handoff progress event ID"
++                    className="block w-full"
++                    value={rawEventId}
++                    onChange={(event) => setRawEventId(event.target.value)}
++                  />
++                </label>
++              )}
++              {rawSummaryKind === "human_substitute" && (
++                <>
++                  <label>
++                    {text("人工补述", "Human statement")}
++                    <textarea
++                      aria-label="Raw handoff statement"
++                      className="block w-full"
++                      value={rawStatement}
++                      onChange={(event) => setRawStatement(event.target.value)}
++                    />
++                  </label>
++                  <label>
++                    {text("依据来源，每行一条", "Source references, one per line")}
++                    <textarea
++                      aria-label="Raw handoff source references"
++                      className="block w-full"
++                      value={rawSources}
++                      onChange={(event) => setRawSources(event.target.value)}
++                    />
++                  </label>
++                  <label>
++                    {text("缺失信息，每行一条", "Missing information, one per line")}
++                    <textarea
++                      aria-label="Raw handoff missing information"
++                      className="block w-full"
++                      value={rawMissing}
++                      onChange={(event) => setRawMissing(event.target.value)}
++                    />
++                  </label>
++                </>
++              )}
++              <label className="flex items-start gap-2">
++                <input
++                  aria-label="Confirm original raw stopped"
++                  type="checkbox"
++                  checked={rawStopped}
++                  onChange={(event) => setRawStopped(event.target.checked)}
++                />
++                {text("我已核实原raw执行停止", "I verified the original raw execution stopped")}
++              </label>
++            </fieldset>
++          )}
++          <input
++            aria-label={
++              taskRuns.some((run) => run.id === context.runId && run.state === "bound")
++                ? text("原raw停止说明", "Original raw stop explanation")
++                : text("取消准备原因", "Preparation cancellation reason")
++            }
++            maxLength={4000}
++            value={note}
++            onChange={(event) => setNote(event.target.value)}
++          />
++          <button
++            type="button"
++            className="wb-button"
++            disabled={
++              busy ||
++              !note.trim() ||
++              (taskRuns.some((run) => run.id === context.runId && run.state === "bound") &&
++                (!rawStopped ||
++                  (rawSummaryKind === "progress" && !rawEventId.trim()) ||
++                  (rawSummaryKind === "human_substitute" &&
++                    (!rawStatement.trim() || !rawSources.trim() || !rawMissing.trim())) ||
++                  !rawSummaryKind))
++            }
++            onClick={() => void cancelPreparation()}
++          >
++            <ShieldCheck size={14} />
++            {text("取消未获准的准备", "Cancel unadmitted preparation")}
++          </button>
++        </div>
++      ) : null}
++      {target ? (
++        <Link
++          className="inline-flex items-center gap-1"
++          to="/$environmentId/$threadId"
++          params={buildThreadRouteParams({
++            environmentId: target.environmentId,
++            threadId: target.threadId,
++          })}
++          onClick={saveWorkbenchReturn}
++        >
++          <ArrowUpRight size={14} />
++          {text("查看 T3 原会话", "Open original T3 session")}
++        </Link>
++      ) : null}
++      {dispatchState?.admission && target && (
++        <section
++          className="space-y-2 border-t pt-3"
++          aria-label={text("停止原执行", "Stop original execution")}
++        >
++          {dispatchState.stopConfirmation ? (
++            <p className="break-words">
++              {text("人工停止确认", "Operator stop confirmation")} ·{" "}
++              {dispatchState.stopConfirmation.actor} · {dispatchState.stopConfirmation.confirmedAt}{" "}
++              · {dispatchState.stopConfirmation.note}
++            </p>
++          ) : (
++            <>
++              <p>
++                {text("原会话实时状态", "Original session live status")}:{" "}
++                {connected
++                  ? (nativeThread?.session?.status ?? text("未知", "Unknown"))
++                  : text("未实时连接，不能确认停止", "Not live; cannot confirm stopped")}
++              </p>
++              <button
++                type="button"
++                className="wb-button"
++                disabled={busy || !connected || !nativeThread}
++                onClick={() => void requestStop()}
++              >
++                <Square size={14} />
++                {text("请求停止原会话", "Request original session stop")}
++              </button>
++              <label>
++                {text("停止确认依据", "Stop confirmation note")}
++                <textarea
++                  className="block w-full rounded border bg-background p-2"
++                  maxLength={4000}
++                  value={stopNote}
++                  disabled={busy}
++                  onChange={(event) => setStopNote(event.target.value)}
++                />
++              </label>
++              <button
++                type="button"
++                className="wb-button"
++                disabled={busy || !liveStopped || !stopNote.trim()}
++                onClick={() => void confirmStopped()}
++              >
++                <ShieldCheck size={14} />
++                {text("记录停止确认", "Record stop confirmation")}
++              </button>
++            </>
++          )}
++        </section>
++      )}
++      {dispatchState?.admission ? (
++        <div className="space-y-2 border-t pt-3">
++          <p>
++            {text("准入记录（不代表模型启动）", "Admission record (not model-start evidence)")}:{" "}
++            {dispatchState.admission.id} · {dispatchState.admission.actor}
++          </p>
++          {dispatchState.resolution ? (
++            <p className="break-words">
++              {dispatchState.resolution.kind} · {dispatchState.resolution.actor} ·{" "}
++              {dispatchState.resolution.note}
++            </p>
++          ) : (
++            <>
++              <label className="block">
++                {text(
++                  "人工确认写入状态（不是宿主证明）",
++                  "Human assertion of writing state (not host proof)",
++                )}
++                <select
++                  className="ml-2 rounded border bg-background p-1"
++                  value={resolutionKind}
++                  onChange={(event) =>
++                    setResolutionKind(event.target.value as typeof resolutionKind)
++                  }
++                >
++                  <option value="stopped_writing">{text("已停止写入", "Stopped writing")}</option>
++                  <option value="isolated_workspace">
++                    {text("已隔离工作区", "Workspace isolated")}
++                  </option>
++                </select>
++              </label>
++              <input
++                className="w-full rounded border bg-background p-2"
++                aria-label={text("确认依据", "Assertion evidence")}
++                value={note}
++                onChange={(event) => setNote(event.target.value)}
++              />
++              <button
++                type="button"
++                className="wb-button"
++                disabled={busy || !note.trim()}
++                onClick={() => void resolve()}
++              >
++                <ShieldCheck size={14} />
++                {text("记录人工确认", "Record human assertion")}
++              </button>
++            </>
++          )}
++        </div>
++      ) : null}
++    </div>
++  );
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchKnowledgeHandoff.test.tsx b/apps/web/src/components/workbench/WorkbenchKnowledgeHandoff.test.tsx
 new file mode 100644
-index 00000000..9b105693
+index 000000000..9b105693d
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchKnowledgeHandoff.test.tsx
 @@ -0,0 +1,79 @@
@@ -9886,7 +11077,7 @@ index 00000000..9b105693
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchPage.test.tsx b/apps/web/src/components/workbench/WorkbenchPage.test.tsx
 new file mode 100644
-index 00000000..6ac71d56
+index 000000000..6ac71d564
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchPage.test.tsx
 @@ -0,0 +1,1988 @@
@@ -11880,7 +13071,7 @@ index 00000000..6ac71d56
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchPage.tsx b/apps/web/src/components/workbench/WorkbenchPage.tsx
 new file mode 100644
-index 00000000..5d0e6274
+index 000000000..5d0e62745
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchPage.tsx
 @@ -0,0 +1,47 @@
@@ -11933,7 +13124,7 @@ index 00000000..5d0e6274
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchProgram.logic.ts b/apps/web/src/components/workbench/WorkbenchProgram.logic.ts
 new file mode 100644
-index 00000000..c3bd7ee9
+index 000000000..c3bd7ee98
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchProgram.logic.ts
 @@ -0,0 +1,65 @@
@@ -12004,7 +13195,7 @@ index 00000000..c3bd7ee9
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchProgram.test.tsx b/apps/web/src/components/workbench/WorkbenchProgram.test.tsx
 new file mode 100644
-index 00000000..40837a12
+index 000000000..40837a126
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchProgram.test.tsx
 @@ -0,0 +1,536 @@
@@ -12546,7 +13737,7 @@ index 00000000..40837a12
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchProgram.tsx b/apps/web/src/components/workbench/WorkbenchProgram.tsx
 new file mode 100644
-index 00000000..a5028710
+index 000000000..a5028710c
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchProgram.tsx
 @@ -0,0 +1,479 @@
@@ -13031,7 +14222,7 @@ index 00000000..a5028710
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchRepositorySearch.test.tsx b/apps/web/src/components/workbench/WorkbenchRepositorySearch.test.tsx
 new file mode 100644
-index 00000000..8bc1d9f0
+index 000000000..8bc1d9f02
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchRepositorySearch.test.tsx
 @@ -0,0 +1,90 @@
@@ -13127,7 +14318,7 @@ index 00000000..8bc1d9f0
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchRepositorySearch.tsx b/apps/web/src/components/workbench/WorkbenchRepositorySearch.tsx
 new file mode 100644
-index 00000000..dd41883f
+index 000000000..dd41883ff
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchRepositorySearch.tsx
 @@ -0,0 +1,129 @@
@@ -13262,7 +14453,7 @@ index 00000000..dd41883f
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchSessions.logic.test.ts b/apps/web/src/components/workbench/WorkbenchSessions.logic.test.ts
 new file mode 100644
-index 00000000..749b6cac
+index 000000000..749b6cac9
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchSessions.logic.test.ts
 @@ -0,0 +1,143 @@
@@ -13411,7 +14602,7 @@ index 00000000..749b6cac
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchSessions.logic.ts b/apps/web/src/components/workbench/WorkbenchSessions.logic.ts
 new file mode 100644
-index 00000000..403e8cfa
+index 000000000..403e8cfad
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchSessions.logic.ts
 @@ -0,0 +1,160 @@
@@ -13577,10 +14768,10 @@ index 00000000..403e8cfa
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchSessions.tsx b/apps/web/src/components/workbench/WorkbenchSessions.tsx
 new file mode 100644
-index 00000000..ee9a87a2
+index 000000000..222f72171
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchSessions.tsx
-@@ -0,0 +1,289 @@
+@@ -0,0 +1,580 @@
 +import { useAtomValue } from "@effect/atom-react";
 +import { useState } from "react";
 +import type { EnvironmentThreadShell } from "@t3tools/client-runtime/state/shell";
@@ -13602,9 +14793,20 @@ index 00000000..ee9a87a2
 +import { useRightPanelStore } from "~/rightPanelStore";
 +import { useDiffPanelStore } from "~/diffPanelStore";
 +import { resolveSidebarThreadStatus, type SidebarThreadStatus } from "../Sidebar.logic";
-+import { consultedWorkbenchRecords, consultedWorkbenchSources, elapsedTurnMinutes, loadedWorkbenchUsage, linkedWorkbenchCheckpoints, linkedWorkbenchCompactions, ownedWorkbenchTurnIds, matchWorkbenchRun, workbenchTurnUsage } from "./WorkbenchSessions.logic";
++import {
++  consultedWorkbenchRecords,
++  consultedWorkbenchSources,
++  elapsedTurnMinutes,
++  loadedWorkbenchUsage,
++  linkedWorkbenchCheckpoints,
++  linkedWorkbenchCompactions,
++  ownedWorkbenchTurnIds,
++  matchWorkbenchRun,
++  workbenchTurnUsage,
++} from "./WorkbenchSessions.logic";
 +import type { WorkbenchRequest, WorkbenchRun } from "./workbenchModel";
 +import { WorkbenchDeliverySubmission } from "./WorkbenchDeliverySubmission";
++import { saveWorkbenchReturn } from "./workbenchReturn";
 +import { WorkbenchProgramRunRow } from "./WorkbenchProgram";
 +import { RunHarness } from "@project-workbench/ui/run-harness";
 +
@@ -13618,25 +14820,61 @@ index 00000000..ee9a87a2
 +};
 +
 +const assignmentLabels: Record<string, readonly [string, string]> = {
-+  manager: ["项目管理", "Project management"], knowledge: ["知识维护", "Knowledge stewardship"],
-+  executor: ["设计与执行", "Design and execution"], reviewer: ["审核", "Review"],
++  manager: ["项目管理", "Project management"],
++  knowledge: ["知识维护", "Knowledge stewardship"],
++  executor: ["设计与执行", "Design and execution"],
++  reviewer: ["审核", "Review"],
 +};
 +
-+function SessionRow({ run, thread, siblingRuns, project, onChanged, request }: { run: WorkbenchRun; thread: EnvironmentThreadShell; siblingRuns: readonly WorkbenchRun[]; project: string; onChanged: () => void; request?: WorkbenchRequest }) {
++function SessionRow({
++  run,
++  thread,
++  siblingRuns,
++  project,
++  onChanged,
++  request,
++}: {
++  run: WorkbenchRun;
++  thread: EnvironmentThreadShell;
++  siblingRuns: readonly WorkbenchRun[];
++  project: string;
++  onChanged: () => void;
++  request?: WorkbenchRequest;
++}) {
 +  const { language } = useI18n();
 +  const zh = language === "zh";
 +  const [inspectTurns, setInspectTurns] = useState(false);
-+  const detail = useThreadDetail(inspectTurns && run.dispatchMessageId ? scopeThreadRef(thread.environmentId, thread.id) : null);
++  const detail = useThreadDetail(
++    inspectTurns && run.dispatchMessageId ? scopeThreadRef(thread.environmentId, thread.id) : null,
++  );
 +  const turnIds = ownedWorkbenchTurnIds(run.id, siblingRuns, detail?.activities ?? []);
 +  const compactions = linkedWorkbenchCompactions(run.id, siblingRuns, detail?.activities ?? []);
 +  const usage = workbenchTurnUsage(detail?.activities ?? []);
 +  const loadedUsage = loadedWorkbenchUsage(turnIds, usage);
-+  const consulted = consultedWorkbenchSources(run.id, thread.projectId, siblingRuns, detail?.activities ?? []);
-+  const consultedRecords = consultedWorkbenchRecords(run.id, project, thread, siblingRuns, detail?.activities ?? []);
-+  const checkpoints = linkedWorkbenchCheckpoints(run.id, siblingRuns, detail?.activities ?? [], detail?.checkpoints ?? []);
++  const consulted = consultedWorkbenchSources(
++    run.id,
++    thread.projectId,
++    siblingRuns,
++    detail?.activities ?? [],
++  );
++  const consultedRecords = consultedWorkbenchRecords(
++    run.id,
++    project,
++    thread,
++    siblingRuns,
++    detail?.activities ?? [],
++  );
++  const checkpoints = linkedWorkbenchCheckpoints(
++    run.id,
++    siblingRuns,
++    detail?.activities ?? [],
++    detail?.checkpoints ?? [],
++  );
 +  const nowMinute = useNowMinute();
-+  const elapsed = thread.latestTurn && turnIds.includes(thread.latestTurn.turnId)
-+    ? elapsedTurnMinutes(thread.latestTurn, Date.parse(`${nowMinute}:00Z`)) : null;
++  const elapsed =
++    thread.latestTurn && turnIds.includes(thread.latestTurn.turnId)
++      ? elapsedTurnMinutes(thread.latestTurn, Date.parse(`${nowMinute}:00Z`))
++      : null;
 +  const shell = useAtomValue(environmentShell.stateValueAtom(thread.environmentId));
 +  const { presentationById } = useEnvironments();
 +  const environment = presentationById.get(thread.environmentId);
@@ -13652,91 +14890,288 @@ index 00000000..ee9a87a2
 +            environmentId: thread.environmentId,
 +            threadId: thread.id,
 +          })}
++          onClick={saveWorkbenchReturn}
 +          className="inline-flex max-w-full items-start gap-1 break-words font-medium text-primary hover:underline"
 +        >
 +          <span className="min-w-0 break-words [overflow-wrap:anywhere]">{thread.title}</span>
 +          <ArrowUpRight className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
 +        </Link>
 +        <div>
-+          <Link to="/$environmentId/$threadId"
-+            params={buildThreadRouteParams({ environmentId: thread.environmentId, threadId: thread.id })}
-+            onClick={() => useRightPanelStore.getState().open(scopeThreadRef(thread.environmentId, thread.id), "diff")}
-+            className="wb-button">
-+            <GitCompareArrows size={14} aria-hidden="true" />{zh ? "工作区改动" : "Workspace changes"}
++          <Link
++            to="/$environmentId/$threadId"
++            params={buildThreadRouteParams({
++              environmentId: thread.environmentId,
++              threadId: thread.id,
++            })}
++            onClick={() => {
++              saveWorkbenchReturn();
++              useRightPanelStore
++                .getState()
++                .open(scopeThreadRef(thread.environmentId, thread.id), "diff");
++            }}
++            className="wb-button"
++          >
++            <GitCompareArrows size={14} aria-hidden="true" />
++            {zh ? "工作区改动" : "Workspace changes"}
 +          </Link>
 +        </div>
 +        <p className="break-all text-xs text-muted-foreground">
 +          {run.taskSlug} · {thread.modelSelection.model}
 +        </p>
 +        <p className="break-all text-xs text-muted-foreground">{run.workspace}</p>
-+        <p className="text-xs text-muted-foreground">{zh ? "派单职责" : "Assigned responsibility"}: {run.assignmentRole ? (assignmentLabels[run.assignmentRole]?.[zh ? 0 : 1] ?? run.assignmentRole) : (zh ? "未记录" : "Not recorded")}</p>
-+        <WorkbenchDeliverySubmission project={project} run={run} environmentId={thread.environmentId} onChanged={onChanged} {...(request ? { request } : {})} />
-+        <RunHarness project={project} run={run} language={language} {...(request ? { request } : {})} />
-+        <details onToggle={(event) => setInspectTurns(event.currentTarget.open)} className="text-xs">
++        <p className="text-xs text-muted-foreground">
++          {zh ? "派单职责" : "Assigned responsibility"}:{" "}
++          {run.assignmentRole
++            ? (assignmentLabels[run.assignmentRole]?.[zh ? 0 : 1] ?? run.assignmentRole)
++            : zh
++              ? "未记录"
++              : "Not recorded"}
++        </p>
++        <WorkbenchDeliverySubmission
++          project={project}
++          run={run}
++          environmentId={thread.environmentId}
++          onChanged={onChanged}
++          {...(request ? { request } : {})}
++        />
++        <RunHarness
++          project={project}
++          run={run}
++          language={language}
++          {...(request ? { request } : {})}
++        />
++        <details
++          onToggle={(event) => setInspectTurns(event.currentTarget.open)}
++          className="text-xs"
++        >
 +          <summary>{zh ? "关联执行轮次" : "Linked execution turns"}</summary>
-+          {detail && turnIds.length > 0 && <><h4>{zh ? "已载入主Agent用量" : "Loaded main-agent usage"}</h4><dl className="grid grid-cols-2 gap-x-4 gap-y-1 break-words" aria-label={zh ? "已载入主Agent用量" : "Loaded main-agent usage"}>
-+            <dt>{zh ? "已知输入token" : "Known input tokens"}</dt><dd>{loadedUsage.inputTokens ?? (zh ? "未提供" : "Not provided")} · {loadedUsage.inputReportedTurns}/{loadedUsage.turns} {zh ? "轮有记录" : "turns reported"}</dd>
-+            <dt>{zh ? "已知输出token" : "Known output tokens"}</dt><dd>{loadedUsage.outputTokens ?? (zh ? "未提供" : "Not provided")} · {loadedUsage.outputReportedTurns}/{loadedUsage.turns} {zh ? "轮有记录" : "turns reported"}</dd>
-+            <dt>{zh ? "完整用量报告" : "Complete usage reports"}</dt><dd>{loadedUsage.completeTurns}/{loadedUsage.turns}</dd>
-+          </dl></>}
-+          {!run.dispatchMessageId ? <p>{zh ? "旧记录未保存派单消息身份" : "Dispatch message identity was not recorded"}</p>
-+            : !detail ? <p>{zh ? "尚未取得会话详情" : "Session details not available yet"}</p>
-+            : turnIds.length === 0 ? <p>{zh ? "当前会话记录中没有可唯一归属的轮次" : "No uniquely attributable turn in the current session records"}</p>
-+            : <ul>{turnIds.map((id) => {
-+              const tokens = usage.get(id);
-+              return <li key={id} className="break-all">{id}
-+                <p>{zh ? "主Agent token" : "Main-agent tokens"}: {tokens
-+                  ? `${zh ? "输入" : "Input"} ${tokens.inputTokens ?? "?"} / ${zh ? "输出" : "Output"} ${tokens.outputTokens ?? "?"} (${tokens.usageStatus === "complete" ? (zh ? "完整" : "complete") : (zh ? "部分或不可用" : "partial or unavailable")})`
-+                  : (zh ? "未提供" : "Not provided")}</p>
-+              </li>;
-+            })}</ul>}
-+          {elapsed !== null && <p>{zh ? "最新关联轮次历时" : "Latest linked turn elapsed"}: {elapsed} {zh ? "分钟" : "min"}</p>}
++          {detail && turnIds.length > 0 && (
++            <>
++              <h4>{zh ? "已载入主Agent用量" : "Loaded main-agent usage"}</h4>
++              <dl
++                className="grid grid-cols-2 gap-x-4 gap-y-1 break-words"
++                aria-label={zh ? "已载入主Agent用量" : "Loaded main-agent usage"}
++              >
++                <dt>{zh ? "已知输入token" : "Known input tokens"}</dt>
++                <dd>
++                  {loadedUsage.inputTokens ?? (zh ? "未提供" : "Not provided")} ·{" "}
++                  {loadedUsage.inputReportedTurns}/{loadedUsage.turns}{" "}
++                  {zh ? "轮有记录" : "turns reported"}
++                </dd>
++                <dt>{zh ? "已知输出token" : "Known output tokens"}</dt>
++                <dd>
++                  {loadedUsage.outputTokens ?? (zh ? "未提供" : "Not provided")} ·{" "}
++                  {loadedUsage.outputReportedTurns}/{loadedUsage.turns}{" "}
++                  {zh ? "轮有记录" : "turns reported"}
++                </dd>
++                <dt>{zh ? "完整用量报告" : "Complete usage reports"}</dt>
++                <dd>
++                  {loadedUsage.completeTurns}/{loadedUsage.turns}
++                </dd>
++              </dl>
++            </>
++          )}
++          {!run.dispatchMessageId ? (
++            <p>{zh ? "旧记录未保存派单消息身份" : "Dispatch message identity was not recorded"}</p>
++          ) : !detail ? (
++            <p>{zh ? "尚未取得会话详情" : "Session details not available yet"}</p>
++          ) : turnIds.length === 0 ? (
++            <p>
++              {zh
++                ? "当前会话记录中没有可唯一归属的轮次"
++                : "No uniquely attributable turn in the current session records"}
++            </p>
++          ) : (
++            <ul>
++              {turnIds.map((id) => {
++                const tokens = usage.get(id);
++                return (
++                  <li key={id} className="break-all">
++                    {id}
++                    <p>
++                      {zh ? "主Agent token" : "Main-agent tokens"}:{" "}
++                      {tokens
++                        ? `${zh ? "输入" : "Input"} ${tokens.inputTokens ?? "?"} / ${zh ? "输出" : "Output"} ${tokens.outputTokens ?? "?"} (${tokens.usageStatus === "complete" ? (zh ? "完整" : "complete") : zh ? "部分或不可用" : "partial or unavailable"})`
++                        : zh
++                          ? "未提供"
++                          : "Not provided"}
++                    </p>
++                  </li>
++                );
++              })}
++            </ul>
++          )}
++          {elapsed !== null && (
++            <p>
++              {zh ? "最新关联轮次历时" : "Latest linked turn elapsed"}: {elapsed}{" "}
++              {zh ? "分钟" : "min"}
++            </p>
++          )}
 +          <details>
-+            <summary>{zh ? "压缩通知记录" : "Compaction notifications"}: {compactions.length || (zh ? "未取得" : "Not available")}</summary>
-+            {compactions.map((activity) => <p key={activity.id} className="break-all">{activity.createdAt} · {activity.turnId} · {activity.id}</p>)}
-+            <p>{zh ? "仅列已载入且可唯一归属的原生通知，不代表完整压缩次数；没有通知也不代表从未压缩。" : "Loaded, uniquely attributed native notifications only, not a complete compaction count. Missing notifications do not establish no compaction."}</p>
++            <summary>
++              {zh ? "压缩通知记录" : "Compaction notifications"}:{" "}
++              {compactions.length || (zh ? "未取得" : "Not available")}
++            </summary>
++            {compactions.map((activity) => (
++              <p key={activity.id} className="break-all">
++                {activity.createdAt} · {activity.turnId} · {activity.id}
++              </p>
++            ))}
++            <p>
++              {zh
++                ? "仅列已载入且可唯一归属的原生通知，不代表完整压缩次数；没有通知也不代表从未压缩。"
++                : "Loaded, uniquely attributed native notifications only, not a complete compaction count. Missing notifications do not establish no compaction."}
++            </p>
 +          </details>
 +          <h4>{zh ? "关联轮次的文件差异" : "Files changed in linked turns"}</h4>
-+          {checkpoints.map((checkpoint) => <div key={checkpoint.turnId} className="border-t py-2">
-+            <p className="break-all">{checkpoint.checkpointRef} · {checkpoint.status} · {checkpoint.completedAt}</p>
-+            {checkpoint.files.map((file) => <p key={file.path} className="break-all">
-+              {checkpoint.status === "ready" ? <Link className="underline" to="/$environmentId/$threadId"
-+                params={buildThreadRouteParams({ environmentId: thread.environmentId, threadId: thread.id })}
-+                onClick={() => {
-+                  const ref = scopeThreadRef(thread.environmentId, thread.id);
-+                  useDiffPanelStore.getState().selectTurn(ref, checkpoint.turnId, file.path);
-+                  useRightPanelStore.getState().open(ref, "diff");
-+                }}>{file.path}</Link> : file.path} · +{file.additions} / -{file.deletions}
-+            </p>)}
-+          </div>)}
-+          {!checkpoints.length && <p>{zh ? "当前记录中没有可唯一关联的检查点。" : "No uniquely linked checkpoint in loaded records."}</p>}
-+          {checkpoints.length > 0 && <p>{zh ? "T3工作区检查点，不等于该节点独占修改或已合入Git提交。" : "T3 workspace checkpoints, not proof of exclusive node authorship or merged Git commits."}</p>}
++          {checkpoints.map((checkpoint) => (
++            <div key={checkpoint.turnId} className="border-t py-2">
++              <p className="break-all">
++                {checkpoint.checkpointRef} · {checkpoint.status} · {checkpoint.completedAt}
++              </p>
++              {checkpoint.files.map((file) => (
++                <p key={file.path} className="break-all">
++                  {checkpoint.status === "ready" ? (
++                    <Link
++                      className="underline"
++                      to="/$environmentId/$threadId"
++                      params={buildThreadRouteParams({
++                        environmentId: thread.environmentId,
++                        threadId: thread.id,
++                      })}
++                      onClick={() => {
++                        saveWorkbenchReturn();
++                        const ref = scopeThreadRef(thread.environmentId, thread.id);
++                        useDiffPanelStore.getState().selectTurn(ref, checkpoint.turnId, file.path);
++                        useRightPanelStore.getState().open(ref, "diff");
++                      }}
++                    >
++                      {file.path}
++                    </Link>
++                  ) : (
++                    file.path
++                  )}{" "}
++                  · +{file.additions} / -{file.deletions}
++                </p>
++              ))}
++            </div>
++          ))}
++          {!checkpoints.length && (
++            <p>
++              {zh
++                ? "当前记录中没有可唯一关联的检查点。"
++                : "No uniquely linked checkpoint in loaded records."}
++            </p>
++          )}
++          {checkpoints.length > 0 && (
++            <p>
++              {zh
++                ? "T3工作区检查点，不等于该节点独占修改或已合入Git提交。"
++                : "T3 workspace checkpoints, not proof of exclusive node authorship or merged Git commits."}
++            </p>
++          )}
 +          <h4>{zh ? "自动关联的原文片段读取" : "Automatically linked source reads"}</h4>
-+          {consulted.sources.map((source) => <div key={source.eventId} className="border-t py-2">
-+            <Link to="/$environmentId/$threadId" params={buildThreadRouteParams({ environmentId: thread.environmentId, threadId: source.threadId })} className="underline break-all">{source.threadId} · {source.messageId}</Link>
-+            <p>{source.source} · {source.offset} → {source.nextOffset ?? (zh ? "末尾" : "end")} · {source.updatedAt}</p>
-+            <p>{zh ? "返回片段时间" : "Read receipt time"}: {source.readAt}</p>
-+          </div>)}
-+          {consulted.ambiguousCount > 0 && <p>{zh ? "部分读取对应多个执行，未分配给节点。" : "Some reads map to multiple runs; node attribution is unresolved."}</p>}
-+          {!consulted.sources.length && <p>{zh ? "当前活动中未取得可唯一关联的来源，不代表没有读取。" : "No uniquely attributable source in loaded activities; this does not establish that no read occurred."}</p>}
-+          {consulted.sources.length > 0 && <p>{zh ? "仅证明工具返回了这些片段，不代表模型采纳、全文读完或审核通过。" : "These receipts establish returned fragments, not adoption, complete reading or approval."}</p>}
++          {consulted.sources.map((source) => (
++            <div key={source.eventId} className="border-t py-2">
++              <Link
++                to="/$environmentId/$threadId"
++                params={buildThreadRouteParams({
++                  environmentId: thread.environmentId,
++                  threadId: source.threadId,
++                })}
++                onClick={saveWorkbenchReturn}
++                className="underline break-all"
++              >
++                {source.threadId} · {source.messageId}
++              </Link>
++              <p>
++                {source.source} · {source.offset} → {source.nextOffset ?? (zh ? "末尾" : "end")} ·{" "}
++                {source.updatedAt}
++              </p>
++              <p>
++                {zh ? "返回片段时间" : "Read receipt time"}: {source.readAt}
++              </p>
++            </div>
++          ))}
++          {consulted.ambiguousCount > 0 && (
++            <p>
++              {zh
++                ? "部分读取对应多个执行，未分配给节点。"
++                : "Some reads map to multiple runs; node attribution is unresolved."}
++            </p>
++          )}
++          {!consulted.sources.length && (
++            <p>
++              {zh
++                ? "当前活动中未取得可唯一关联的来源，不代表没有读取。"
++                : "No uniquely attributable source in loaded activities; this does not establish that no read occurred."}
++            </p>
++          )}
++          {consulted.sources.length > 0 && (
++            <p>
++              {zh
++                ? "仅证明工具返回了这些片段，不代表模型采纳、全文读完或审核通过。"
++                : "These receipts establish returned fragments, not adoption, complete reading or approval."}
++            </p>
++          )}
 +          <h4>{zh ? "自动关联的知识记录读取" : "Automatically linked knowledge reads"}</h4>
-+          {consultedRecords.records.map((record) => <div key={record.eventId} className="border-t py-2 break-all">
-+            <p>{record.kind} · {record.id} · {record.slug} · v{record.version}</p>
-+            {record.sourceRefs && <p>{zh ? "来源引用" : "Source references"}: {Object.entries(record.sourceRefs).map(([key, value]) => `${key}: ${value}`).join(" · ")}</p>}
-+            <p>{zh ? "返回时间" : "Read receipt time"}: {record.readAt}</p>
-+          </div>)}
-+          {consultedRecords.ambiguousCount > 0 && <p>{zh ? "部分知识读取对应多个执行，未分配给节点。" : "Some knowledge reads map to multiple runs; node attribution is unresolved."}</p>}
-+          {!consultedRecords.records.length && <p>{zh ? "当前活动中未取得可唯一关联的知识读取，不代表没有读取。" : "No uniquely attributable knowledge read in loaded activities; this does not establish that no read occurred."}</p>}
-+          {consultedRecords.records.length > 0 && <p>{zh ? "这是当时返回记录的版本证据，不是可重建的历史全文快照，也不代表模型采纳。" : "These are observed record versions, not reconstructable historical text snapshots or evidence of adoption."}</p>}
++          {consultedRecords.records.map((record) => (
++            <div key={record.eventId} className="border-t py-2 break-all">
++              <p>
++                {record.kind} · {record.id} · {record.slug} · v{record.version}
++              </p>
++              {record.sourceRefs && (
++                <p>
++                  {zh ? "来源引用" : "Source references"}:{" "}
++                  {Object.entries(record.sourceRefs)
++                    .map(([key, value]) => `${key}: ${value}`)
++                    .join(" · ")}
++                </p>
++              )}
++              <p>
++                {zh ? "返回时间" : "Read receipt time"}: {record.readAt}
++              </p>
++            </div>
++          ))}
++          {consultedRecords.ambiguousCount > 0 && (
++            <p>
++              {zh
++                ? "部分知识读取对应多个执行，未分配给节点。"
++                : "Some knowledge reads map to multiple runs; node attribution is unresolved."}
++            </p>
++          )}
++          {!consultedRecords.records.length && (
++            <p>
++              {zh
++                ? "当前活动中未取得可唯一关联的知识读取，不代表没有读取。"
++                : "No uniquely attributable knowledge read in loaded activities; this does not establish that no read occurred."}
++            </p>
++          )}
++          {consultedRecords.records.length > 0 && (
++            <p>
++              {zh
++                ? "这是当时返回记录的版本证据，不是可重建的历史全文快照，也不代表模型采纳。"
++                : "These are observed record versions, not reconstructable historical text snapshots or evidence of adoption."}
++            </p>
++          )}
 +        </details>
 +        <p className="text-xs text-muted-foreground">
-+          {zh ? "准备时规格版本" : "Spec version at preparation"}: {run.specVersion == null ? (zh ? "未记录" : "Not recorded") : `v${run.specVersion}`}
++          {zh ? "准备时规格版本" : "Spec version at preparation"}:{" "}
++          {run.specVersion == null ? (zh ? "未记录" : "Not recorded") : `v${run.specVersion}`}
 +        </p>
-+        <p className="break-all text-xs text-muted-foreground">{zh ? "准备时Git基线" : "Git baseline at preparation"}: {run.gitBaseline?.isRepo === false
-+          ? (zh ? "非Git目录" : "Not a Git repository")
-+          : run.gitBaseline?.isRepo === true ? (run.gitBaseline.commitSha ?? (zh ? "未取得可解析的HEAD提交" : "No resolvable HEAD commit"))
-+            : (zh ? "未记录" : "Not recorded")}</p>
++        <p className="break-all text-xs text-muted-foreground">
++          {zh ? "准备时Git基线" : "Git baseline at preparation"}:{" "}
++          {run.gitBaseline?.isRepo === false
++            ? zh
++              ? "非Git目录"
++              : "Not a Git repository"
++            : run.gitBaseline?.isRepo === true
++              ? (run.gitBaseline.commitSha ??
++                (zh ? "未取得可解析的HEAD提交" : "No resolvable HEAD commit"))
++              : zh
++                ? "未记录"
++                : "Not recorded"}
++        </p>
 +        <p className="break-all text-xs text-muted-foreground">
 +          {environment?.entry.target.label ?? thread.environmentId} · {run.id} ·{" "}
 +          {zh ? "代次" : "Generation"} {run.generation}
@@ -13789,22 +15224,33 @@ index 00000000..ee9a87a2
 +  project: string;
 +  onChanged: () => void;
 +  request?: WorkbenchRequest;
-+  nodeOwners?: Array<{ taskSlug: string; humanOwnerUserId: string | null; pendingOperationId: string | null }>;
++  nodeOwners?: Array<{
++    taskSlug: string;
++    humanOwnerUserId: string | null;
++    pendingOperationId: string | null;
++  }>;
 +}) {
 +  const { language } = useI18n();
 +  const zh = language === "zh";
 +  const projects = useProjects();
 +  const threads = useThreadShells();
 +  const snapshotsReady = useAllEnvironmentProjectSnapshotsReady();
-+  const visibleRuns = runs.filter((run) => (!selectedTask || run.taskSlug === selectedTask) && (!selectedRunId || run.id === selectedRunId));
-+  const associations = new Map(runs.map((run) => [run.id, matchWorkbenchRun(run, threads, projects, snapshotsReady)]));
++  const visibleRuns = runs.filter(
++    (run) =>
++      (!selectedTask || run.taskSlug === selectedTask) &&
++      (!selectedRunId || run.id === selectedRunId),
++  );
++  const associations = new Map(
++    runs.map((run) => [run.id, matchWorkbenchRun(run, threads, projects, snapshotsReady)]),
++  );
 +  const siblings = new Map<string, WorkbenchRun[]>();
 +  for (const run of runs) {
 +    const match = associations.get(run.id)!;
 +    if (match.kind !== "matched") continue;
 +    const key = `${match.thread.environmentId}:${match.thread.id}`;
 +    const group = siblings.get(key) ?? [];
-+    group.push(run); siblings.set(key, group);
++    group.push(run);
++    siblings.set(key, group);
 +  }
 +  return (
 +    <section className="min-w-0" data-i18n-skip>
@@ -13827,11 +15273,34 @@ index 00000000..ee9a87a2
 +        visibleRuns.map((run) => {
 +          const match = associations.get(run.id)!;
 +          if (match.kind === "program")
-+            return <WorkbenchProgramRunRow key={run.id} run={run} project={project} onChanged={onChanged}
-+              ownerHold={nodeOwners?.some((item) => item.taskSlug === run.taskSlug && (!!item.humanOwnerUserId || !!item.pendingOperationId)) ?? false}
-+              {...(request ? { request } : {})} />;
++            return (
++              <WorkbenchProgramRunRow
++                key={run.id}
++                run={run}
++                project={project}
++                onChanged={onChanged}
++                ownerHold={
++                  nodeOwners?.some(
++                    (item) =>
++                      item.taskSlug === run.taskSlug &&
++                      (!!item.humanOwnerUserId || !!item.pendingOperationId),
++                  ) ?? false
++                }
++                {...(request ? { request } : {})}
++              />
++            );
 +          if (match.kind === "matched")
-+            return <SessionRow key={run.id} run={run} thread={match.thread} siblingRuns={siblings.get(`${match.thread.environmentId}:${match.thread.id}`)!} project={project} onChanged={onChanged} {...(request ? { request } : {})} />;
++            return (
++              <SessionRow
++                key={run.id}
++                run={run}
++                thread={match.thread}
++                siblingRuns={siblings.get(`${match.thread.environmentId}:${match.thread.id}`)!}
++                project={project}
++                onChanged={onChanged}
++                {...(request ? { request } : {})}
++              />
++            );
 +          const label = {
 +            unbound: zh ? "尚未绑定会话" : "Session not bound",
 +            "missing-workspace": zh
@@ -13848,14 +15317,27 @@ index 00000000..ee9a87a2
 +          return (
 +            <article key={run.id} className="space-y-1 border-b py-4 text-sm">
 +              <p className="break-all font-medium">{run.taskSlug}</p>
-+              <RunHarness project={project} run={run} language={language} {...(request ? { request } : {})} />
-+              <p className="text-xs text-muted-foreground">{zh ? "派单职责" : "Assigned responsibility"}: {run.assignmentRole ? (assignmentLabels[run.assignmentRole]?.[zh ? 0 : 1] ?? run.assignmentRole) : (zh ? "未记录" : "Not recorded")}</p>
++              <RunHarness
++                project={project}
++                run={run}
++                language={language}
++                {...(request ? { request } : {})}
++              />
++              <p className="text-xs text-muted-foreground">
++                {zh ? "派单职责" : "Assigned responsibility"}:{" "}
++                {run.assignmentRole
++                  ? (assignmentLabels[run.assignmentRole]?.[zh ? 0 : 1] ?? run.assignmentRole)
++                  : zh
++                    ? "未记录"
++                    : "Not recorded"}
++              </p>
 +              <p className="text-amber-600 dark:text-amber-400">{label}</p>
 +              <p className="break-all text-xs text-muted-foreground">
 +                {run.id} · {zh ? "业务绑定" : "Binding"}: {run.state}
 +              </p>
 +              <p className="text-xs text-muted-foreground">
-+                {zh ? "准备时规格版本" : "Spec version at preparation"}: {run.specVersion == null ? (zh ? "未记录" : "Not recorded") : `v${run.specVersion}`}
++                {zh ? "准备时规格版本" : "Spec version at preparation"}:{" "}
++                {run.specVersion == null ? (zh ? "未记录" : "Not recorded") : `v${run.specVersion}`}
 +              </p>
 +              {run.threadRef ? (
 +                <p className="break-all text-xs text-muted-foreground">{run.threadRef}</p>
@@ -13872,7 +15354,7 @@ index 00000000..ee9a87a2
 +}
 diff --git a/apps/web/src/components/workbench/WorkbenchTransport.test.ts b/apps/web/src/components/workbench/WorkbenchTransport.test.ts
 new file mode 100644
-index 00000000..d550c198
+index 000000000..d550c1987
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchTransport.test.ts
 @@ -0,0 +1,247 @@
@@ -14125,7 +15607,7 @@ index 00000000..d550c198
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchTransport.ts b/apps/web/src/components/workbench/WorkbenchTransport.ts
 new file mode 100644
-index 00000000..17dc7e26
+index 000000000..17dc7e262
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchTransport.ts
 @@ -0,0 +1,196 @@
@@ -14327,7 +15809,7 @@ index 00000000..17dc7e26
 +};
 diff --git a/apps/web/src/components/workbench/WorkbenchWorkspacePicker.test.tsx b/apps/web/src/components/workbench/WorkbenchWorkspacePicker.test.tsx
 new file mode 100644
-index 00000000..69b3f094
+index 000000000..69b3f094e
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchWorkspacePicker.test.tsx
 @@ -0,0 +1,102 @@
@@ -14435,7 +15917,7 @@ index 00000000..69b3f094
 +});
 diff --git a/apps/web/src/components/workbench/WorkbenchWorkspacePicker.tsx b/apps/web/src/components/workbench/WorkbenchWorkspacePicker.tsx
 new file mode 100644
-index 00000000..f504b434
+index 000000000..f504b4344
 --- /dev/null
 +++ b/apps/web/src/components/workbench/WorkbenchWorkspacePicker.tsx
 @@ -0,0 +1,136 @@
@@ -14577,7 +16059,7 @@ index 00000000..f504b434
 +}
 diff --git a/apps/web/src/components/workbench/runPrompt.test.ts b/apps/web/src/components/workbench/runPrompt.test.ts
 new file mode 100644
-index 00000000..8d685544
+index 000000000..8d6855447
 --- /dev/null
 +++ b/apps/web/src/components/workbench/runPrompt.test.ts
 @@ -0,0 +1,49 @@
@@ -14632,7 +16114,7 @@ index 00000000..8d685544
 +});
 diff --git a/apps/web/src/components/workbench/workbenchGraph.test.ts b/apps/web/src/components/workbench/workbenchGraph.test.ts
 new file mode 100644
-index 00000000..7cf4d594
+index 000000000..7cf4d5948
 --- /dev/null
 +++ b/apps/web/src/components/workbench/workbenchGraph.test.ts
 @@ -0,0 +1,192 @@
@@ -14830,7 +16312,7 @@ index 00000000..7cf4d594
 +});
 diff --git a/apps/web/src/components/workbench/workbenchModel.test.ts b/apps/web/src/components/workbench/workbenchModel.test.ts
 new file mode 100644
-index 00000000..0adecd01
+index 000000000..0adecd017
 --- /dev/null
 +++ b/apps/web/src/components/workbench/workbenchModel.test.ts
 @@ -0,0 +1,199 @@
@@ -15035,14 +16517,114 @@ index 00000000..0adecd01
 +});
 diff --git a/apps/web/src/components/workbench/workbenchModel.ts b/apps/web/src/components/workbench/workbenchModel.ts
 new file mode 100644
-index 00000000..b49fa0af
+index 000000000..b49fa0af7
 --- /dev/null
 +++ b/apps/web/src/components/workbench/workbenchModel.ts
 @@ -0,0 +1 @@
 +export * from "@project-workbench/ui/model";
+diff --git a/apps/web/src/components/workbench/workbenchReturn.test.ts b/apps/web/src/components/workbench/workbenchReturn.test.ts
+new file mode 100644
+index 000000000..0b5a8e54c
+--- /dev/null
++++ b/apps/web/src/components/workbench/workbenchReturn.test.ts
+@@ -0,0 +1,58 @@
++import { afterEach, expect, it, vi } from "vite-plus/test";
++import { clearWorkbenchReturn, readWorkbenchReturn, saveWorkbenchReturn } from "./workbenchReturn";
++
++function stubBrowser(pathname: string, search = "") {
++  const store = new Map<string, string>();
++  vi.stubGlobal("window", { location: { pathname, search } });
++  vi.stubGlobal("sessionStorage", {
++    getItem: (key: string) => store.get(key) ?? null,
++    setItem: (key: string, value: string) => void store.set(key, value),
++    removeItem: (key: string) => void store.delete(key),
++  });
++  return store;
++}
++
++afterEach(() => vi.unstubAllGlobals());
++
++it("records the exact workbench view including search params", () => {
++  stubBrowser("/workbench", "?tab=sessions&selected=node-a");
++  saveWorkbenchReturn();
++  expect(readWorkbenchReturn()).toBe("/workbench?tab=sessions&selected=node-a");
++});
++
++it("never records a non-workbench location", () => {
++  stubBrowser("/local/thread-1");
++  saveWorkbenchReturn();
++  expect(readWorkbenchReturn()).toBeNull();
++});
++
++it("rejects a stored href that does not point at the workbench", () => {
++  const store = stubBrowser("/workbench");
++  store.set("workbench.returnHref", "/settings");
++  expect(readWorkbenchReturn()).toBeNull();
++});
++
++it("clears the recorded return after use", () => {
++  stubBrowser("/workbench", "?tab=overview");
++  saveWorkbenchReturn();
++  clearWorkbenchReturn();
++  expect(readWorkbenchReturn()).toBeNull();
++});
++
++it("tolerates unavailable storage", () => {
++  vi.stubGlobal("window", { location: { pathname: "/workbench", search: "" } });
++  vi.stubGlobal("sessionStorage", {
++    getItem: () => {
++      throw new Error("denied");
++    },
++    setItem: () => {
++      throw new Error("denied");
++    },
++    removeItem: () => {
++      throw new Error("denied");
++    },
++  });
++  expect(() => saveWorkbenchReturn()).not.toThrow();
++  expect(readWorkbenchReturn()).toBeNull();
++  expect(() => clearWorkbenchReturn()).not.toThrow();
++});
+diff --git a/apps/web/src/components/workbench/workbenchReturn.ts b/apps/web/src/components/workbench/workbenchReturn.ts
+new file mode 100644
+index 000000000..cca5bf7ca
+--- /dev/null
++++ b/apps/web/src/components/workbench/workbenchReturn.ts
+@@ -0,0 +1,30 @@
++const KEY = "workbench.returnHref";
++
++// Records the exact workbench view (path + search: project, tab, selected
++// node, run) before jumping to a native T3 thread, so the thread view can
++// offer a way back. sessionStorage keeps it across reloads but not tabs.
++export function saveWorkbenchReturn() {
++  try {
++    if (!window.location.pathname.endsWith("/workbench")) return;
++    sessionStorage.setItem(KEY, window.location.pathname + window.location.search);
++  } catch {
++    // Storage unavailable; the back affordance simply never appears.
++  }
++}
++
++export function readWorkbenchReturn(): string | null {
++  try {
++    const href = sessionStorage.getItem(KEY);
++    return href !== null && href.includes("/workbench") ? href : null;
++  } catch {
++    return null;
++  }
++}
++
++export function clearWorkbenchReturn() {
++  try {
++    sessionStorage.removeItem(KEY);
++  } catch {
++    // Storage unavailable; nothing to clear.
++  }
++}
 diff --git a/apps/web/src/i18n/i18n.tsx b/apps/web/src/i18n/i18n.tsx
 new file mode 100644
-index 00000000..4e566122
+index 000000000..4e5661222
 --- /dev/null
 +++ b/apps/web/src/i18n/i18n.tsx
 @@ -0,0 +1,216 @@
@@ -15264,7 +16846,7 @@ index 00000000..4e566122
 +}
 diff --git a/apps/web/src/i18n/zhDictionary.ts b/apps/web/src/i18n/zhDictionary.ts
 new file mode 100644
-index 00000000..918ae6aa
+index 000000000..918ae6aa4
 --- /dev/null
 +++ b/apps/web/src/i18n/zhDictionary.ts
 @@ -0,0 +1,207 @@
@@ -15477,7 +17059,7 @@ index 00000000..918ae6aa
 +};
 diff --git a/apps/web/src/routes/workbench.tsx b/apps/web/src/routes/workbench.tsx
 new file mode 100644
-index 00000000..d5bc6322
+index 000000000..d5bc63220
 --- /dev/null
 +++ b/apps/web/src/routes/workbench.tsx
 @@ -0,0 +1,22 @@
@@ -15505,7 +17087,7 @@ index 00000000..d5bc6322
 +});
 diff --git a/apps/web/src/state/workbenchProgram.ts b/apps/web/src/state/workbenchProgram.ts
 new file mode 100644
-index 00000000..fe316c99
+index 000000000..fe316c99b
 --- /dev/null
 +++ b/apps/web/src/state/workbenchProgram.ts
 @@ -0,0 +1,4 @@
@@ -15515,7 +17097,7 @@ index 00000000..fe316c99
 +export const workbenchProgramEnvironment = createWorkbenchProgramEnvironmentAtoms(connectionAtomRuntime);
 diff --git a/packages/client-runtime/src/state/workbenchProgram.ts b/packages/client-runtime/src/state/workbenchProgram.ts
 new file mode 100644
-index 00000000..b29f9256
+index 000000000..b29f9256e
 --- /dev/null
 +++ b/packages/client-runtime/src/state/workbenchProgram.ts
 @@ -0,0 +1,13 @@
@@ -15534,7 +17116,7 @@ index 00000000..b29f9256
 +}
 diff --git a/packages/contracts/src/workbench.ts b/packages/contracts/src/workbench.ts
 new file mode 100644
-index 00000000..33a7cf15
+index 000000000..33a7cf15c
 --- /dev/null
 +++ b/packages/contracts/src/workbench.ts
 @@ -0,0 +1,14 @@
@@ -15554,7 +17136,7 @@ index 00000000..33a7cf15
 +export type ConsultedRecord = typeof ConsultedRecord.Type;
 diff --git a/packages/contracts/src/workbenchCandidate.ts b/packages/contracts/src/workbenchCandidate.ts
 new file mode 100644
-index 00000000..21cc1fde
+index 000000000..21cc1fde8
 --- /dev/null
 +++ b/packages/contracts/src/workbenchCandidate.ts
 @@ -0,0 +1,93 @@
@@ -15653,7 +17235,7 @@ index 00000000..21cc1fde
 +export type WorkbenchCandidateSatisfactionHistoryPage = typeof WorkbenchCandidateSatisfactionHistoryPage.Type;
 diff --git a/packages/contracts/src/workbenchNodeMerge.ts b/packages/contracts/src/workbenchNodeMerge.ts
 new file mode 100644
-index 00000000..2d4fbf9c
+index 000000000..2d4fbf9c9
 --- /dev/null
 +++ b/packages/contracts/src/workbenchNodeMerge.ts
 @@ -0,0 +1,81 @@
@@ -15740,7 +17322,7 @@ index 00000000..2d4fbf9c
 +export type WorkbenchMergeHistory = typeof WorkbenchMergeHistory.Type;
 diff --git a/packages/contracts/src/workbenchNodeOwnership.ts b/packages/contracts/src/workbenchNodeOwnership.ts
 new file mode 100644
-index 00000000..73e77a19
+index 000000000..73e77a195
 --- /dev/null
 +++ b/packages/contracts/src/workbenchNodeOwnership.ts
 @@ -0,0 +1,97 @@
@@ -15843,7 +17425,7 @@ index 00000000..73e77a19
 +export type WorkbenchConfirmProgramRunStopped = typeof WorkbenchConfirmProgramRunStopped.Type;
 diff --git a/packages/contracts/src/workbenchProgram.ts b/packages/contracts/src/workbenchProgram.ts
 new file mode 100644
-index 00000000..fdfd6382
+index 000000000..fdfd63827
 --- /dev/null
 +++ b/packages/contracts/src/workbenchProgram.ts
 @@ -0,0 +1,118 @@
