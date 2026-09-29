@@ -35,11 +35,14 @@
 
 ## Starting a project
 
-You never touch a CLI for this — your AI agent does. There is no one-click "import existing project" feature today; both paths share the same main line:
+Two different "project" concepts are easy to confuse — adopting a folder takes one binding on each side:
 
-**New project.** Tell your AI what you want to build. It creates the SpecGraph project in the target repository (`specgraph init`), and the project appears in the workbench's project dropdown. Work items start as node **drafts** — nothing executes until you approve.
+- **A T3 project is the AI's workspace** (which directory the agent works in). It's T3's own project list: open the command palette in the T3 main window → Add project → pick a local folder. It then appears in the「T3 项目」dropdown of a node's dispatch section.
+- **A SpecGraph project is the workbench's graph** (the project dropdown at the top of the page). Nothing for you to run: tell the AI "initialize the workbench project in that directory" and it runs `specgraph init`; the project then appears in the top dropdown.
 
-**Taking over an existing codebase.** Point the workbench at the repository/workspace and describe the change you want in natural language. The AI reads the current state — existing capabilities, unknowns, conflicts — and proposes a breakdown; nodes are created only after you review that proposal. Note: automatically attaching a repository's historical material (old commits, past conversations) to nodes is a design contract, not a finished feature; today the three-source search covers current files, specs and conversation history.
+**New project.** Tell your AI what you want to build. It creates the SpecGraph project and breaks the work into node **drafts**; nothing executes until you approve.
+
+**Taking over an existing codebase.** Point the workbench at the repository/workspace and describe the change in natural language. The AI reads the current state — existing capabilities, unknowns, conflicts — and proposes a breakdown; nodes are created only after you review that proposal. Note: automatically attaching a repository's historical material (old commits, past conversations) to nodes is a design contract, not a finished feature; today the three-source search covers current files, specs and conversation history.
 
 ## A task's full loop, screen by screen
 
