@@ -12,7 +12,7 @@ Reopen the application after first setup so the existing server registration
 loads the configuration. No running tasks are restarted automatically. Initial
 database/bootstrap setup for a fresh machine is still separate unfinished work.
 
-Run `C:\Users\zheng\project-workbench\launch-vacpms.bat`, then use T3's
+Run `%USERPROFILE%\project-workbench\launch-vacpms.bat`, then use T3's
 workbench entry. This runs the built source desktop, not the installed T3 app.
 The desktop component location comes from desktop-runtime.json, not a directory
 name embedded in the launcher. The current source manifest points at the existing

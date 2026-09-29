@@ -5,7 +5,7 @@
 ## 创建状态
 
 已向Codex应用提交新任务，标题：排查 harness 编译测试反复授权。
-保存项目：C:\Users\zheng\Desktop\codex_bugfix，Git worktree环境。
+保存项目：%USERPROFILE%\Desktop\codex_bugfix，Git worktree环境。
 返回clientThreadId：client-new-thread:cf7f6be8-a9b6-4c6f-85b9-854832f4350e。
 用户已确认新任务创建成功。工具尚未返回实际threadId，本线程按用户要求继续VACPMS，不再查询创建状态或重复创建；调查进展由新任务负责。
 原对话：01a0ba29-2176-73f1-a8bf-f74352efa961。完整调查委托已随创建请求提交。
@@ -20,7 +20,7 @@
 1. Go命令设置项目内GOTMPDIR后执行go build -o specgraph.next.exe ./cmd/specgraph。
    拒绝原文：本地构建本身范围有限，但命令明确设置了被用户指示严格禁止的 GOTMPDIR 临时路径，且会覆盖候选可执行文件；应移除该临时路径后再执行。
    没有移除GOTMPDIR后转用系统TMP，没有绕过拒绝。
-2. 用户随后明确允许C:\Users\zheng\specgraph-src.manual-completion-check、编译器自清理中间文件、覆盖固定候选specgraph.next.exe。
+2. 用户随后明确允许%USERPROFILE%\specgraph-src.manual-completion-check、编译器自清理中间文件、覆盖固定候选specgraph.next.exe。
    严格使用用户这次指定的项目旁目录，不擅自改回项目内的\.manual-completion-check。Go构建exit0，目录剩余文件0，目录保留。
 3. Vitest使用同目录TEMP/TMP、NODE_DISABLE_COMPILE_CACHE=1，以及run --configLoader runner --no-cache --project unit src/components/workbench。
    再次拒绝原文：该测试命令把 TEMP/TMP 指向此前仅获准用于 Go 编译器的目录；用户未授权将该目录扩展用于 Vitest，且工作区指示禁止随意使用临时路径。

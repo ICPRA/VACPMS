@@ -226,7 +226,7 @@ Spec前置关系解除切片已实现并通过前后端回归，保留操作和�
 
 最新设计讨论已同步：hook可作为自动化节点/子图的配置称呼，展开时进入同一对象的可视化视角，不新建第二套执行器。条件流程与受控循环需纳入设计并与硬依赖分层；目前尚未实现，不能把讨论当作开放任意脚本或无界循环的授权。细节见PRODUCT-DESIGN.md第23节。本轮已在进行的主规格上下文基线修复继续，未借此改动全局harness。
 
-主规格上下文基线已完成源码、隔离检查和原服务发布，前端显示可选基线；历史缺失不补造。用户明确允许的本轮编译目录为C:\Users\zheng\specgraph-src.manual-completion-check，编译器自身中间文件清理完成。既有领取/交付门禁保留；关联决策/依赖的整体快照及验收版本适用性仍是后续工作。
+主规格上下文基线已完成源码、隔离检查和原服务发布，前端显示可选基线；历史缺失不补造。用户明确允许的本轮编译目录为%USERPROFILE%\specgraph-src.manual-completion-check，编译器自身中间文件清理完成。既有领取/交付门禁保留；关联决策/依赖的整体快照及验收版本适用性仍是后续工作。
 
 人工完成首轮已部署且通过局部技术检查。用户随后关注群发、转发和可回复第三方的上下文邮件；消息级来源与服务端引用已实现并加载原服务，复用已有发送API和Agent工具。已区分加入原线程与独立转交选定上下文，避免把全部历史访问权悄悄授予第三方。具体契约见PRODUCT-DESIGN.md第17节，技术证明见STATE.md；邮箱界面、真实Agent收发、图上关联仍是后续必须交付的整体能力。
 
@@ -297,7 +297,7 @@ psmux补证：本机源码目录未定位，已只读研究兼容工程固定提
 
 补充源码位置：`G:\ntm-windows-compat`是兼容工程，含cost-router、state-service、Windows脚本及补丁/发行物。其cost-router已读取入口与路由实现；并发字段未实际被路由代码使用、tier由调用方指定，不能当作已完成的智能路由/并发治理。详细证据见PRODUCT-DESIGN.md第16节。`vendor-pins.md`记录的是历史Linux构建机结果，不是本机Windows运行证明。
 
-NTM源目录已确认`C:\Users\zheng\src\ntm`。本机LICENSE同样含附加rider，不能把它称为普通MIT或未经澄清就直接整包搬入；当前只记录用户要求的功能事实，不复制源码到产品。
+NTM源目录已确认`%USERPROFILE%\src\ntm`。本机LICENSE同样含附加rider，不能把它称为普通MIT或未经澄清就直接整包搬入；当前只记录用户要求的功能事实，不复制源码到产品。
 
 源码身份进一步核实：本机NTM当前HEAD为`2be31295c2294f4230ea8f5f82aed83b814ae023`，研究对象是该工作树，不代表已经核实官方发行包一致。实际diff显示Agent页、会话首页和会话详情有本地增员/创建入口改动，`web/src/components/agent-launch-modal.tsx`是未跟踪的新文件。因此此前提到的这些Web按钮属于当前本机参考版本，不能归为该HEAD原有上游功能。未改动或撤销这些既有修改。SpecGraph本机HEAD为`bd13518e0e956f7a57cfd454ca54092dba21cadf`，同样需结合现有扩展变更理解，不以提交ID代替实际内容核查。
 
@@ -426,7 +426,7 @@ T3已有McpSessionRegistry逐会话令牌，McpHttpServer从已验证Bearer注�
 
 ### Harness 职责边界（源码核查，2026-09-20）
 
-本地权威源：`C:\Users\zheng\Desktop\codex_bugfix` 的 `.codex/global-skills`、`.codex/global-agents`、`.codex/global-hooks`、同步脚本及 workflow 文档。`C:\Users\zheng\.codex` 是安装配置，不是第二个发布源；配置存在不证明某个 T3 子进程已经加载。
+本地权威源：`%USERPROFILE%\Desktop\codex_bugfix` 的 `.codex/global-skills`、`.codex/global-agents`、`.codex/global-hooks`、同步脚本及 workflow 文档。`%USERPROFILE%\.codex` 是安装配置，不是第二个发布源；配置存在不证明某个 T3 子进程已经加载。
 
 | 职责 | 目标所有者 | 保留的边界 / 当前缺口 |
 |---|---|---|

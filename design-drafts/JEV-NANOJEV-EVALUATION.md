@@ -100,4 +100,4 @@ Jev的类型保证只能消除一类输出格式错误。选到了合法但错�
 - [模型配置](https://huggingface.co/C-Tianyu/NanoJev/blob/047b927b30882a1138fc504821b82ac145a4b81a/config.json)
 - [模型卡及许可边界](https://huggingface.co/C-Tianyu/NanoJev/blob/047b927b30882a1138fc504821b82ac145a4b81a/README.md)
 
-本地消费者：[现有知识检索](C:/Users/zheng/specgraph-src/internal/storage/postgres/workbench_search.go)、[真实项目的对话读取](C:/Users/zheng/t3code-git/apps/server/src/mcp/workbenchKnowledge.ts)、[派单指导](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/runPrompt.ts)、[原生工具契约](C:/Users/zheng/project-workbench/extensions/workbench-mail/tools.ts)。
+本地消费者：[现有知识检索](%USERPROFILE%/specgraph-src/internal/storage/postgres/workbench_search.go)、[真实项目的对话读取](%USERPROFILE%/t3code-git/apps/server/src/mcp/workbenchKnowledge.ts)、[派单指导](../extensions/workbench-ui/src/runPrompt.ts)、[原生工具契约](../extensions/workbench-mail/tools.ts)。

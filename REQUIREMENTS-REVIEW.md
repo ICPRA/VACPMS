@@ -88,11 +88,11 @@
 
 ## 关键源码证据
 
-- 结构和PM操作：[workbenchMail.ts](C:/Users/zheng/t3code-git/apps/server/src/mcp/workbenchMail.ts)、[Page.tsx](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/Page.tsx)、[subdivision.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/subdivision.go)。
-- 程序/条件/候选：[program_loop.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/program_loop.go)、[report_branch_judgment.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/report_branch_judgment.go)、[candidate_loop.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/candidate_loop.go)。
-- 执行责任而非通用责任框架：[run_dispatch.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/run_dispatch.go)、[claim.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/claim.go)、[mail_owner.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/mail_owner.go)。
-- 人工完成与需求变化：[manual_completion.go](C:/Users/zheng/specgraph-src/internal/storage/postgres/manual_completion.go)、[ChangeImpactPreview.tsx](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/ChangeImpactPreview.tsx)、[AbandonNodePanel.tsx](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/AbandonNodePanel.tsx)。
-- 搜索/规则/Git/负载：[KnowledgeSearch.tsx](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/KnowledgeSearch.tsx)、[RunHarness.tsx](C:/Users/zheng/project-workbench/extensions/workbench-ui/src/RunHarness.tsx)、[WorkbenchDeliveryGit.tsx](C:/Users/zheng/t3code-git/apps/web/src/components/workbench/WorkbenchDeliveryGit.tsx)、[WorkbenchSessions.tsx](C:/Users/zheng/t3code-git/apps/web/src/components/workbench/WorkbenchSessions.tsx)。
+- 结构和PM操作：[workbenchMail.ts](%USERPROFILE%/t3code-git/apps/server/src/mcp/workbenchMail.ts)、[Page.tsx](extensions/workbench-ui/src/Page.tsx)、[subdivision.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/subdivision.go)。
+- 程序/条件/候选：[program_loop.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/program_loop.go)、[report_branch_judgment.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/report_branch_judgment.go)、[candidate_loop.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/candidate_loop.go)。
+- 执行责任而非通用责任框架：[run_dispatch.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/run_dispatch.go)、[claim.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/claim.go)、[mail_owner.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/mail_owner.go)。
+- 人工完成与需求变化：[manual_completion.go](%USERPROFILE%/specgraph-src/internal/storage/postgres/manual_completion.go)、[ChangeImpactPreview.tsx](extensions/workbench-ui/src/ChangeImpactPreview.tsx)、[AbandonNodePanel.tsx](extensions/workbench-ui/src/AbandonNodePanel.tsx)。
+- 搜索/规则/Git/负载：[KnowledgeSearch.tsx](extensions/workbench-ui/src/KnowledgeSearch.tsx)、[RunHarness.tsx](extensions/workbench-ui/src/RunHarness.tsx)、[WorkbenchDeliveryGit.tsx](%USERPROFILE%/t3code-git/apps/web/src/components/workbench/WorkbenchDeliveryGit.tsx)、[WorkbenchSessions.tsx](%USERPROFILE%/t3code-git/apps/web/src/components/workbench/WorkbenchSessions.tsx)。
 
 ## 历史处理
 

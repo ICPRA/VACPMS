@@ -321,7 +321,7 @@ Agent自身交付已按明确许可接通源码：只接收说明，宿主读取
 2026-09-23简化历时前端、邮件本机消费者和邮箱初始化CLI已统一重建到现有源码桌面产物/Go候选。首轮web构建无错误文本退出1；增加有界子进程诊断后同配置构建退出0，初次退出原因未确定，不宣称已修复系统问题。server构建成功且产物含本机邮件桥，临时缓存已清理，未重启用户进程或调用真实邮件/登记操作。自动登记规则仍待用户回复；统一资料目录当前没有邮箱配置，不能声称邮箱已自动启用。
 2026-09-23为统一初始化接入mail-grant/mail-bind本机命令；HTTP和本机入口共用原GrantMailBridge/ApproveMailBinding，不另建身份或登记规则。命令沿用mail.manage授权，操作者来自已验证身份，不接受伪造操作者字段；原协议/表示层检查及一项登记路由检查通过。未创建真实账号、密钥、授权或会话登记；首次设置界面与自动取原生会话身份仍待接入，当前仅源码。
 2026-09-23移除邮箱token_file必须为绝对路径的限制，与组件路径一样相对配置文件目录解析；旧绝对路径仍正常解析，未读取/改写真实凭据。现有4项配置检查通过。首次登记继续复用GrantMailBridge/ApproveMailBinding和已有API key存储，不另造邮箱身份系统；当前尚未接自动初始化，不借旧mail-setup测试记录替新用户登记。
-2026-09-23启动器自动向桌面传递自身工作台位置，桌面按配置文件目录解析组件路径；desktop-runtime.json已改为相对路径，去掉zheng用户名绝对路径，数据库连接配置未改。原启动检查与desktop类型检查通过，桌面构建已更新；未重启用户程序。当前仍是相邻源码目录布局，发行包整合及首次初始化未完成，不能声称任意目录单包安装已实现。
+2026-09-23启动器自动向桌面传递自身工作台位置，桌面按配置文件目录解析组件路径；desktop-runtime.json已改为相对路径，去掉用户名绝对路径，数据库连接配置未改。原启动检查与desktop类型检查通过，桌面构建已更新；未重启用户程序。当前仍是相邻源码目录布局，发行包整合及首次初始化未完成，不能声称任意目录单包安装已实现。
 2026-09-23按用户要求启动Docker Desktop，docker info确认引擎29.4.0可用。继续原有隔离检查，真实Node邮箱客户端→Go候选管道→隔离PostgreSQL的群发、第三方转发/回复引用、收件箱、线程、已读、确认、关闭及未登记身份拒绝全部通过（54.163秒）。未向真实项目发信，未修改既有Docker配置，构建临时目录检查为空。该结果证明邮箱内部传输闭环，不等于整套单机初始化、Agent自动登记或最终用户界面已交付。
 2026-09-23邮件本机真实往返检查已接入已有隔离测试，覆盖群发、第三方转发/回复引用、收件箱、线程、已读、确认、关闭与未登记身份拒绝；Go候选已构建。运行尚未进入数据库或邮件步骤：Docker引擎不可用，testcontainers报rootless Docker不支持Windows；进一步直接docker info确认dockerDesktopLinuxEngine管道不存在。不是邮件业务测试失败，也不能报通过。已询问启动Docker，不自动改配置或删除容器；待引擎恢复后运行同一检查。
 2026-09-23用户明确批准邮件发送/多收件人/回复/转发、已读、确认、关闭通过本机管道，沿用原权限，只用隔离数据验证。已将原HTTP邮箱操作机械提取为共用执行入口，CLI加入六项邮件命令，MCP外挂消费者支持直接调用既有stdio桥；相对组件路径基于配置目录解析，不新增服务或重写邮箱核心。现有客户端7项、配置4项、CLI协议及server类型检查通过。邮件HTTP专项运行因未设置其显式隔离配置而跳过，不能算数据库行为通过；真实本机邮件往返仍待验证，尚未部署/自动初始化，不向真实项目发信。
@@ -542,11 +542,11 @@ PrepareRun实际保存审核ID及继承内容，完成门核对该运行使用�
 
 依赖图视图分层已接入前端：默认仅绘制硬依赖，勾选后显示其他关系；节点保留，依赖边与其他关系分别计数。切换重新适配全图并清除旧渲染错误；数据层错误时控制仍可使用。概览画布占用剩余高度，避免新增控制挤压下方看板。新增硬依赖环成员提示，复用已安装Dagre 3.1.1导出的graphlib 4.0.5 findCycles，不自写环算法；其他关联形成的环不计入，结构提示不改写业务阶段或失败次数。44项工作台检查及类型检查通过，真实浏览器视觉检查仍未完成；此项不是条件/循环调度实现。
 
-编译/测试许可：用户已明确允许本项目Go、TypeScript、Vitest共用C:\Users\zheng\specgraph-src.manual-completion-check，仅清理自身文件。Vitest使用runner配置加载与无缓存模式。用户已确认codex_bugfix新任务创建成功，反复授权调查交给该任务，本线程继续VACPMS，不再轮询创建状态或重复创建；调查材料见HARNESS-APPROVAL-HANDOFF.md。
+编译/测试许可：用户已明确允许本项目Go、TypeScript、Vitest共用%USERPROFILE%\specgraph-src.manual-completion-check，仅清理自身文件。Vitest使用runner配置加载与无缓存模式。用户已确认codex_bugfix新任务创建成功，反复授权调查交给该任务，本线程继续VACPMS，不再轮询创建状态或重复创建；调查材料见HARNESS-APPROVAL-HANDOFF.md。
 
 上下文基线切片已构建并发布原服务。PrepareRun在领取事务及主规格行锁内生成Bundle，复用approved/in_progress校验；上下文包记录主规格版本和实际领取，时间戳在生成成功后采集。两个调用者不再自行传入包正文。投影specVersion来自已存包，历史缺失保持null；会话界面显示准备时规格版本，未记录不补造。前端40项与类型检查、4项Docker集成及7种阶段用例、显式配置的私有pg_temp回滚/清理检查通过。保证范围是主规格及领取，不是所有关联决策/依赖的全局一致快照。
 
-发布许可已解除：用户明确指定C:\Users\zheng\specgraph-src.manual-completion-check（项目旁边的目录），允许编译器清理自身中间文件并覆盖固定候选程序。本轮严格使用该路径设置GOTMPDIR/TEMP/TMP，未擅自替换为先前项目内目录或系统TMP。构建成功，候选程序92119552字节，编译目录剩余文件0，目录保留。发布前活动领取0；原5733代理读取确认6个执行均返回specVersion字段，历史6项均为未知，没有补写或创建测试执行。
+发布许可已解除：用户明确指定%USERPROFILE%\specgraph-src.manual-completion-check（项目旁边的目录），允许编译器清理自身中间文件并覆盖固定候选程序。本轮严格使用该路径设置GOTMPDIR/TEMP/TMP，未擅自替换为先前项目内目录或系统TMP。构建成功，候选程序92119552字节，编译目录剩余文件0，目录保留。发布前活动领取0；原5733代理读取确认6个执行均返回specVersion字段，历史6项均为未知，没有补写或创建测试执行。
 
 2026-09-21执行互斥与交付门禁修复已部署：PrepareRun以真实run ID领取任务，实际服务与旧CLI源码的complete入口均使用该ID；不再通过共享workbench-loop身份续租或完成。RecordCompletion先锁任务行再检查领取，与ClaimSpec使用相同锁顺序；旧执行身份冲突映射为409。受管项目只检查当前执行最新交付的最新接受判定，不能借用历史执行或旧候选的接受记录。CreateDelivery和InsertAcceptance同样在事务内取得任务行锁，与完成串行。未改写历史记录。
 
@@ -633,7 +633,7 @@ shim定向测试和构建通过，覆盖模型/config以及新建/恢复/取消�
 
 ### 当前已部署版本（2026-09-20，此段优先于下方历史“未部署”描述）
 
-已构建并替换获授权的SpecGraph服务：当前PID38184，`C:\Users\zheng\specgraph-src\specgraph.exe serve --config C:\Users\zheng\project-workbench\specgraph-config.yaml`，继续由既有工作台使用的常驻服务承担读取/操作；T3、Docker未重启。节点契约字段、Prime决定元数据、绑定不可覆盖、同项目交付/验收约束及HTTP写鉴权/准备批准门禁已随本次源码构建上线。没有新增迁移文件；仍保留既有原版恢复副本，不累积新备份。
+已构建并替换获授权的SpecGraph服务：当前PID38184，`%USERPROFILE%\specgraph-src\specgraph.exe serve --config %USERPROFILE%\project-workbench\specgraph-config.yaml`，继续由既有工作台使用的常驻服务承担读取/操作；T3、Docker未重启。节点契约字段、Prime决定元数据、绑定不可覆盖、同项目交付/验收约束及HTTP写鉴权/准备批准门禁已随本次源码构建上线。没有新增迁移文件；仍保留既有原版恢复副本，不累积新备份。
 
 根实际验证直连8690及Vite同源代理：current-view与节点详情200，shape/specify字段存在；未认证POST /loop/runs返回401，不再开放写入。更新前后均读取6规格/6运行绑定/3交付，烟雾请求没有业务写入。此前契约/鉴权/门禁的隔离测试通过仍为相应行为证据，生产环境没有用真项目重跑变更测试。图可视验收、跨provider真实调用、邮箱、版本适用性和完整独立验收仍未完成。
 
@@ -664,9 +664,9 @@ shim定向测试和构建通过，覆盖模型/config以及新建/恢复/取消�
 - 新追加的绑定身份不可覆盖修复已落源码、未部署：首次prepared空引用才可绑定；同引用重试不改变state/updated_at；不同引用409、错项目或缺失404。两个HTTP错误映射与存储隔离测试通过；另已在现有本机PostgreSQL的新连接私有临时表执行真实存储SQL并通过，事务回滚后核实表消失，没有写生产运行/项目数据。该测试不代表多连接并发或完整HTTP身份授权验收。
 - 用户要求外挂和升级保护后，已撤回新增T3核心RPC为首选，改为复用已有已认证客户端命令/订阅。业务UI已迁往 `project-workbench/extensions/workbench-ui` 标准本地workspace包，T3仅保留宿主适配与必要挂载。真实模块realpath在上游checkout之外；check-host.mjs已验证。没有发现官方UI插件ABI，不能承诺零适配；SpecGraph业务强制门依旧需要维护本地fork。
 - 外置安装完成：默认pnpm11.19与精确11.10的非冻结dry-run都提出无关升级，未采用。根仅增新importer与web workspace链接，复用原锁定版本，精确11.10 frozen离线安装成功，完整结构比对确认其他全部解析/snapshots未变，临时锁快照已删除。18项消费者测试统一通过、host类型检查exit0；新Tailwind进程确实扫描外置Page并产出看板/详情CSS。现有Vite曾缓存安装前缺包错误，只触发它原生config reload后宿主模块、外置模块及CSS均200，未更换服务环境或杀进程。视觉及升级重装演练仍未完成。
-- 新后端已按用户授权部署：SpecGraph PID 61284 / 127.0.0.1:8690。命令为 `C:\Users\zheng\specgraph-src\specgraph.exe serve --config C:\Users\zheng\project-workbench\specgraph-config.yaml`，隐藏窗口，交接为原常驻服务的替代进程；只保留此一个实例。Vite PID14676 / ::1:5733 沿用；既有 T3 CLI PID36104 / 127.0.0.1:3773 未动。后续停止前必须复核实际进程身份。
+- 新后端已按用户授权部署：SpecGraph PID 61284 / 127.0.0.1:8690。命令为 `%USERPROFILE%\specgraph-src\specgraph.exe serve --config %USERPROFILE%\project-workbench\specgraph-config.yaml`，隐藏窗口，交接为原常驻服务的替代进程；只保留此一个实例。Vite PID14676 / ::1:5733 沿用；既有 T3 CLI PID36104 / 127.0.0.1:3773 未动。后续停止前必须复核实际进程身份。
 - 真实新接口及 Vite 代理均通过：6规格、6图节点、0边、5运行绑定、3交付、0证据、3验收记录。不存在项目和 `_server` 读取返回404；前后项目列表不变。详情事件正常返回。未写入测试项目或伪造图/证据。工作台HTML及Vite组件转换均返回200，但这不是浏览器视觉验收。
-- 新构建已复制到官方 specgraph.exe，机械校验一致；待部署副本已删除。为部署恢复保留一份 `C:\Users\zheng\specgraph-src\specgraph.before-workbench-20260920.exe`（原二进制），待界面与运行验收结束处理；不累积多份。构建/测试临时根已清理。
+- 新构建已复制到官方 specgraph.exe，机械校验一致；待部署副本已删除。为部署恢复保留一份 `%USERPROFILE%\specgraph-src\specgraph.before-workbench-20260920.exe`（原二进制），待界面与运行验收结束处理；不累积多份。构建/测试临时根已清理。
 
 ## 当前阻碍：harness 分类器
 
@@ -693,7 +693,7 @@ shim定向测试和构建通过，覆盖模型/config以及新建/恢复/取消�
 | 进程 | 端口 | 说明 |
 |---|---|---|
 | vite client-only | 5733 | **由 `supervise-vite.bat` 自守护**（死了 5 秒自起，日志 `~/project-workbench/logs-vite.txt`）。手动：`cd ~/t3code-git/apps/web && PORT=5733 T3CODE_PORT=13774 vp dev`。**不能用 `vp run dev`**（watcher 风暴杀 vite）。代理 `/workbench-api` → specgraph:8690（剥前缀；/wb/* 读、/loop/* 闭环，均为 loopback 可信端点，无需鉴权头） |
-| specgraph serve | 8690 | **由 `supervise-specgraph.bat` 自守护**（日志 `~/project-workbench/logs-specgraph.txt`）。手动：`cd ~/specgraph-src && ./specgraph.exe serve --config C:\Users\zheng\project-workbench\specgraph-config.yaml`。扩展内容：**/wb/*（工作台读）+ /loop/*（闭环）** 挂在同 mux（internal/server/workbench_loop.go + workbench_read.go，**每请求按 X-Specgraph-Project 头做 Scoper 项目作用域，默认 specgraph**——root store 是 `_server` 项目，直接用会查空！） |
+| specgraph serve | 8690 | **由 `supervise-specgraph.bat` 自守护**（日志 `~/project-workbench/logs-specgraph.txt`）。手动：`cd ~/specgraph-src && ./specgraph.exe serve --config %USERPROFILE%\project-workbench\specgraph-config.yaml`。扩展内容：**/wb/*（工作台读）+ /loop/*（闭环）** 挂在同 mux（internal/server/workbench_loop.go + workbench_read.go，**每请求按 X-Specgraph-Project 头做 Scoper 项目作用域，默认 specgraph**——root store 是 `_server` 项目，直接用会查空！） |
 | PostgreSQL | 5432 | **Windows 服务 postgresql-x64-17**（winget 装，pgvector 0.8.1 源码编译安装于 `C:\Program Files\PostgreSQL\17`，编译脚本 `~/pgvector/build-pgvector.bat`/`install-pgvector.bat`）。superuser: postgres/specgraph 与 specgraph/specgraph |
 | T3 桌面 | - | **`start-workbench-stack.bat`（一键：拉起两个 supervisor + 桌面）**；`stop-workbench-stack.bat` 停栈不停桌面。旧 `launch-t3-workbench.bat` 已废弃（supervisor 版取代） |
 
@@ -709,7 +709,7 @@ shim定向测试和构建通过，覆盖模型/config以及新建/恢复/取消�
 - SpecGraph 源码：`~/specgraph-src`（gitclone 镜像，commit bd13518；**全库已转 LF，go:embed 编译期抓文件，改 .md/.sql 后必须重编**）
 - specgraph 配置：`~/project-workbench/specgraph-config.yaml`（GlobalConfig 体系：server.docker:false、postgres.url 5433）
 - CLI 认证：`~/.config/specgraph/credentials.yaml`（bootstrap admin spgr_sk_5QM7H2ID_…，key 只显示一次，已存）
-- **所有 specgraph CLI 命令必须带 `--config C:\Users\zheng\project-workbench\specgraph-config.yaml`**（否则打到默认 9090）
+- **所有 specgraph CLI 命令必须带 `--config %USERPROFILE%\project-workbench\specgraph-config.yaml`**（否则打到默认 9090）
 
 ## 环境坑备忘
 

@@ -1,6 +1,6 @@
 # VACPMS 当前待办
 
-更新：2026-09-29。唯一功能统计见[REQUIREMENTS-REVIEW.md](C:/Users/zheng/project-workbench/REQUIREMENTS-REVIEW.md)。原31项中26项源码已实现，F27正式合并与F28完整检查/真实问题修复待完成，F29-F31已由用户取消。取消不计为实现；未统一部署也不等于全部源码未实现。
+更新：2026-09-29。唯一功能统计见[REQUIREMENTS-REVIEW.md](REQUIREMENTS-REVIEW.md)。原31项中26项源码已实现，F27正式合并与F28完整检查/真实问题修复待完成，F29-F31已由用户取消。取消不计为实现；未统一部署也不等于全部源码未实现。
 
 ## 剩余业务代码与入口
 
@@ -39,4 +39,4 @@
 
 ## 边界
 
-保留现有源码修改；不运行qlib_quant或其它真实任务，不另造总体模拟项目。模块实现与接口检查由开发负责，最终总体验收由用户负责。历史清单见[审计前TODO](C:/Users/zheng/project-workbench/docs/history/TODO-before-2026-09-28-audit.md)，不参与当前计数。
+保留现有源码修改；不运行qlib_quant或其它真实任务，不另造总体模拟项目。模块实现与接口检查由开发负责，最终总体验收由用户负责。历史清单见[审计前TODO](docs/history/TODO-before-2026-09-28-audit.md)，不参与当前计数。

@@ -41,7 +41,7 @@ SpecGraph边界：cmd/specgraph/serve.go注册现有业务handler和工作台路
 
 ## 条件、循环与hook子步骤证据
 
-本机C:\Users\zheng\src\ntm的HEAD为2be31295c2294f4230ea8f5f82aed83b814ae023，本次读取的internal/pipeline与internal/workflow目录无工作树改动。以下仅为源码事实，没有运行、复制或接入NTM实现，既有许可rider问题未因此解除。
+本机%USERPROFILE%\src\ntm的HEAD为2be31295c2294f4230ea8f5f82aed83b814ae023，本次读取的internal/pipeline与internal/workflow目录无工作树改动。以下仅为源码事实，没有运行、复制或接入NTM实现，既有许可rider问题未因此解除。
 
 | 已读源码 | 实际行为 | VACPMS取舍 |
 |---|---|---|
