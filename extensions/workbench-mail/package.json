@@ -1,0 +1,9 @@
+{
+  "name": "@project-workbench/mail",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./client": "./client.mjs", "./config": "./config.mjs", "./tools": "./tools.ts" },
+  "peerDependencies": { "effect": "4.0.0-rc.115" },
+  "scripts": { "test": "node --test client.test.mjs config.test.mjs" }
+}

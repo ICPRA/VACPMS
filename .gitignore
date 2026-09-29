@@ -1,0 +1,17 @@
+# Local databases, credentials, profiles and operational backups are not source.
+/runtime/
+/backups/
+/specgraph-config.yaml
+/mail-setup.json
+/.env
+/.env.*
+!/.env.example
+/logs-*.txt
+/acp-raw.ndjson
+node_modules/
+
+# Vendored build toolchain (464 MB, re-fetchable)
+/.tools/
+
+# Go build artifact (rebuild: cd kimi-cursor-shim && go build)
+/kimi-cursor-shim/cursor-agent.exe

@@ -1,0 +1,9 @@
+{
+  "desktop": "../t3code-git/apps/desktop",
+  "executable": "../specgraph-src/specgraph.next.exe",
+  "config": "specgraph-config.yaml",
+  "database": {
+    "kind": "windows-service",
+    "name": "postgresql-x64-17"
+  }
+}

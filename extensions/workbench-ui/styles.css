@@ -1,0 +1,1189 @@
+@import "@xyflow/react/dist/style.css";
+@source "./src";
+
+/*
+ * VACPMS workbench presentation layer.
+ *
+ * Everything lives in `@layer components` so Tailwind utilities used by the host
+ * (WorkbenchSessions, WorkbenchDispatch, ...) keep winning where they set their
+ * own look. Only the xyflow overrides at the bottom are unlayered, because
+ * xyflow's stylesheet is unlayered and would otherwise beat these rules.
+ *
+ * Sections: 1 tokens · 2 base elements · 3 controls · 4 feedback · 5 shell ·
+ *           6 directory · 7 primary region · 8 board/table · 9 graph ·
+ *           10 inspector/panels · 11 mail · 12 responsive · 13 xyflow
+ */
+@layer components {
+  /* ───────────── 1. Tokens ───────────── */
+  .wb-root {
+    --wb-line: color-mix(in oklab, var(--foreground) 12%, transparent);
+    --wb-line-strong: color-mix(in oklab, var(--foreground) 24%, transparent);
+    --wb-surface: color-mix(in oklab, var(--foreground) 3%, var(--background));
+    --wb-surface-raised: color-mix(in oklab, var(--foreground) 7%, var(--background));
+    --wb-hover: color-mix(in oklab, var(--foreground) 7%, transparent);
+    --wb-muted: var(--muted-foreground);
+    --wb-accent: var(--primary);
+    --wb-accent-text: color-mix(in oklab, var(--primary) 70%, var(--foreground));
+    --wb-accent-soft: color-mix(in oklab, var(--primary) 14%, transparent);
+    --wb-info: var(--info-foreground, #1d4ed8);
+    --wb-info-bg: color-mix(in oklab, var(--info, #3b82f6) 11%, transparent);
+    --wb-info-line: color-mix(in oklab, var(--info, #3b82f6) 45%, transparent);
+    --wb-success: var(--success-foreground, #047857);
+    --wb-success-bg: color-mix(in oklab, var(--success, #10b981) 11%, transparent);
+    --wb-success-line: color-mix(in oklab, var(--success, #10b981) 45%, transparent);
+    --wb-warning: var(--warning-foreground, #b45309);
+    --wb-warning-bg: color-mix(in oklab, var(--warning, #f59e0b) 13%, transparent);
+    --wb-warning-line: color-mix(in oklab, var(--warning, #f59e0b) 50%, transparent);
+    --wb-danger: var(--destructive-foreground, var(--destructive, #b91c1c));
+    --wb-danger-bg: color-mix(in oklab, var(--destructive, #ef4444) 11%, transparent);
+    --wb-danger-line: color-mix(in oklab, var(--destructive, #ef4444) 50%, transparent);
+    --wb-violet: color-mix(in oklab, oklch(0.62 0.17 300) 75%, var(--foreground));
+    --wb-r: 8px;
+    --wb-r-sm: 6px;
+    --wb-focus: var(--ring, var(--primary));
+    --wb-tabs-height: 42px;
+
+    container: workbench / inline-size;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
+    padding: 16px 20px 16px;
+    scroll-padding-top: calc(var(--wb-tabs-height) + 8px);
+    font-size: 13px;
+    line-height: 1.5;
+    accent-color: var(--primary);
+  }
+  .wb-root :where(*) {
+    border-color: var(--wb-line);
+  }
+
+  /* Stage colour is only ever a secondary cue; the stage name is always printed. */
+  .wb-root [data-stage] { --wb-stage: var(--wb-muted); }
+  .wb-root [data-stage="approved"] { --wb-stage: var(--wb-info); }
+  .wb-root [data-stage="in_progress"] { --wb-stage: var(--wb-accent-text); }
+  .wb-root [data-stage="review"] { --wb-stage: var(--wb-warning); }
+  .wb-root [data-stage="done"] { --wb-stage: var(--wb-success); }
+  .wb-root [data-stage="summary"] { --wb-stage: var(--wb-violet); }
+  .wb-root [data-stage="superseded"],
+  .wb-root [data-stage="abandoned"] { --wb-stage: color-mix(in oklab, var(--wb-muted) 60%, transparent); }
+
+  /* ───────────── 2. Base elements ───────────── */
+  .wb-root :where(h1, h2, h3, h4, h5) { margin: 0; line-height: 1.35; overflow-wrap: anywhere; }
+  .wb-root :where(h2) { font-size: 14px; font-weight: 600; }
+  .wb-root :where(h3) { font-size: 13px; font-weight: 600; }
+  .wb-root :where(h4) { font-size: 12px; font-weight: 600; color: var(--wb-muted); }
+  .wb-root :where(p) { margin: 0; overflow-wrap: anywhere; }
+  .wb-root :where(a) { color: var(--wb-info); text-underline-offset: 3px; }
+  .wb-root :where(time) { font-variant-numeric: tabular-nums; }
+  .wb-root :where(strong) { font-weight: 600; }
+  .wb-root :where(pre) {
+    max-width: 100%;
+    margin: 0;
+    padding: 8px 10px;
+    overflow: auto;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-surface-raised);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .wb-root :where(code) { font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.92em; }
+  .wb-root :where(summary) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-block: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    list-style: none;
+    overflow-wrap: anywhere;
+  }
+  .wb-root :where(summary)::-webkit-details-marker { display: none; }
+  .wb-root :where(summary)::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    color: var(--wb-muted);
+    transform: rotate(-45deg);
+    transition: transform 0.12s ease;
+  }
+  .wb-root :where(details[open] > summary)::before { transform: rotate(45deg); }
+  .wb-root :where(details[open] > summary) { margin-bottom: 4px; }
+
+  /* ───────────── 3. Controls ───────────── */
+  .wb-root .wb-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 28px;
+    padding: 4px 10px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-surface);
+    color: var(--foreground);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+    transition: background-color 0.12s ease, border-color 0.12s ease;
+  }
+  .wb-root .wb-button:hover:not(:disabled) {
+    background: var(--wb-surface-raised);
+    border-color: color-mix(in oklab, var(--foreground) 36%, transparent);
+  }
+  .wb-root .wb-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .wb-root .wb-button svg { flex: none; }
+  .wb-root .wb-button[aria-pressed="true"] { background: var(--wb-accent-soft); border-color: var(--wb-accent); }
+  /* A form's submit button is its primary action. */
+  .wb-root .wb-button[type="submit"] {
+    border-color: transparent;
+    background: var(--primary);
+    color: var(--primary-foreground, #fff);
+  }
+  .wb-root .wb-button[type="submit"]:hover:not(:disabled) {
+    background: color-mix(in oklab, var(--primary) 86%, var(--foreground));
+    border-color: transparent;
+  }
+  .wb-root .wb-button[data-variant="danger"] { border-color: var(--wb-danger-line); color: var(--wb-danger); }
+  .wb-root .wb-button[data-variant="danger"]:hover:not(:disabled) { background: var(--wb-danger-bg); border-color: var(--wb-danger); }
+  .wb-root .wb-button[type="submit"][data-variant="danger"] { background: var(--destructive, #dc2626); color: #fff; border-color: transparent; }
+
+  .wb-root .wb-icon-button {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: var(--wb-r-sm);
+    color: var(--foreground);
+    cursor: pointer;
+  }
+  .wb-root .wb-icon-button:hover:not(:disabled) { background: var(--wb-hover); border-color: var(--wb-line); }
+  .wb-root .wb-icon-button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .wb-root :where(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="submit"], [type="button"]), select, textarea) {
+    min-width: 0;
+    max-width: 100%;
+    min-height: 30px;
+    padding: 5px 8px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r-sm);
+    background: var(--background);
+    color: inherit;
+    font: inherit;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .wb-root :where(textarea) { min-height: 76px; resize: vertical; line-height: 1.5; }
+  .wb-root :where(select) { cursor: pointer; }
+  .wb-root :where(input, select, textarea)::placeholder { color: var(--wb-muted); opacity: 0.85; }
+  .wb-root :where(input, select, textarea):disabled { opacity: 0.6; cursor: not-allowed; background: var(--wb-surface); }
+  .wb-root :where(input[type="checkbox"], input[type="radio"]) {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    margin: 3px 8px 0 0;
+    vertical-align: top;
+    cursor: pointer;
+  }
+  .wb-root :where(label) {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+    font-size: 12px;
+    color: color-mix(in oklab, var(--foreground) 82%, transparent);
+    overflow-wrap: anywhere;
+  }
+  .wb-root :where(label:has(> input[type="checkbox"], > input[type="radio"])) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .wb-root :where(fieldset) {
+    min-width: 0;
+    margin: 0;
+    padding: 8px 10px 10px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+  }
+  .wb-root :where(legend) { padding-inline: 6px; font-size: 12px; font-weight: 600; }
+  .wb-root :where(button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--wb-focus);
+    outline-offset: 2px;
+  }
+  .wb-root :where(input, select, textarea):focus-visible { outline-offset: 0; border-color: var(--wb-focus); }
+
+  /* Segmented control: layout switcher and task filters */
+  .wb-root .wb-segmented {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+    background: var(--wb-surface-raised);
+  }
+  .wb-root .wb-segmented > button,
+  .wb-root .wb-segmented > * > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 28px;
+    padding: 3px 9px;
+    border-radius: var(--wb-r-sm);
+    color: var(--wb-muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+  .wb-root .wb-segmented > button:hover:not(:disabled, [aria-pressed="true"]),
+  .wb-root .wb-segmented > * > button:hover:not(:disabled, [aria-pressed="true"]) { background: var(--wb-hover); color: var(--foreground); }
+  .wb-root .wb-segmented > button[aria-pressed="true"],
+  .wb-root .wb-segmented > * > button[aria-pressed="true"] {
+    background: var(--background);
+    color: var(--foreground);
+    box-shadow: 0 0 0 1px var(--wb-line-strong);
+  }
+  .wb-root .wb-segmented > button:disabled,
+  .wb-root .wb-segmented > * > button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* ───────────── 4. Feedback: distinct visual language per state ───────────── */
+  .wb-root :where([role="alert"]) {
+    padding: 6px 10px;
+    border: 1px solid var(--wb-danger-line);
+    border-left-width: 3px;
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-danger-bg);
+    color: var(--wb-danger);
+    overflow-wrap: anywhere;
+  }
+  .wb-root :where([role="status"]) {
+    padding: 6px 10px;
+    border: 1px solid var(--wb-info-line);
+    border-left-width: 3px;
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-info-bg);
+    overflow-wrap: anywhere;
+  }
+  .wb-root :where(span[role="alert"], span[role="status"]) { display: inline-block; }
+  .wb-root .wb-error-text { color: var(--wb-danger); overflow-wrap: anywhere; }
+  .wb-root .wb-notice {
+    padding: 6px 10px;
+    border: 1px solid var(--wb-line-strong);
+    border-left-width: 3px;
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-surface);
+    font-size: 12px;
+    color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  }
+  .wb-root .wb-notice[data-tone="info"] { border-color: var(--wb-info-line); background: var(--wb-info-bg); }
+  .wb-root .wb-notice[data-tone="warning"] { border-color: var(--wb-warning-line); background: var(--wb-warning-bg); }
+  .wb-root .wb-empty {
+    padding: 10px 0;
+    color: var(--wb-muted);
+    font-size: 12px;
+  }
+  .wb-root .wb-state {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 28px 16px;
+    border: 1px dashed var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    color: var(--wb-muted);
+    font-size: 13px;
+  }
+  .wb-root .wb-state[data-state="loading"]::before,
+  .wb-root .wb-chip[data-busy]::before {
+    content: "";
+    flex: none;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: wb-spin 0.8s linear infinite;
+  }
+  .wb-root .wb-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    padding: 2px 9px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-surface);
+    color: var(--wb-muted);
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .wb-root .wb-chip[data-tone="info"] { border-color: var(--wb-info-line); background: var(--wb-info-bg); color: var(--wb-info); }
+  .wb-root .wb-chip[data-tone="success"] { border-color: var(--wb-success-line); background: var(--wb-success-bg); color: var(--wb-success); }
+  .wb-root .wb-chip[data-tone="warning"] { border-color: var(--wb-warning-line); background: var(--wb-warning-bg); color: var(--wb-warning); }
+  .wb-root .wb-chip[data-tone="danger"] { border-color: var(--wb-danger-line); background: var(--wb-danger-bg); color: var(--wb-danger); }
+  .wb-root .wb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 100%;
+    padding: 0 8px;
+    border: 1px solid color-mix(in oklab, var(--wb-stage, var(--wb-muted)) 38%, transparent);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--wb-stage, var(--wb-muted)) 12%, transparent);
+    color: color-mix(in oklab, var(--wb-stage, var(--wb-muted)) 82%, var(--foreground));
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+  .wb-root .wb-badge::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--wb-stage, var(--wb-muted));
+  }
+  .wb-root .wb-ready-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    padding: 0 8px;
+    border: 1px solid var(--wb-success-line);
+    border-radius: 999px;
+    background: var(--wb-success-bg);
+    color: var(--wb-success);
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+  @keyframes wb-spin { to { transform: rotate(360deg); } }
+
+  /* ───────────── 5. Shell: header, status, tabs, stats ───────────── */
+  .wb-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    padding-bottom: 4px;
+  }
+  .wb-title-block { min-width: 0; flex: 1 1 220px; }
+  .wb-eyebrow { color: var(--wb-muted); font-size: 12px; }
+  .wb-title { font-size: 18px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+  .wb-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
+  .wb-root .wb-select { max-width: min(100%, 260px); font-size: 13px; }
+  .wb-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    padding: 6px 0 10px;
+  }
+  .wb-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    flex: none;
+    gap: 2px;
+    min-height: var(--wb-tabs-height);
+    margin-inline: -20px;
+    padding-inline: 20px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--wb-line-strong);
+    background: var(--background);
+    scrollbar-width: thin;
+  }
+  .wb-tab {
+    position: relative;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    color: var(--wb-muted);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.12s ease, background-color 0.12s ease;
+  }
+  .wb-tab:hover { color: var(--foreground); background: var(--wb-hover); }
+  .wb-tab[aria-current="page"] { color: var(--foreground); }
+  .wb-tab[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    inset: auto 8px -1px;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+    background: var(--primary);
+  }
+  /* Stale/failed data stays visible while the page is scrolled under the sticky tabs. */
+  .wb-tabs[data-freshness="stale"],
+  .wb-tabs[data-freshness="error"] { box-shadow: inset 0 2px 0 var(--wb-warning); }
+  .wb-tabs[data-freshness="error"] { box-shadow: inset 0 2px 0 var(--wb-danger); }
+  .wb-tabs[data-freshness-label]::after {
+    content: attr(data-freshness-label);
+    position: sticky;
+    right: 0;
+    align-self: center;
+    margin-left: auto;
+    flex: none;
+    padding: 1px 8px;
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-warning-bg);
+    color: var(--wb-warning);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .wb-tabs[data-freshness="error"]::after { background: var(--wb-danger-bg); color: var(--wb-danger); }
+  .wb-selected-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--wb-line);
+    font-size: 13px;
+  }
+  .wb-selected-bar > span { min-width: 0; overflow-wrap: anywhere; }
+
+  .wb-project-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    margin: 0;
+    padding: 12px 0 6px;
+  }
+  .wb-project-stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+    background: var(--wb-surface);
+  }
+  .wb-project-stats dt { color: var(--wb-muted); font-size: 12px; line-height: 1.35; overflow-wrap: anywhere; }
+  .wb-project-stats dd { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .wb-stat-note { padding: 2px 0 10px; color: var(--wb-muted); font-size: 12px; }
+
+  /* ───────────── 6. Workspace + task directory ───────────── */
+  .wb-workspace {
+    display: grid;
+    grid-template-columns: auto 6px minmax(0, 1fr);
+    flex: none; /* a flex-basis of 0% would resolve to content height in an auto-height parent and defeat `height` below */
+    min-height: 540px;
+    height: calc(100dvh - 232px);
+    overflow: hidden;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: 10px;
+  }
+  .wb-workspace.wb-has-selection { grid-template-columns: auto 6px minmax(0, 1fr) 6px auto; }
+  .wb-task-directory {
+    width: var(--wb-directory-width, 224px);
+    min-width: 190px;
+    max-width: 320px;
+    min-height: 0;
+    overflow: auto;
+    padding: 0 12px 12px;
+    background: var(--wb-surface);
+  }
+  .wb-region-heading {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 0 8px;
+    background: var(--wb-surface);
+  }
+  .wb-region-heading > span { color: var(--wb-muted); font-variant-numeric: tabular-nums; font-size: 12px; }
+  .wb-task-filters { display: flex; }
+  .wb-task-filters > button { flex: 1 1 auto; }
+  .wb-root .wb-task-search { width: 100%; margin: 8px 0; font-size: 12.5px; }
+  .wb-task-list { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  .wb-task-list > li { min-width: 0; }
+  .wb-task-list > li:not(:has(> button)) { padding: 10px 4px; color: var(--wb-muted); font-size: 12px; }
+  .wb-task-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-left: 3px solid var(--wb-stage, transparent);
+    border-radius: var(--wb-r-sm);
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+  }
+  .wb-task-row:hover { background: var(--wb-hover); }
+  .wb-task-row[aria-pressed="true"] {
+    border-color: var(--wb-line-strong);
+    border-left-color: var(--primary);
+    background: var(--wb-accent-soft);
+  }
+  .wb-task-title { font-size: 13px; font-weight: 500; line-height: 1.4; overflow-wrap: anywhere; }
+  .wb-task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 6px;
+    color: var(--wb-muted);
+    font-size: 12px;
+  }
+  .wb-project-decisions { margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--wb-line); font-size: 12px; color: var(--wb-muted); }
+  .wb-project-decisions > p { padding: 6px 0; border-top: 1px solid var(--wb-line); color: var(--foreground); }
+
+  .wb-panel-separator {
+    position: relative;
+    min-height: 40px;
+    cursor: col-resize;
+    touch-action: none;
+    background: transparent;
+  }
+  .wb-panel-separator::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 50%;
+    width: 1px;
+    background: var(--wb-line-strong);
+    transform: translateX(-50%);
+    transition: width 0.12s ease, background-color 0.12s ease;
+  }
+  .wb-panel-separator:hover::before,
+  .wb-panel-separator:focus-visible::before { width: 3px; background: var(--primary); }
+  .wb-root .wb-panel-separator:focus-visible { outline: none; }
+
+  /* ───────────── 7. Primary region ───────────── */
+  .wb-primary-region {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    padding: 0 14px 12px;
+  }
+  .wb-graph-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 12px;
+    flex: none;
+    padding: 12px 0 8px;
+  }
+  .wb-section-title { font-size: 14px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+  .wb-section-title > .wb-count { margin-left: 4px; color: var(--wb-muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .wb-primary-region > .wb-overview-graph > .wb-section-title { padding: 12px 0 8px; }
+  .wb-primary-region > section,
+  .wb-secondary-view > section { min-width: 0; }
+  .wb-secondary-main > section { display: grid; gap: 8px; align-content: start; min-width: 0; }
+  .wb-secondary-main > section + section { padding-top: 16px; border-top: 1px solid var(--wb-line); }
+  .wb-list-item {
+    display: grid;
+    gap: 4px;
+    padding: 10px 12px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+    background: var(--wb-surface);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .wb-list-item > p { color: color-mix(in oklab, var(--foreground) 85%, transparent); }
+  .wb-list-item .wb-meta { color: var(--wb-muted); font-size: 12px; }
+  .wb-secondary-view {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding-top: 16px;
+    min-height: 0;
+  }
+  .wb-secondary-view > .wb-secondary-main { display: grid; gap: 16px; min-width: 0; align-content: start; }
+  .wb-delivery-link {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 6px;
+    color: var(--wb-info);
+    font-size: 12.5px;
+    text-align: left;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+  .wb-delivery-link:hover { text-decoration: underline; }
+  .wb-delivery-link svg { flex: none; margin-top: 3px; }
+  .wb-root .wb-link {
+    min-width: 0;
+    color: var(--wb-info);
+    text-align: left;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+  }
+  .wb-root .wb-link:hover { text-decoration: underline; }
+  .wb-relationship-records,
+  .wb-capabilities {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--wb-line);
+    color: var(--wb-muted);
+    font-size: 12px;
+  }
+  .wb-relationship-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--wb-line);
+    color: var(--foreground);
+    font-size: 12.5px;
+  }
+  .wb-relationship-row > .wb-meta { color: var(--wb-muted); font-size: 12px; }
+  .wb-capabilities > p { padding: 4px 0; }
+  .wb-attention { display: grid; gap: 6px; padding: 8px 0; }
+  .wb-attention ul { display: grid; gap: 6px; max-height: 14rem; overflow: auto; }
+  .wb-attention li { display: grid; gap: 2px; padding: 8px 10px; border: 1px solid var(--wb-warning-line); border-left-width: 3px; border-radius: var(--wb-r-sm); background: var(--wb-warning-bg); }
+
+  /* ───────────── 8. Board / table ───────────── */
+  .wb-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+  .wb-board-column {
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid var(--wb-line);
+    border-top: 3px solid var(--wb-stage, var(--wb-line-strong));
+    border-radius: var(--wb-r);
+    background: var(--wb-surface);
+  }
+  .wb-board-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 2px 2px 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .wb-board-heading > span:last-child { color: var(--wb-muted); font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .wb-board-column > ul { display: grid; gap: 6px; }
+  .wb-board-card {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r-sm);
+    background: var(--background);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .wb-board-card[data-selected="true"] { border-color: var(--primary); background: var(--wb-accent-soft); }
+  .wb-board-card > .wb-meta { color: var(--wb-muted); font-size: 12px; }
+  .wb-board-card > .wb-card-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 8px; color: var(--wb-muted); font-size: 12px; }
+  .wb-overview-graph {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    min-width: 0;
+    height: clamp(360px, 46vh, 520px);
+  }
+  .wb-overview-graph .wb-graph-region { min-height: 0; flex: 1; }
+  .wb-overview-graph .wb-dependency-graph,
+  .wb-overview-graph .wb-graph-empty { min-height: 0; height: 0; }
+  .wb-auxiliary-tasks {
+    flex: 0 0 auto;
+    min-height: 160px;
+    max-height: 340px;
+    overflow: auto;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--wb-line);
+  }
+  .wb-auxiliary-tasks .wb-board {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(210px, 1fr);
+    grid-template-columns: none;
+    overflow: visible;
+  }
+  .wb-task-layout { min-height: 0; overflow: auto; }
+  .wb-table-wrap { overflow-x: auto; border: 1px solid var(--wb-line); border-radius: var(--wb-r); }
+  .wb-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+  .wb-table th {
+    position: sticky;
+    top: 0;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--wb-line-strong);
+    background: var(--wb-surface-raised);
+    color: var(--wb-muted);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .wb-table td { padding: 8px 12px; border-bottom: 1px solid var(--wb-line); vertical-align: top; overflow-wrap: anywhere; }
+  .wb-table tbody tr:last-child td { border-bottom: 0; }
+  .wb-table tbody tr[data-selected="true"] { background: var(--wb-accent-soft); }
+  .wb-table tbody tr:hover { background: var(--wb-hover); }
+  .wb-table td:first-child { min-width: 11rem; }
+  .wb-table td .wb-meta { color: var(--wb-muted); font-size: 12px; }
+
+  /* ───────────── 9. Dependency graph ───────────── */
+  .wb-graph-region { display: flex; flex: 1; flex-direction: column; gap: 8px; min-height: 420px; }
+  .wb-graph-region > nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .wb-graph-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 4px;
+    color: var(--wb-muted);
+    font-size: 12px;
+  }
+  .wb-graph-controls { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px 8px; }
+  .wb-graph-insight { min-width: 0; font-size: 12px; }
+  .wb-graph-insight > summary {
+    display: inline-flex;
+    padding: 3px 10px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: 999px;
+    background: var(--wb-surface);
+    font-size: 12px;
+  }
+  .wb-graph-insight[open] { flex: 1 1 100%; }
+  .wb-graph-insight ol,
+  .wb-graph-insight ul { max-height: 12rem; overflow: auto; padding: 4px 0; }
+  .wb-graph-insight li { padding: 3px 0; }
+  .wb-graph-insight li > button { color: var(--wb-info); overflow-wrap: anywhere; }
+  .wb-graph-insight li > button:hover { text-decoration: underline; }
+  .wb-graph-insight p { padding: 2px 0; color: var(--wb-muted); }
+  .wb-root .wb-graph-layer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 3px 10px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: 999px;
+    background: var(--wb-surface);
+    color: var(--foreground);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .wb-root .wb-graph-layer > input { margin: 0 6px 0 0; }
+  .wb-root .wb-graph-layer:has(input:checked) { border-color: var(--wb-accent); background: var(--wb-accent-soft); }
+  .wb-root .wb-graph-layer:has(input:focus-visible) { outline: 2px solid var(--wb-focus); outline-offset: 2px; }
+  .wb-cycle-warning { font-size: 12px; }
+  .wb-cycle-marker { color: var(--wb-danger); font-weight: 600; }
+  .wb-graph-empty {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    padding: 24px;
+    border: 1px dashed var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    color: var(--wb-muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  .wb-graph-empty[role="alert"] { color: var(--wb-danger); border-style: solid; border-color: var(--wb-danger-line); background: var(--wb-danger-bg); }
+  .wb-dependency-graph {
+    flex: 1;
+    height: 100%;
+    min-height: 360px;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    background: var(--background);
+    --xy-background-color: var(--background);
+    --xy-background-pattern-color: color-mix(in oklab, var(--foreground) 14%, transparent);
+    --xy-edge-stroke: color-mix(in oklab, var(--foreground) 45%, transparent);
+    --xy-edge-label-color: var(--foreground);
+    --xy-edge-label-background-color: var(--background);
+    --xy-controls-button-background-color: var(--background);
+    --xy-controls-button-background-color-hover: var(--wb-surface-raised);
+    --xy-controls-button-color: var(--foreground);
+    --xy-controls-button-border-color: var(--wb-line-strong);
+  }
+  .wb-graph-node {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 264px;
+    height: 160px;
+    padding: 9px 11px 9px 12px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    border: 1px solid var(--wb-line-strong);
+    border-left: 4px solid var(--wb-stage, var(--wb-line-strong));
+    border-radius: var(--wb-r);
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    box-shadow: 0 1px 2px color-mix(in oklab, black 18%, transparent);
+    transition: border-color 0.12s ease, background-color 0.12s ease;
+  }
+  .wb-graph-node:hover { border-color: color-mix(in oklab, var(--foreground) 40%, transparent); border-left-color: var(--wb-stage, var(--wb-line-strong)); }
+  .wb-graph-node[aria-pressed="true"] {
+    border-color: var(--primary);
+    border-left-color: var(--primary);
+    background: color-mix(in oklab, var(--primary) 12%, var(--background));
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+  .wb-graph-node:focus-visible { outline: 2px solid var(--wb-focus); outline-offset: 3px; }
+  .wb-graph-node > strong {
+    display: -webkit-box;
+    flex: none;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .wb-graph-kind {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 6px;
+    color: var(--wb-muted);
+    font-size: 11.5px;
+  }
+  .wb-graph-slug { color: var(--wb-muted); font-size: 11.5px; }
+  .wb-graph-relation { color: var(--wb-accent-text); font-size: 11.5px; font-weight: 600; }
+  .wb-graph-node .wb-ready-label { font-size: 11px; line-height: 1.5; }
+  .wb-event-history { font-size: 11.5px; }
+  .wb-event-history[data-tone="amber"] { color: var(--wb-warning); }
+  .wb-event-history[data-tone="red"] { color: var(--wb-danger); font-weight: 600; }
+  .wb-node-unrelated { opacity: 0.4; }
+
+  /* ───────────── 10. Inspector + panels ───────────── */
+  .wb-inspector {
+    width: var(--wb-inspector-width, 340px);
+    min-width: 280px;
+    max-width: 440px;
+    min-height: 0;
+    overflow: auto;
+    padding: 0 14px 16px;
+    background: var(--wb-surface);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .wb-inspector > * + * { margin-top: 14px; }
+  .wb-inspector-heading {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 4px 8px;
+    margin-inline: -14px;
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--wb-line-strong);
+    background: var(--wb-surface);
+  }
+  .wb-inspector-heading > div:first-child > p { color: var(--wb-muted); font-size: 12px; }
+  .wb-inspector-heading h2 { margin-top: 2px; font-size: 16px; font-weight: 600; line-height: 1.4; }
+  .wb-inspector-chips { display: flex; flex-wrap: wrap; gap: 4px 6px; grid-column: 1 / -1; }
+  .wb-group { display: grid; gap: 10px; min-width: 0; }
+  .wb-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--wb-line);
+    color: var(--wb-muted);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .wb-group-title:only-child { display: none; }
+  .wb-group > :is(section, div, article) { min-width: 0; }
+  /* Host-owned panels (dispatch / program) are rendered as direct group children; give them the same card frame. */
+  .wb-group > [data-i18n-skip] {
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    background: var(--background);
+    padding-inline: 12px;
+    overflow-wrap: anywhere;
+  }
+  .wb-inspected { display: grid; gap: 2px; margin-top: 8px; }
+  .wb-inspected > dd { overflow-wrap: anywhere; }
+  .wb-goal { display: grid; gap: 6px; }
+  .wb-goal > p { line-height: 1.6; }
+  .wb-inspector > .wb-notice,
+  .wb-inspector > [role="alert"],
+  .wb-inspector > p { font-size: 12.5px; }
+
+  /* One card language for every operation/record panel. */
+  .wb-panel,
+  .wb-manual-completion,
+  .wb-create-node,
+  .wb-node-events {
+    display: flow-root;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    background: var(--background);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .wb-panel > * + *,
+  .wb-manual-completion > * + *,
+  .wb-create-node > * + *,
+  .wb-node-events > * + * { margin-top: 10px; }
+  .wb-panel > :is(h3, h4):first-child { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .wb-panel[data-tone="danger"] { border-color: var(--wb-danger-line); background: color-mix(in oklab, var(--destructive, #ef4444) 5%, var(--background)); }
+  .wb-panel[data-tone="danger"] > :is(h3, h4):first-child { color: var(--wb-danger); }
+  .wb-panel .wb-panel,
+  .wb-evidence-detail .wb-panel {
+    padding: 8px 0 0;
+    border-width: 1px 0 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .wb-manual-completion,
+  .wb-create-node,
+  .wb-node-events { display: grid; gap: 10px; }
+  .wb-manual-completion > * + *,
+  .wb-create-node > * + *,
+  .wb-node-events > * + * { margin-top: 0; }
+  .wb-manual-completion form,
+  .wb-manual-completion label { display: grid; gap: 6px; min-width: 0; }
+  .wb-manual-completion label:has(> input[type="checkbox"]) { display: flex; }
+  .wb-manual-identity { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .wb-create-node { margin-block: 8px 4px; padding: 16px; }
+  .wb-create-node header,
+  .wb-create-options { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .wb-create-node header { justify-content: space-between; }
+  .wb-create-node h2 { font-size: 14px; font-weight: 600; }
+  .wb-create-node textarea { min-height: 80px; }
+  .wb-node-events textarea { min-height: 72px; }
+
+  .wb-node-execution,
+  .wb-node-deliveries,
+  .wb-node-neighbors {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+    background: var(--background);
+  }
+  .wb-node-neighbors { gap: 12px; font-size: 12.5px; }
+  .wb-node-neighbors li { padding: 2px 0; }
+  .wb-evidence-detail {
+    display: grid;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 0 6px 10px;
+    border-left: 2px solid var(--wb-info-line);
+  }
+  .wb-delivery-item { display: grid; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--wb-line); font-size: 13px; }
+  .wb-delivery-item:last-child { border-bottom: 0; }
+  .wb-delivery-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 4px 12px; }
+  .wb-meta { color: var(--wb-muted); font-size: 12px; overflow-wrap: anywhere; }
+  .wb-facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 6px 12px;
+    margin: 0;
+    font-size: 12px;
+  }
+  .wb-facts dt { color: var(--wb-muted); }
+  .wb-facts dd { margin: 0; overflow-wrap: anywhere; }
+  .wb-fold {
+    padding: 4px 12px;
+    border: 1px solid var(--wb-line);
+    border-radius: var(--wb-r);
+    background: var(--background);
+    overflow-wrap: anywhere;
+  }
+  .wb-fold > * + * { margin-top: 8px; }
+  .wb-fold[open] { padding-bottom: 12px; }
+  .wb-fold > summary { color: var(--foreground); }
+  .wb-source-details > section { display: grid; gap: 4px; padding-top: 8px; border-top: 1px solid var(--wb-line); }
+  .wb-entries { display: grid; gap: 6px; margin: 0; padding-left: 18px; list-style: disc; }
+  .wb-entries > li { padding-left: 2px; white-space: pre-wrap; }
+  .wb-scope { display: grid; gap: 6px; }
+  .wb-scope-block { display: grid; gap: 4px; }
+
+  /* ───────────── 11. Mail ───────────── */
+  .wb-secondary-view.wb-mail-view { grid-template-columns: minmax(0, 1fr); }
+  .wb-mail { display: grid; gap: 10px; min-width: 0; }
+  .wb-mail-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding-block: 4px; }
+  .wb-mail-toolbar h2 { font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+  .wb-mail-toolbar > label { display: inline-flex; align-items: center; gap: 6px; }
+  .wb-mail-toolbar > span { color: var(--wb-muted); font-size: 12px; overflow-wrap: anywhere; }
+  .wb-mail-toolbar > section { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1 1 100%; padding: 8px 10px; border: 1px solid var(--wb-line-strong); border-radius: var(--wb-r); background: var(--wb-surface); }
+  .wb-mail-login {
+    display: grid;
+    gap: 12px;
+    max-width: 380px;
+    padding: 16px;
+    border: 1px solid var(--wb-line-strong);
+    border-radius: var(--wb-r);
+    background: var(--wb-surface);
+  }
+  .wb-mail-login input { width: 100%; }
+  .wb-mail-columns { display: grid; grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr); gap: 16px; align-items: start; }
+  .wb-mail-columns > section { min-width: 0; }
+  .wb-mail-list { display: grid; gap: 4px; max-height: 70vh; margin: 0; padding: 0; overflow: auto; list-style: none; }
+  .wb-mail-thread {
+    display: grid;
+    gap: 3px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--wb-line);
+    border-left: 3px solid transparent;
+    border-radius: var(--wb-r-sm);
+    background: var(--wb-surface);
+    text-align: left;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+  .wb-mail-thread:hover { background: var(--wb-surface-raised); }
+  .wb-mail-thread[aria-pressed="true"] { border-color: var(--wb-line-strong); border-left-color: var(--primary); background: var(--wb-accent-soft); }
+  .wb-mail-thread > strong { font-size: 13px; line-height: 1.4; }
+  .wb-mail-thread span,
+  .wb-mail-thread time { color: var(--wb-muted); font-size: 12px; }
+  .wb-mail-detail { display: grid; gap: 8px; min-width: 0; padding: 12px 14px; border: 1px solid var(--wb-line); border-radius: var(--wb-r); background: var(--wb-surface); }
+  .wb-mail-message { margin-top: 4px; padding: 12px; border: 1px solid var(--wb-line); border-radius: var(--wb-r); background: var(--background); overflow-wrap: anywhere; }
+  .wb-mail-message > * + * { margin-top: 8px; }
+  .wb-mail-message > header { color: var(--wb-muted); font-size: 12px; }
+  .wb-mail-message > header > strong { color: var(--foreground); }
+  .wb-mail-body { margin-block: 4px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+  .wb-mail-quote { margin-block: 8px; padding: 4px 10px; border-left: 3px solid var(--wb-line-strong); background: var(--wb-surface); border-radius: 0 var(--wb-r-sm) var(--wb-r-sm) 0; }
+  .wb-mail-receipts { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; color: var(--wb-muted); font-size: 12px; }
+  .wb-mail-receipts li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding-block: 4px; border-top: 1px solid var(--wb-line); }
+
+  /* ───────────── 12. Responsive (container queries) ───────────── */
+  @container workbench (max-width: 1050px) {
+    .wb-panel-separator { display: none; }
+    .wb-workspace,
+    .wb-workspace.wb-has-selection {
+      grid-template-columns: 210px minmax(0, 1fr);
+      height: auto;
+      overflow: clip;
+    }
+    .wb-task-directory {
+      grid-row: span 2;
+      position: sticky;
+      top: var(--wb-tabs-height);
+      width: 210px;
+      min-width: 0;
+      max-width: 210px;
+      max-height: calc(100dvh - var(--wb-tabs-height) - 24px);
+      border-right: 1px solid var(--wb-line);
+    }
+    .wb-primary-region { min-height: 480px; overflow: visible; }
+    .wb-inspector {
+      grid-column: 2;
+      width: 100%;
+      min-width: 0;
+      max-width: none;
+      overflow: visible;
+      border-top: 1px solid var(--wb-line-strong);
+    }
+    .wb-inspector-heading { position: static; }
+    .wb-secondary-view { display: block; }
+  }
+  @container workbench (max-width: 850px) {
+    .wb-mail-columns { grid-template-columns: minmax(0, 1fr); }
+    .wb-mail-list { max-height: 280px; }
+    .wb-workspace,
+    .wb-workspace.wb-has-selection { grid-template-columns: 180px minmax(0, 1fr); }
+    .wb-task-directory { width: 180px; max-width: 180px; }
+  }
+  @container workbench (max-width: 600px) {
+    .wb-workspace,
+    .wb-workspace.wb-has-selection { display: flex; flex-direction: column; border-radius: var(--wb-r); }
+    .wb-task-directory {
+      position: static;
+      width: 100%;
+      max-width: none;
+      max-height: 280px;
+      border-right: 0;
+      border-bottom: 1px solid var(--wb-line-strong);
+    }
+    .wb-task-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .wb-primary-region { padding: 0 10px 10px; }
+    .wb-project-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .wb-project-stats dd { font-size: 16px; }
+    .wb-inspector { padding: 0 12px 12px; }
+    .wb-inspector-heading { margin-inline: -12px; padding-inline: 12px; }
+    .wb-title { font-size: 16px; }
+    .wb-toolbar { width: 100%; }
+    .wb-root .wb-select { flex: 1 1 160px; max-width: none; }
+    .wb-board { grid-template-columns: minmax(0, 1fr); }
+    .wb-auxiliary-tasks .wb-board { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: minmax(0, 1fr); }
+    .wb-overview-graph { height: clamp(320px, 55vh, 480px); }
+  }
+  @container workbench (max-width: 420px) {
+    .wb-root .wb-tab { padding: 0 9px; }
+    .wb-task-list { grid-template-columns: minmax(0, 1fr); }
+    .wb-facts { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .wb-facts dd { margin-bottom: 6px; }
+    .wb-root .wb-button { max-width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wb-root *,
+    .wb-root *::before,
+    .wb-root *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+}
+
+/* ───────────── 13. xyflow overrides (unlayered on purpose) ───────────── */
+/* Fill the container without relying on a percentage height: in stacked (narrow) layouts the parent height is indefinite and 100% resolves to 0. */
+.wb-dependency-graph { position: relative; }
+/* !important: ReactFlow writes width/height/position as inline styles. */
+.wb-dependency-graph > .react-flow { position: absolute !important; inset: 0; width: auto !important; height: auto !important; }
+.wb-dependency-graph .react-flow__controls { overflow: hidden; border: 1px solid var(--wb-line-strong, var(--border)); border-radius: 8px; box-shadow: none; }
+.wb-dependency-graph .react-flow__controls-button { border-bottom-color: var(--wb-line-strong, var(--border)); }
+.wb-dependency-graph .react-flow__attribution { background: transparent; color: var(--muted-foreground); opacity: 0.6; }
+.wb-dependency-graph .react-flow__attribution a { color: inherit; }
+.wb-dependency-graph .react-flow__edge-textbg { fill: var(--background); }
+.wb-dependency-graph .react-flow__edge-text { fill: var(--foreground); font-size: 11px; }
+.wb-dependency-graph .react-flow__handle { width: 6px; height: 6px; min-width: 0; min-height: 0; border: 1px solid var(--background); background: var(--muted-foreground); }
