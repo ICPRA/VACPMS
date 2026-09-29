@@ -35,7 +35,7 @@ the installed desktop application, server bundle, or provider runtime.
 
 ## Upgrade Verification
 
-`t3-workbench-host.patch` preserves the current 70 dedicated workbench host source/test
+`t3-workbench-host.patch` preserves the current 73 dedicated workbench host source/test
 files outside T3, including the route, i18n and desktop IPC method.
 It is regenerated from the `workbench` branch of the t3code-git checkout
 (`git diff --diff-filter=A upstream/main..workbench`), which is the authoritative
@@ -53,8 +53,10 @@ the DesktopConfig/DesktopEnvironment/DesktopAppIdentity optional Electron
 user-data-directory override used by the VACPMS launcher; the remaining
 lockfile links to the two external packages; index.css external stylesheet import;
 SidebarChrome workbench navigation and the /workbench entry in
-isSidebarUtilityPage; the ThreadRouteView back-to-workbench chip reading the
-sessionStorage return href written by workbench thread links;
+isSidebarUtilityPage; the ThreadRouteView back/forward and back-to-workbench
+controls reading the sessionStorage return href written by workbench thread
+links, plus the AppNavigationHistory mount in __root.tsx that tracks location
+keys and binds Alt+Left/Alt+Right;
 DesktopIpcHandlers registration of read and
 command; preload's two IPC functions; DesktopBridge declarations in contracts/ipc;
 and the two exact first-party names in scripts/lib/third-party-licenses.ts.
