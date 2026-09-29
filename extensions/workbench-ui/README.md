@@ -35,8 +35,11 @@ the installed desktop application, server bundle, or provider runtime.
 
 ## Upgrade Verification
 
-`t3-workbench-host.patch` preserves the current 35 dedicated workbench host source/test
-files outside T3, including the route and desktop IPC method.
+`t3-workbench-host.patch` preserves the current 68 dedicated workbench host source/test
+files outside T3, including the route, i18n and desktop IPC method.
+It is regenerated from the `workbench` branch of the t3code-git checkout
+(`git diff --diff-filter=A <upstream-base>..workbench`), which is the authoritative
+history for host-side changes.
 It is a source snapshot, not a rollback and
 not an installer. Creating it does not change the host files. `git apply --stat`
 can inspect its inventory without applying changes. It does not include shared
