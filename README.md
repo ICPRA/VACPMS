@@ -24,7 +24,7 @@ VACPMS is three sibling repositories that must be checked out side by side under
 
 | Repository | Role | License |
 |---|---|---|
-| `project-workbench` (this repo) | Product docs, workbench extensions (`@project-workbench/ui`, `@project-workbench/mail`, desktop stdio bridge), launcher scripts, `kimi-cursor-shim` | MIT |
+| `project-workbench` (this repo) | Product docs, workbench extensions (`@project-workbench/ui`, `@project-workbench/mail`, desktop stdio bridge), launcher scripts, `kimi-cursor-shim` | Apache-2.0 |
 | `specgraph-src` | Fork of [specgraph/specgraph](https://github.com/specgraph/specgraph) — the `workbench` branch adds the backend subsystem (Go + PostgreSQL): program loops, dispatch, knowledge, mail, delivery hooks | Apache-2.0 (see its `FORK-NOTICE.md`) |
 | `t3code-git` | Fork of [pingdotgg/t3code](https://github.com/pingdotgg/t3code) — the `workbench` branch adds the workbench page, i18n, desktop IPC bridge and server hooks | Upstream license |
 
@@ -60,4 +60,4 @@ launch-t3-workbench.bat     :: starts T3 Code against the custom client
 
 ## License
 
-This repository is [MIT](LICENSE). The two forks retain their upstream licenses; the specgraph fork carries a `FORK-NOTICE.md` per Apache-2.0 §4(b).
+This repository is [Apache-2.0](LICENSE) (see `NOTICE`). The two forks retain their upstream licenses; the specgraph fork carries a `FORK-NOTICE.md` per Apache-2.0 §4(b).

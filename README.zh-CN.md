@@ -24,7 +24,7 @@ VACPMS 由三个必须并列放在同一父目录下的兄弟仓库组成：
 
 | 仓库 | 角色 | 许可证 |
 |---|---|---|
-| `project-workbench`（本仓库） | 产品文档、工作台扩展（`@project-workbench/ui`、`@project-workbench/mail`、桌面 stdio 桥）、启动脚本、`kimi-cursor-shim` | MIT |
+| `project-workbench`（本仓库） | 产品文档、工作台扩展（`@project-workbench/ui`、`@project-workbench/mail`、桌面 stdio 桥）、启动脚本、`kimi-cursor-shim` | Apache-2.0 |
 | `specgraph-src` | [specgraph/specgraph](https://github.com/specgraph/specgraph) 的 fork —— `workbench` 分支承载后端子系统（Go + PostgreSQL）：程序循环、派单、知识、邮件、交付钩子 | Apache-2.0（见其 `FORK-NOTICE.md`） |
 | `t3code-git` | [pingdotgg/t3code](https://github.com/pingdotgg/t3code) 的 fork —— `workbench` 分支承载工作台页面、i18n、桌面 IPC 桥与服务端钩子 | 上游许可证 |
 
@@ -60,4 +60,4 @@ launch-t3-workbench.bat     :: 以定制客户端启动 T3 Code
 
 ## 许可证
 
-本仓库采用 [MIT](LICENSE)。两个 fork 保留各自上游许可证；specgraph fork 按 Apache-2.0 第 4(b) 条附 `FORK-NOTICE.md`。
+本仓库采用 [Apache-2.0](LICENSE)（版权见 `NOTICE`）。两个 fork 保留各自上游许可证；specgraph fork 按 Apache-2.0 第 4(b) 条附 `FORK-NOTICE.md`。
